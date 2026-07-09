@@ -17,31 +17,56 @@ export function Contact() {
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    if (!formspreeId) {
-      setStatus("error");
-      setErrorMessage(
-        "Contact form is not connected yet. Please email me directly below.",
-      );
-      return;
-    }
-
     setStatus("loading");
     setErrorMessage("");
 
     const form = event.currentTarget;
     const formData = new FormData(form);
+    const payload = {
+      name: String(formData.get("name") ?? ""),
+      email: String(formData.get("email") ?? ""),
+      subject: String(formData.get("subject") ?? ""),
+      message: String(formData.get("message") ?? ""),
+    };
 
     try {
-      const response = await fetch(`https://formspree.io/f/${formspreeId}`, {
-        method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" },
-      });
+      const requests: Promise<Response>[] = [
+        fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        }),
+      ];
 
-      const data = (await response.json()) as { error?: string };
+      if (formspreeId) {
+        requests.push(
+          fetch(`https://formspree.io/f/${formspreeId}`, {
+            method: "POST",
+            body: formData,
+            headers: { Accept: "application/json" },
+          }),
+        );
+      }
 
-      if (!response.ok) {
-        throw new Error(data.error ?? "Failed to send message.");
+      const results = await Promise.allSettled(requests);
+      const anySuccess = results.some(
+        (result) => result.status === "fulfilled" && result.value.ok,
+      );
+
+      if (!anySuccess) {
+        const firstError = results.find(
+          (result): result is PromiseFulfilledResult<Response> =>
+            result.status === "fulfilled",
+        );
+
+        if (firstError) {
+          const data = (await firstError.value.json().catch(() => ({}))) as {
+            error?: string;
+          };
+          throw new Error(data.error ?? "Failed to send message.");
+        }
+
+        throw new Error("Failed to send message.");
       }
 
       setStatus("success");
