@@ -19,13 +19,18 @@ export const skillCategories: SkillCategory[] = [
       { name: "Python", level: "Learning" },
       { name: "Django", level: "Learning" },
       { name: "Java", level: "Familiar" },
+      { name: "Node.js", level: "Familiar" },
+      { name: "Express", level: "Familiar" },
     ],
   },
   {
     category: "Database & Services",
     skills: [
       { name: "MySQL", level: "Familiar" },
+      { name: "PostgreSQL", level: "Learning" },
       { name: "Supabase", level: "Learning" },
+      { name: "Aiven", level: "Learning" },
+      { name: "Render", level: "Learning" },
     ],
   },
   {
@@ -37,3 +42,21 @@ export const skillCategories: SkillCategory[] = [
     ],
   },
 ];
+
+/** Shown when "Current Focus" is selected */
+export const currentFocusStack = [
+  "Python",
+  "Django",
+  "React",
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "Aiven",
+  "Render",
+  "PostgreSQL",
+] as const;
+
+/** All technologies — shown when "Full Archive" is selected */
+export const fullArchiveStack = [
+  ...new Set(skillCategories.flatMap((category) => category.skills.map((skill) => skill.name))),
+].sort((a, b) => a.localeCompare(b));

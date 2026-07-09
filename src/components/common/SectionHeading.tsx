@@ -12,8 +12,8 @@ export function SectionHeading({
   centered = true,
 }: SectionHeadingProps) {
   return (
-    <div className={centered ? "mb-14 text-center" : "mb-10"}>
-      <span className="text-sm font-semibold uppercase tracking-widest text-blue-400">
+    <div className={centered ? "mb-10 text-center sm:mb-14" : "mb-8 sm:mb-10"}>
+      <span className="eyebrow text-sm font-semibold uppercase tracking-widest">
         {eyebrow}
       </span>
       <h2 className="section-heading mt-2">{title}</h2>

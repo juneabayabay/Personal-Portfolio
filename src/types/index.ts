@@ -34,3 +34,11 @@ export interface Certification {
   year: string;
   url?: string;
 }
+
+export interface ProfileLink {
+  id: string;
+  name: string;
+  subtitle: string;
+  url: string;
+  icon: "keyboard" | "linkedin" | "code" | "github" | "trophy" | "type";
+}

@@ -2,11 +2,19 @@
 
 import { FileText, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Logo } from "@/components/common/Logo";
 import { navLinks } from "@/constants/nav";
 import { siteConfig } from "@/config/site";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
 
   useEffect(() => {
     const links = document.querySelectorAll("#mobileMenu a");
@@ -17,25 +25,26 @@ export function Navbar() {
   }, [isOpen]);
 
   return (
-    <nav className="fixed top-0 left-0 z-50 w-full border-b border-white/5 bg-[#0a0a0a]/80 px-6 py-4 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-6xl items-center justify-between">
+    <nav className="nav-glass safe-top fixed top-0 left-0 z-50 w-full px-4 py-3 sm:px-6 sm:py-4">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
         <a
           href="#home"
-          className="text-2xl font-bold tracking-tight text-blue-500"
+          className="inline-flex shrink-0 items-center transition-opacity hover:opacity-90"
+          aria-label={`${siteConfig.name} home`}
         >
-          {siteConfig.logo}
+          <Logo size={36} className="h-9 w-9 sm:h-10 sm:w-10" />
         </a>
 
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-6 lg:gap-8 md:flex">
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href} className="nav-link">
+            <a key={link.href} href={link.href} className="nav-link whitespace-nowrap">
               {link.label}
             </a>
           ))}
           <a
             href={siteConfig.resumePath}
             download
-            className="btn-glow inline-flex items-center gap-2 rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-blue-500"
+            className="btn-glow btn-primary inline-flex shrink-0 items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold text-white sm:px-5 sm:py-2.5"
           >
             <FileText className="h-4 w-4" aria-hidden="true" />
             Resume
@@ -45,7 +54,7 @@ export function Navbar() {
         <button
           type="button"
           id="menuToggle"
-          className="text-2xl text-white focus:outline-none md:hidden"
+          className="-mr-1 rounded-lg p-2 text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-1 md:hidden"
           aria-label={isOpen ? "Close menu" : "Open menu"}
           aria-expanded={isOpen}
           onClick={() => setIsOpen((open) => !open)}
@@ -58,19 +67,31 @@ export function Navbar() {
         </button>
       </div>
 
+      {isOpen ? (
+        <div
+          className="fixed inset-0 top-[57px] z-40 bg-background/95 backdrop-blur-sm sm:top-[65px] md:hidden"
+          aria-hidden="true"
+          onClick={() => setIsOpen(false)}
+        />
+      ) : null}
+
       <div
         id="mobileMenu"
-        className={`mt-4 flex flex-col gap-3 border-t border-white/5 pt-4 text-center md:hidden ${isOpen ? "" : "hidden"}`}
+        className={`relative z-50 mt-3 flex flex-col gap-1 border-t border-border pt-3 text-center sm:mt-4 sm:gap-2 sm:pt-4 md:hidden ${isOpen ? "" : "hidden"}`}
       >
         {navLinks.map((link) => (
-          <a key={link.href} href={link.href} className="nav-link py-2">
+          <a
+            key={link.href}
+            href={link.href}
+            className="nav-link rounded-lg px-3 py-3 text-base sm:py-2.5"
+          >
             {link.label}
           </a>
         ))}
         <a
           href={siteConfig.resumePath}
           download
-          className="btn-glow mx-auto inline-flex w-fit items-center justify-center gap-2 rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-blue-500"
+          className="btn-glow btn-primary mx-auto mt-2 inline-flex w-full max-w-xs items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-white sm:w-fit sm:py-2.5"
         >
           <FileText className="h-4 w-4" aria-hidden="true" />
           Resume

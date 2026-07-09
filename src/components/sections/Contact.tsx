@@ -4,6 +4,7 @@ import { Code2, Link2, Loader2, Mail, Send } from "lucide-react";
 import { FormEvent, useState } from "react";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { siteConfig } from "@/config/site";
+import { getLinkedinUrl } from "@/lib/profile-urls";
 
 const formspreeId = process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID;
 
@@ -56,7 +57,7 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="bg-[#0f0f0f] px-6 py-20">
+    <section id="contact" className="section-shell section-panel scroll-mt-20 sm:scroll-mt-24">
       <div className="mx-auto max-w-4xl">
         <SectionHeading
           eyebrow="Get in Touch"
@@ -64,16 +65,16 @@ export function Contact() {
           description="Have an internship opportunity or want to collaborate? I'd love to hear from you."
         />
 
-        <div className="glass p-8 md:p-10">
+        <div className="glass p-5 sm:p-8 md:p-10">
           {status === "success" ? (
             <div className="text-center">
-              <p className="text-[#cbd5e1]">
+              <p className="text-foreground/90">
                 Thanks for your message! I&apos;ll get back to you soon.
               </p>
               <button
                 type="button"
                 onClick={() => setStatus("idle")}
-                className="mt-4 text-sm text-blue-400 transition-colors hover:text-blue-300"
+                className="mt-4 text-sm text-accent-2 transition-colors hover:text-accent-1"
               >
                 Send another message
               </button>
@@ -93,7 +94,7 @@ export function Contact() {
                 <div>
                   <label
                     htmlFor="name"
-                    className="mb-1.5 block text-sm font-medium text-[#94a3b8]"
+                    className="mb-1.5 block text-sm font-medium text-muted-foreground"
                   >
                     Full Name
                   </label>
@@ -110,7 +111,7 @@ export function Contact() {
                 <div>
                   <label
                     htmlFor="email"
-                    className="mb-1.5 block text-sm font-medium text-[#94a3b8]"
+                    className="mb-1.5 block text-sm font-medium text-muted-foreground"
                   >
                     Email Address
                   </label>
@@ -128,7 +129,7 @@ export function Contact() {
               <div>
                 <label
                   htmlFor="subject"
-                  className="mb-1.5 block text-sm font-medium text-[#94a3b8]"
+                  className="mb-1.5 block text-sm font-medium text-muted-foreground"
                 >
                   Subject
                 </label>
@@ -144,7 +145,7 @@ export function Contact() {
               <div>
                 <label
                   htmlFor="message"
-                  className="mb-1.5 block text-sm font-medium text-[#94a3b8]"
+                  className="mb-1.5 block text-sm font-medium text-muted-foreground"
                 >
                   Message
                 </label>
@@ -167,7 +168,7 @@ export function Contact() {
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className="btn-glow flex w-full items-center justify-center gap-2 rounded-full bg-blue-600 px-10 py-3.5 font-semibold text-white transition-all hover:bg-blue-500 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+                className="btn-glow btn-primary flex w-full items-center justify-center gap-2 rounded-full px-10 py-3.5 font-semibold text-white disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
               >
                 {status === "loading" ? (
                   <>
@@ -184,12 +185,12 @@ export function Contact() {
             </form>
           )}
 
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-6 border-t border-white/5 pt-6 text-sm text-[#94a3b8]">
+          <div className="mt-6 flex flex-col items-center justify-center gap-4 border-t border-border pt-6 text-sm text-muted-foreground sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-6">
             <a
               href={`mailto:${siteConfig.email}`}
-              className="flex items-center gap-2 transition-colors hover:text-white"
+              className="flex max-w-full items-center gap-2 break-all transition-colors hover:text-white sm:break-normal"
             >
-              <Mail className="h-4 w-4 text-blue-400" aria-hidden="true" />
+              <Mail className="h-4 w-4 text-accent-2" aria-hidden="true" />
               {siteConfig.email}
             </a>
             <span className="hidden h-4 w-px bg-white/10 sm:inline" />
@@ -199,19 +200,19 @@ export function Contact() {
               rel="noopener noreferrer"
               className="flex items-center gap-2 transition-colors hover:text-white"
             >
-              <Code2 className="h-4 w-4 text-blue-400" aria-hidden="true" />
+              <Code2 className="h-4 w-4 text-accent-2" aria-hidden="true" />
               github.com/{siteConfig.social.githubUsername}
             </a>
-            {siteConfig.social.linkedin ? (
+            {getLinkedinUrl() ? (
               <>
                 <span className="hidden h-4 w-px bg-white/10 sm:inline" />
                 <a
-                  href={siteConfig.social.linkedin}
+                  href={getLinkedinUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 transition-colors hover:text-white"
                 >
-                  <Link2 className="h-4 w-4 text-blue-400" aria-hidden="true" />
+                  <Link2 className="h-4 w-4 text-accent-2" aria-hidden="true" />
                   LinkedIn
                 </a>
               </>
