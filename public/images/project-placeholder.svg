@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" fill="none" role="img" aria-label="Project placeholder">
+  <rect width="800" height="450" fill="#E2E8F0"/>
+  <rect x="280" y="175" width="240" height="100" rx="12" fill="#CBD5E1"/>
+  <text x="400" y="235" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="20">Project Screenshot</text>
+</svg>

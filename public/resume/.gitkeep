@@ -1,0 +1,8 @@
+# Add your resume PDF here and name it `resume.pdf`.
+#
+# The portfolio links to: /resume/resume.pdf
+#
+# Steps:
+# 1. Export your resume as PDF
+# 2. Save it in this folder as resume.pdf
+# 3. Commit and redeploy to Vercel
