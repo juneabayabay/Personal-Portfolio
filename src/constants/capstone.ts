@@ -12,8 +12,8 @@ export interface CapstoneScreenshot {
 export const capstoneProject = {
   slug: "barnabas-dental-clinic",
   title: "Barnabas Dental Clinic Management System",
-  badge: "Capstone Project",
-  tagline: "Full-stack clinic management platform",
+  badge: "Capstone · Shipped",
+  tagline: "Full-stack clinic command system",
   overview:
     "Digitizes scheduling, patient records, billing, and administration for Barnabas Dental Clinic — replacing paper records and Messenger-based workflows.",
   problem:

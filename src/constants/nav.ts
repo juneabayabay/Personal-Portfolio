@@ -1,7 +1,7 @@
 export const navLinks = [
   { label: "Work", href: "#work" },
-  { label: "Skills", href: "#skills" },
-  { label: "Education", href: "#education" },
-  { label: "Learn", href: "#learn" },
+  { label: "Arsenal", href: "#skills" },
+  { label: "Path", href: "#education" },
+  { label: "Notes", href: "#learn" },
   { label: "Contact", href: "#contact" },
 ] as const;

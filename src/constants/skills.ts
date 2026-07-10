@@ -56,7 +56,10 @@ export const currentFocusStack = [
   "PostgreSQL",
 ] as const;
 
-/** All technologies — shown when "Full Archive" is selected */
+/** Flat list of every skill in Full Arsenal */
 export const fullArchiveStack = [
-  ...new Set(skillCategories.flatMap((category) => category.skills.map((skill) => skill.name))),
+  ...new Set([
+    ...skillCategories.flatMap((category) => category.skills.map((skill) => skill.name)),
+    ...currentFocusStack,
+  ]),
 ].sort((a, b) => a.localeCompare(b));

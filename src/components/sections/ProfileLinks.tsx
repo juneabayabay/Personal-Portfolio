@@ -12,39 +12,20 @@ const iconMap: Record<ProfileLink["icon"], LucideIcon> = {
 };
 
 export function ProfileLinks() {
-  const profileLinks = getProfileLinks();
+  const profileLinks = getProfileLinks().filter((link) => link.url.trim() !== "");
+
+  if (profileLinks.length === 0) {
+    return null;
+  }
 
   return (
-    <div className="fade-in mt-8 w-full sm:mt-10">
-      <div className="mx-auto grid max-w-3xl grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:max-w-4xl">
+    <div className="fade-in mt-10 w-full border-t border-border/50 pt-8 sm:mt-12 sm:pt-10">
+      <p className="mb-4 font-mono text-[0.65rem] tracking-[0.2em] text-muted-foreground uppercase">
+        External links
+      </p>
+      <div className="mx-auto flex max-w-xl flex-wrap items-center justify-center gap-2.5 sm:gap-3">
         {profileLinks.map((link) => {
           const Icon = iconMap[link.icon];
-          const hasUrl = link.url.trim() !== "";
-
-          const content = (
-            <>
-              <Icon
-                className="h-6 w-6 text-accent-2 transition-colors group-hover:text-accent-1"
-                aria-hidden="true"
-              />
-              <span className="text-sm font-semibold text-foreground sm:text-base">{link.name}</span>
-              <span className="text-xs text-muted-foreground">
-                {hasUrl ? link.subtitle : "Add link in site.ts"}
-              </span>
-            </>
-          );
-
-          if (!hasUrl) {
-            return (
-              <div
-                key={link.id}
-                className="glass flex min-w-0 flex-col items-center gap-2 rounded-2xl border-dashed p-4 text-center opacity-70 sm:p-5"
-                title="Add your profile URL in src/config/site.ts"
-              >
-                {content}
-              </div>
-            );
-          }
 
           return (
             <a
@@ -53,9 +34,13 @@ export function ProfileLinks() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Open ${link.name} profile`}
-              className="glass group flex min-w-0 flex-col items-center gap-2 rounded-2xl p-4 text-center sm:p-5"
+              className="group inline-flex items-center gap-2 rounded-full border border-border bg-white/[0.03] px-3.5 py-2 font-mono text-xs text-muted-foreground backdrop-blur-md transition-colors hover:border-accent-2/45 hover:text-foreground sm:px-4 sm:text-sm"
             >
-              {content}
+              <Icon
+                className="h-3.5 w-3.5 text-accent-2 transition-colors group-hover:text-accent-1"
+                aria-hidden="true"
+              />
+              <span className="font-medium tracking-wide">{link.name}</span>
             </a>
           );
         })}

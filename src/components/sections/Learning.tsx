@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ChevronRight, Clock } from "lucide-react";
+import { SectionHeading } from "@/components/common/SectionHeading";
 import { learningContent, learningPosts } from "@/constants/learning";
 import { formatBlogDate } from "@/lib/format-blog-date";
 
@@ -63,7 +64,7 @@ function BlogCard({
 }
 
 export function Learning() {
-  const { title, viewAllHref } = learningContent;
+  const { viewAllHref } = learningContent;
 
   return (
     <section
@@ -72,19 +73,21 @@ export function Learning() {
     >
       <div className="mx-auto max-w-6xl">
         <div className="mb-8 flex flex-wrap items-end justify-between gap-4 sm:mb-10">
-          <div className="flex items-center gap-3">
-            <span className="blog-heading-accent" aria-hidden="true" />
-            <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-              {title}
-            </h2>
-          </div>
+          <SectionHeading
+            index="04"
+            eyebrow="Field notes"
+            title="Build journal"
+            description="Notes from shipping — patterns learned, bugs fixed, and decisions that stuck."
+            centered={false}
+            className="mb-0 sm:mb-0"
+          />
 
           {viewAllHref ? (
             <a
               href={viewAllHref}
-              className="inline-flex items-center gap-1 text-sm font-semibold text-accent-2 transition-colors hover:text-accent-1"
+              className="inline-flex shrink-0 items-center gap-1 pb-1 text-sm font-semibold text-accent-2 transition-colors hover:text-accent-1"
             >
-              View All Blogs
+              View all
               <ChevronRight className="h-4 w-4" aria-hidden="true" />
             </a>
           ) : null}

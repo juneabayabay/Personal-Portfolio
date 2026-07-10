@@ -1,5 +1,4 @@
 import { AcademicJourney } from "@/components/sections/AcademicJourney";
-import { Achievements } from "@/components/sections/Achievements";
 import { Contact } from "@/components/sections/Contact";
 import { Hero } from "@/components/sections/Hero";
 import { Learning } from "@/components/sections/Learning";
@@ -10,11 +9,10 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <TechStack />
       <Projects />
+      <TechStack />
       <AcademicJourney />
       <Learning />
-      <Achievements />
       <Contact />
     </>
   );

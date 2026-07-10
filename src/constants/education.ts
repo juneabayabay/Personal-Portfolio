@@ -1,10 +1,10 @@
 export const academicJourney = {
-  title: "Academic Journey",
-  subtitle: "Where curiosity became a passion for technology.",
+  title: "Formation",
+  subtitle: "Structured learning. Relentless practice.",
   school: "STI College Ortigas-Cainta",
   degree: "Bachelor of Science in Information Technology",
   period: "Sep 2022 – Present",
   expectedGraduation: "2027",
   description:
-    "I'm currently pursuing a degree in Information Technology while continuously improving my skills through hands-on projects and self-learning. I enjoy exploring web development, solving problems with code, and challenging myself to learn something new every day. My goal isn't to know everything—it's to keep growing with every project and experience.",
+    "Building engineering depth in school while shipping real systems outside it. Every project is treated like a brief: clarify the problem, design the architecture, execute cleanly, and harden until it holds.",
 } as const;

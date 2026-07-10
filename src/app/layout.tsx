@@ -75,7 +75,7 @@ export default function RootLayout({
       <body className="content-layer flex min-h-full min-h-dvh flex-col overflow-x-hidden bg-background text-foreground">
         <ThreeBackground />
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main className="relative z-10 flex-1">{children}</main>
         <Footer />
       </body>
     </html>

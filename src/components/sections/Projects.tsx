@@ -6,9 +6,11 @@ export function Projects() {
     <section id="work" className="section-shell section-panel scroll-mt-20 sm:scroll-mt-24">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
-          eyebrow="Work"
-          title="Capstone Project"
-          description="Full-stack system built for a real clinic — scheduling, records, billing, and role-based dashboards."
+          index="01"
+          eyebrow="Selected work"
+          title="Flagship system"
+          description="A production-minded clinic platform — scheduling, records, billing, and role-based control."
+          centered={false}
         />
         <CapstoneProject />
       </div>

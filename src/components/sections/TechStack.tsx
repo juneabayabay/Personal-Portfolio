@@ -1,27 +1,43 @@
 "use client";
 
 import { useState } from "react";
-import { currentFocusStack, fullArchiveStack } from "@/constants/skills";
+import { SectionHeading } from "@/components/common/SectionHeading";
+import {
+  currentFocusStack,
+  fullArchiveStack,
+  skillCategories,
+} from "@/constants/skills";
+import type { SkillLevel } from "@/types";
 
 type StackMode = "focus" | "archive";
 
+const levelClass: Record<SkillLevel, string> = {
+  Comfortable: "level-dot--comfortable",
+  Learning: "level-dot--learning",
+  Familiar: "level-dot--familiar",
+};
+
 export function TechStack() {
   const [mode, setMode] = useState<StackMode>("focus");
-  const items = mode === "focus" ? [...currentFocusStack] : fullArchiveStack;
 
   return (
     <section
       id="skills"
-      className="relative z-10 scroll-mt-20 px-4 pb-10 pt-2 sm:scroll-mt-24 sm:px-6 sm:pb-14"
+      className="section-shell relative z-10 scroll-mt-20 sm:scroll-mt-24"
     >
-      <div className="mx-auto max-w-6xl">
-        <div className="mb-6 flex flex-col gap-4 sm:mb-8 sm:flex-row sm:items-center sm:justify-between">
-          <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-            Tech Stack
-          </h2>
+      <div className="mx-auto w-full max-w-6xl">
+        <div className="mb-8 flex flex-col gap-5 sm:mb-10 sm:flex-row sm:items-end sm:justify-between sm:gap-6">
+          <SectionHeading
+            index="02"
+            eyebrow="Arsenal"
+            title="Technical stack"
+            description="What I ship with daily — and the full toolkit behind every build."
+            centered={false}
+            className="mb-0 min-w-0 sm:mb-0"
+          />
 
           <div
-            className="tech-stack-toggle inline-flex w-full rounded-full border border-border bg-surface p-1 backdrop-blur-md sm:w-auto"
+            className="tech-stack-toggle inline-flex w-full shrink-0 rounded-full border border-border bg-surface p-1 backdrop-blur-md sm:w-auto"
             role="tablist"
             aria-label="Tech stack view"
           >
@@ -30,7 +46,7 @@ export function TechStack() {
               role="tab"
               aria-selected={mode === "focus"}
               onClick={() => setMode("focus")}
-              className={`flex-1 rounded-full px-4 py-2 text-sm font-medium transition-all sm:flex-none sm:px-5 ${
+              className={`flex-1 rounded-full px-3 py-2.5 text-xs font-medium transition-all sm:flex-none sm:px-5 sm:text-sm ${
                 mode === "focus"
                   ? "bg-accent-2/20 text-accent-2 shadow-sm"
                   : "text-muted-foreground hover:text-foreground"
@@ -43,28 +59,89 @@ export function TechStack() {
               role="tab"
               aria-selected={mode === "archive"}
               onClick={() => setMode("archive")}
-              className={`flex-1 rounded-full px-4 py-2 text-sm font-medium transition-all sm:flex-none sm:px-5 ${
+              className={`flex-1 rounded-full px-3 py-2.5 text-xs font-medium transition-all sm:flex-none sm:px-5 sm:text-sm ${
                 mode === "archive"
                   ? "bg-accent-2/20 text-accent-2 shadow-sm"
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              Full Archive
+              Full Arsenal
             </button>
           </div>
         </div>
 
-        <div
-          className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:gap-4"
-          role="tabpanel"
-          aria-label={mode === "focus" ? "Current focus technologies" : "Full technology archive"}
-        >
-          {items.map((tech) => (
-            <div key={tech} className="tech-stack-pill">
-              {tech}
+        {mode === "focus" ? (
+          <div
+            className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 sm:gap-3 md:grid-cols-4 lg:grid-cols-5"
+            role="tabpanel"
+            aria-label="Current focus technologies"
+          >
+            {currentFocusStack.map((tech) => (
+              <div key={tech} className="tech-stack-pill tech-stack-pill--focus">
+                <span className="tech-stack-pill__name">{tech}</span>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div
+            className="flex flex-col gap-8 sm:gap-10"
+            role="tabpanel"
+            aria-label="Full technology arsenal"
+          >
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <p className="font-mono text-xs tracking-wide text-muted-foreground">
+                {fullArchiveStack.length} technologies across {skillCategories.length} domains
+              </p>
+              <ul className="flex flex-wrap gap-3 font-mono text-[0.6rem] tracking-wide text-muted-foreground uppercase">
+                <li className="inline-flex items-center gap-1.5">
+                  <span className={`level-dot ${levelClass.Comfortable}`} /> Comfortable
+                </li>
+                <li className="inline-flex items-center gap-1.5">
+                  <span className={`level-dot ${levelClass.Familiar}`} /> Familiar
+                </li>
+                <li className="inline-flex items-center gap-1.5">
+                  <span className={`level-dot ${levelClass.Learning}`} /> Learning
+                </li>
+              </ul>
             </div>
-          ))}
-        </div>
+
+            {skillCategories.map((category) => (
+              <div key={category.category} className="arsenal-group min-w-0">
+                <div className="mb-3 flex flex-wrap items-baseline justify-between gap-2 border-b border-border/70 pb-2 sm:mb-4">
+                  <h3 className="font-mono text-xs font-semibold tracking-[0.16em] text-accent-2 uppercase sm:text-sm">
+                    {category.category}
+                  </h3>
+                  <span className="font-mono text-[0.65rem] text-muted-foreground">
+                    {category.skills.length}
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 sm:gap-3 md:grid-cols-4 lg:grid-cols-5">
+                  {category.skills.map((skill) => (
+                    <div
+                      key={`${category.category}-${skill.name}`}
+                      className="tech-stack-pill"
+                      title={skill.level ? `${skill.name} · ${skill.level}` : skill.name}
+                    >
+                      <span className="flex items-center justify-center gap-1.5">
+                        {skill.level ? (
+                          <span
+                            className={`level-dot ${levelClass[skill.level]}`}
+                            aria-hidden="true"
+                          />
+                        ) : null}
+                        <span className="tech-stack-pill__name">{skill.name}</span>
+                      </span>
+                      {skill.level ? (
+                        <span className="tech-stack-pill__level">{skill.level}</span>
+                      ) : null}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
