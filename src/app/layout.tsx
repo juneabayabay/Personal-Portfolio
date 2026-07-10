@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { LightningPortraitFlash } from "@/components/common/LightningPortraitFlash";
 import { ThreeBackground } from "@/components/common/ThreeBackground";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
@@ -74,6 +75,7 @@ export default function RootLayout({
     >
       <body className="content-layer flex min-h-full min-h-dvh flex-col overflow-x-hidden bg-background text-foreground">
         <ThreeBackground />
+        <LightningPortraitFlash />
         <Navbar />
         <main className="relative z-10 flex-1">{children}</main>
         <Footer />
