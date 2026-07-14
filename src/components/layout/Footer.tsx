@@ -18,7 +18,7 @@ export function Footer() {
               </span>
             </div>
             <p className="font-mono text-[0.7rem] tracking-wide text-muted-foreground">
-              © {year} · Built with precision
+              © {year} · Portfolio
             </p>
           </div>
 
@@ -30,10 +30,10 @@ export function Footer() {
               01 Work
             </a>
             <a href="#skills" className="footer-link">
-              02 Arsenal
+              02 Skills
             </a>
             <a href="#education" className="footer-link">
-              03 Path
+              03 Education
             </a>
             <a href="#learn" className="footer-link">
               04 Notes

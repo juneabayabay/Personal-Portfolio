@@ -84,7 +84,7 @@ export function Navbar() {
 
       {isOpen ? (
         <div
-          className="fixed inset-0 top-[57px] z-40 bg-background/95 backdrop-blur-sm sm:top-[65px] md:hidden"
+          className="fixed inset-0 top-[max(57px,calc(env(safe-area-inset-top)+48px))] z-40 bg-background/95 backdrop-blur-sm sm:top-[max(65px,calc(env(safe-area-inset-top)+52px))] md:hidden"
           aria-hidden="true"
           onClick={() => setIsOpen(false)}
         />

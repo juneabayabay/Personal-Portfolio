@@ -20,7 +20,7 @@ export function Achievements() {
         <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between sm:gap-10">
           <SectionHeading
             eyebrow={achievementsContent.eyebrow}
-            title="Growing with every milestone"
+            title="Certifications"
             description={achievementsContent.summary}
             centered={false}
             className="mb-0 max-w-2xl sm:mb-0"

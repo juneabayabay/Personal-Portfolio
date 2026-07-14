@@ -49,8 +49,8 @@ export function LightningPortraitFlash() {
 
     const startDelay = window.setTimeout(() => {
       runStrike();
-      cycleTimer = window.setInterval(runStrike, 5000);
-    }, 1800);
+      cycleTimer = window.setInterval(runStrike, 9000);
+    }, 3200);
 
     return () => {
       window.clearTimeout(startDelay);

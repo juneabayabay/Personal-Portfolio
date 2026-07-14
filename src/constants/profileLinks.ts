@@ -5,25 +5,25 @@ import type { ProfileLink } from "@/types";
 export function getProfileLinks(): ProfileLink[] {
   const featured: ProfileLink[] = [
     {
+      id: "github",
+      name: "GitHub",
+      subtitle: siteConfig.social.githubUsername,
+      url: siteConfig.social.github,
+      icon: "github",
+    },
+    {
+      id: "linkedin",
+      name: "LinkedIn",
+      subtitle: "Professional profile",
+      url: getLinkedinUrl(),
+      icon: "linkedin",
+    },
+    {
       id: "monkeytype",
       name: "MonkeyType",
       subtitle: siteConfig.profiles.monkeytypeSubtitle,
       url: getMonkeytypeUrl(),
       icon: "keyboard",
-    },
-    {
-      id: "linkedin",
-      name: "LinkedIn",
-      subtitle: "Professional Profile",
-      url: getLinkedinUrl(),
-      icon: "linkedin",
-    },
-    {
-      id: "github",
-      name: "GitHub",
-      subtitle: "Open Source",
-      url: siteConfig.social.github,
-      icon: "github",
     },
   ];
 

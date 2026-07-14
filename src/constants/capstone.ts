@@ -12,12 +12,12 @@ export interface CapstoneScreenshot {
 export const capstoneProject = {
   slug: "barnabas-dental-clinic",
   title: "Barnabas Dental Clinic Management System",
-  badge: "Capstone · Shipped",
-  tagline: "Full-stack clinic command system",
+  badge: "Capstone",
+  tagline: "Clinic web system",
   overview:
-    "Digitizes scheduling, patient records, billing, and administration for Barnabas Dental Clinic — replacing paper records and Messenger-based workflows.",
+    "A web system for scheduling, patient records, billing, and clinic admin at Barnabas Dental Clinic — built to replace paper records and Messenger-based booking.",
   problem:
-    "The clinic relied on paper records and Facebook Messenger for appointments, patient information, and billing — causing scheduling conflicts, slow record retrieval, and manual payment tracking.",
+    "The clinic used paper records and Facebook Messenger for appointments, patient info, and billing. That made scheduling harder and records slower to find.",
   solution: [
     "Online appointment scheduling",
     "Digital patient records",
@@ -36,9 +36,9 @@ export const capstoneProject = {
     "Testing and deployment",
   ],
   challenges:
-    "Built a scheduling engine that calculates appointment duration by procedure and prevents overlapping bookings, including a pencil booking flow that holds slots until payment is confirmed.",
+    "Scheduling had to account for procedure length, avoid overlapping bookings, and support pencil booking until payment is confirmed.",
   results:
-    "The clinic now manages appointments, records, and billing from one platform — reducing manual work, scheduling conflicts, and daily operational friction.",
+    "Staff and patients can manage appointments, records, and billing in one place instead of paper and Messenger.",
   githubUrl: "",
   liveUrl: "",
   featuredImage: {

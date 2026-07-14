@@ -29,9 +29,9 @@ export function TechStack() {
         <div className="mb-8 flex flex-col gap-5 sm:mb-10 sm:flex-row sm:items-end sm:justify-between sm:gap-6">
           <SectionHeading
             index="02"
-            eyebrow="Arsenal"
+            eyebrow="Skills"
             title="Technical stack"
-            description="What I ship with daily — and the full toolkit behind every build."
+            description="Tools I use often, plus what I’m still learning."
             centered={false}
             className="mb-0 min-w-0 sm:mb-0"
           />
@@ -65,7 +65,7 @@ export function TechStack() {
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              Full Arsenal
+              All skills
             </button>
           </div>
         </div>
@@ -86,7 +86,7 @@ export function TechStack() {
           <div
             className="flex flex-col gap-8 sm:gap-10"
             role="tabpanel"
-            aria-label="Full technology arsenal"
+            aria-label="Technology skills"
           >
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <p className="font-mono text-xs tracking-wide text-muted-foreground">

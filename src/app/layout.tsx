@@ -73,7 +73,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="content-layer flex min-h-full min-h-dvh flex-col overflow-x-hidden bg-background text-foreground">
+      <body className="content-layer flex min-h-full min-h-dvh flex-col overflow-x-hidden bg-background px-[env(safe-area-inset-left)] pe-[env(safe-area-inset-right)] text-foreground">
         <ThreeBackground />
         <LightningPortraitFlash />
         <Navbar />

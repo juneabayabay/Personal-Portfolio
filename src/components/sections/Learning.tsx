@@ -77,7 +77,7 @@ export function Learning() {
             index="04"
             eyebrow="Field notes"
             title="Build journal"
-            description="Notes from shipping — patterns learned, bugs fixed, and decisions that stuck."
+            description="Short notes from projects — what I learned and what I fixed."
             centered={false}
             className="mb-0 sm:mb-0"
           />

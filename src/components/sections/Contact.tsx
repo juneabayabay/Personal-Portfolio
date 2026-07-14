@@ -88,7 +88,7 @@ export function Contact() {
           index="05"
           eyebrow="Contact"
           title="Let's build something real"
-          description="Internship, collaboration, or a hard problem — send a clear brief. I respond."
+          description="For internship, project, or work questions — send a short message."
           centered={false}
         />
 

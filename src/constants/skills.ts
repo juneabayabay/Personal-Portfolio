@@ -56,7 +56,7 @@ export const currentFocusStack = [
   "PostgreSQL",
 ] as const;
 
-/** Flat list of every skill in Full Arsenal */
+/** Flat list of every skill */
 export const fullArchiveStack = [
   ...new Set([
     ...skillCategories.flatMap((category) => category.skills.map((skill) => skill.name)),

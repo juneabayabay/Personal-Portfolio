@@ -8,8 +8,8 @@ export function Projects() {
         <SectionHeading
           index="01"
           eyebrow="Selected work"
-          title="Flagship system"
-          description="A production-minded clinic platform — scheduling, records, billing, and role-based control."
+          title="Capstone project"
+          description="Clinic web system for scheduling, records, billing, and staff roles."
           centered={false}
         />
         <CapstoneProject />
