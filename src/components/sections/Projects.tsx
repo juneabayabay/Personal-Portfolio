@@ -9,7 +9,7 @@ export function Projects() {
           index="01"
           eyebrow="Selected work"
           title="Capstone project"
-          description="Clinic web system for scheduling, records, billing, and staff roles."
+          description="Clinic web system for scheduling, records, billing, and staff roles. Open the card for the full system study."
           centered={false}
         />
         <CapstoneProject />

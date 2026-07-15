@@ -9,6 +9,20 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/blog/pencil-booking-gcash",
+        destination: "/blog/barnabas-system-study",
+        permanent: true,
+      },
+      {
+        source: "/blog/barnabas-scheduling",
+        destination: "/blog/barnabas-system-study",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
