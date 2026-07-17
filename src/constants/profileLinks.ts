@@ -28,9 +28,10 @@ export function getProfileLinks(): ProfileLink[] {
     {
       id: "resume",
       name: "Resume",
-      subtitle: "Download PDF",
-      url: siteConfig.resumePath,
+      subtitle: "",
+      url: "",
       icon: "file",
+      empty: true,
     },
   ];
 

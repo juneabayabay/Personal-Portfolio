@@ -44,6 +44,8 @@ export interface ProfileLink {
   subtitle: string;
   url: string;
   icon: "keyboard" | "linkedin" | "code" | "github" | "trophy" | "type" | "award" | "file";
+  /** Placeholder card with no link (e.g. resume before PDF is ready) */
+  empty?: boolean;
 }
 
 export interface ExperienceEntry {

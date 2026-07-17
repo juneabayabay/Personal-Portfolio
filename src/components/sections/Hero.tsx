@@ -9,6 +9,7 @@ import {
 import { getProfileLinks } from "@/constants/profileLinks";
 import { siteConfig } from "@/config/site";
 import type { ProfileLink } from "@/types";
+import { cn } from "@/lib/utils";
 
 const iconMap = {
   github: Code2,
@@ -23,7 +24,7 @@ const iconMap = {
 
 function ProfileCard({ link }: { link: ProfileLink }) {
   const Icon = iconMap[link.icon] ?? Link2;
-  const isDownload = link.id === "resume";
+  const isEmpty = Boolean(link.empty) || link.url.trim() === "";
 
   const inner = (
     <>
@@ -31,11 +32,28 @@ function ProfileCard({ link }: { link: ProfileLink }) {
         <Icon className="h-4 w-4" aria-hidden="true" />
       </div>
       <span className="profile-card__name">{link.name}</span>
-      <span className="profile-card__subtitle">{link.subtitle}</span>
+      {link.subtitle ? (
+        <span className="profile-card__subtitle">{link.subtitle}</span>
+      ) : (
+        <span className="profile-card__subtitle profile-card__subtitle--empty" aria-hidden="true">
+          &nbsp;
+        </span>
+      )}
     </>
   );
 
-  if (isDownload) {
+  if (isEmpty) {
+    return (
+      <div
+        className={cn("profile-card", "profile-card--empty")}
+        aria-label={`${link.name} — coming soon`}
+      >
+        {inner}
+      </div>
+    );
+  }
+
+  if (link.id === "resume") {
     return (
       <a href={link.url} download className="profile-card">
         {inner}
@@ -52,7 +70,7 @@ function ProfileCard({ link }: { link: ProfileLink }) {
 
 export function Hero() {
   const profileLinks = getProfileLinks().filter(
-    (link) => link.url.trim() !== "" && link.id !== "resume",
+    (link) => link.empty || link.url.trim() !== "",
   );
 
   return (

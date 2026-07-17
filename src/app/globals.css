@@ -512,6 +512,21 @@ body {
   font-size: 0.75rem;
   color: var(--muted-foreground);
   line-height: 1.4;
+  min-height: 1.05rem;
+}
+
+.profile-card__subtitle--empty {
+  visibility: hidden;
+}
+
+.profile-card--empty {
+  opacity: 0.72;
+  cursor: default;
+  pointer-events: none;
+}
+
+.profile-card--empty:hover {
+  border-color: var(--border);
 }
 
 .profile-grid {
@@ -519,6 +534,7 @@ body {
   grid-template-columns: minmax(0, 1fr);
   gap: 0.75rem;
   width: 100%;
+  max-width: 56rem;
 }
 
 @media (min-width: 400px) {
@@ -529,13 +545,15 @@ body {
 
 @media (min-width: 768px) {
   .profile-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.875rem;
   }
 }
 
 @media (min-width: 1024px) {
   .profile-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    max-width: 100%;
+    gap: 1rem;
   }
 }
 
