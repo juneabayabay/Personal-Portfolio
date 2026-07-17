@@ -7,9 +7,16 @@ export function getProfileLinks(): ProfileLink[] {
     {
       id: "github",
       name: "GitHub",
-      subtitle: siteConfig.social.githubUsername,
+      subtitle: "Project repositories",
       url: siteConfig.social.github,
       icon: "github",
+    },
+    {
+      id: "monkeytype",
+      name: "MonkeyType",
+      subtitle: siteConfig.profiles.monkeytypeSubtitle,
+      url: getMonkeytypeUrl(),
+      icon: "keyboard",
     },
     {
       id: "linkedin",
@@ -19,11 +26,11 @@ export function getProfileLinks(): ProfileLink[] {
       icon: "linkedin",
     },
     {
-      id: "monkeytype",
-      name: "MonkeyType",
-      subtitle: siteConfig.profiles.monkeytypeSubtitle,
-      url: getMonkeytypeUrl(),
-      icon: "keyboard",
+      id: "resume",
+      name: "Resume",
+      subtitle: "Download PDF",
+      url: siteConfig.resumePath,
+      icon: "file",
     },
   ];
 

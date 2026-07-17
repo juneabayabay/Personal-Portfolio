@@ -16,7 +16,7 @@ export interface Project {
   description: string;
   image: string;
   technologies: string[];
-  githubUrl: string;
+  githubUrl?: string;
   liveUrl?: string;
   learned: string[];
 }
@@ -33,6 +33,9 @@ export interface Certification {
   issuer: string;
   year: string;
   url?: string;
+  credentialId?: string;
+  instructor?: string;
+  completedAt?: string;
 }
 
 export interface ProfileLink {
@@ -40,5 +43,30 @@ export interface ProfileLink {
   name: string;
   subtitle: string;
   url: string;
-  icon: "keyboard" | "linkedin" | "code" | "github" | "trophy" | "type";
+  icon: "keyboard" | "linkedin" | "code" | "github" | "trophy" | "type" | "award" | "file";
+}
+
+export interface ExperienceEntry {
+  id: string;
+  company: string;
+  role: string;
+  type: string;
+  period: string;
+  duration: string;
+  location: string;
+  description: string;
+  highlights: string[];
+  technologies: string[];
+  current?: boolean;
+  liveUrl?: string;
+  githubUrl?: string;
+}
+
+export interface Achievement {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  tier: "featured" | "standard";
+  url?: string;
 }

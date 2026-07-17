@@ -1,22 +1,17 @@
 "use client";
 
-import { Code2, Link2, Loader2, Mail, MapPin, Send } from "lucide-react";
+import { Loader2, Mail, MapPin, Send } from "lucide-react";
 import { FormEvent, useState } from "react";
-import { SectionHeading } from "@/components/common/SectionHeading";
 import { siteConfig } from "@/config/site";
-import { getLinkedinUrl } from "@/lib/profile-urls";
 
 const formspreeId = process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID;
 
 export function Contact() {
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
-    "idle",
-  );
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-
     setStatus("loading");
     setErrorMessage("");
 
@@ -25,7 +20,6 @@ export function Contact() {
     const payload = {
       name: String(formData.get("name") ?? ""),
       email: String(formData.get("email") ?? ""),
-      subject: String(formData.get("subject") ?? ""),
       message: String(formData.get("message") ?? ""),
     };
 
@@ -54,18 +48,6 @@ export function Contact() {
       );
 
       if (!anySuccess) {
-        const firstError = results.find(
-          (result): result is PromiseFulfilledResult<Response> =>
-            result.status === "fulfilled",
-        );
-
-        if (firstError) {
-          const data = (await firstError.value.json().catch(() => ({}))) as {
-            error?: string;
-          };
-          throw new Error(data.error ?? "Failed to send message.");
-        }
-
         throw new Error("Failed to send message.");
       }
 
@@ -76,117 +58,71 @@ export function Contact() {
       setErrorMessage(
         error instanceof Error
           ? error.message
-          : "Something went wrong. Please try again or email me directly.",
+          : "Something went wrong. You can also email me directly.",
       );
     }
   }
 
   return (
-    <section id="contact" className="section-shell section-panel scroll-mt-20 sm:scroll-mt-24">
-      <div className="mx-auto max-w-6xl">
-        <SectionHeading
-          index="05"
-          eyebrow="Contact"
-          title="Let's build something real"
-          description="For internship, project, or work questions — send a short message."
-          centered={false}
-        />
+    <section id="contact" className="section-block scroll-mt-nav pb-16 sm:pb-20">
+      <div className="section-inner">
+        <div className="section-header section-header--simple">
+          <div>
+            <h2 className="section-heading">Contact</h2>
+            <p className="section-sub">
+              Open to internships and collaboration. Reach out anytime.
+            </p>
+          </div>
+        </div>
 
-        <div className="grid gap-5 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.25fr)] lg:gap-6">
-          <aside className="glass flex flex-col gap-5 p-5 sm:p-6 lg:p-7">
-            <div>
-              <p className="font-mono text-[0.65rem] tracking-[0.16em] text-accent-2 uppercase">
-                Direct channels
-              </p>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                Prefer email or LinkedIn? Use the links below — or send the form for a structured message.
-              </p>
-            </div>
+        <div className="contact-layout">
+          <aside className="contact-aside">
+            <span className="status-badge">{siteConfig.availability}</span>
 
-            <ul className="space-y-3 text-sm">
+            <p className="contact-aside__text">
+              Prefer email? Send a message through the form or contact me directly.
+            </p>
+
+            <ul className="contact-channels">
               <li>
-                <a
-                  href={`mailto:${siteConfig.email}`}
-                  className="group flex items-start gap-3 rounded-xl border border-border/80 bg-white/[0.02] p-3 transition-colors hover:border-accent-2/35"
-                >
-                  <Mail className="mt-0.5 h-4 w-4 shrink-0 text-accent-2" aria-hidden="true" />
+                <a href={`mailto:${siteConfig.email}`} className="contact-channel">
+                  <span className="contact-channel__icon" aria-hidden="true">
+                    <Mail className="h-4 w-4" />
+                  </span>
                   <span className="min-w-0">
-                    <span className="block font-mono text-[0.6rem] tracking-wider text-muted-foreground uppercase">
-                      Email
-                    </span>
-                    <span className="mt-0.5 block break-all text-foreground group-hover:text-accent-2">
-                      {siteConfig.email}
-                    </span>
+                    <span className="contact-channel__label">Email</span>
+                    <span className="contact-channel__value break-all">{siteConfig.email}</span>
                   </span>
                 </a>
               </li>
               <li>
-                <a
-                  href={siteConfig.social.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-start gap-3 rounded-xl border border-border/80 bg-white/[0.02] p-3 transition-colors hover:border-accent-2/35"
-                >
-                  <Code2 className="mt-0.5 h-4 w-4 shrink-0 text-accent-2" aria-hidden="true" />
-                  <span className="min-w-0">
-                    <span className="block font-mono text-[0.6rem] tracking-wider text-muted-foreground uppercase">
-                      GitHub
-                    </span>
-                    <span className="mt-0.5 block text-foreground group-hover:text-accent-2">
-                      @{siteConfig.social.githubUsername}
-                    </span>
+                <div className="contact-channel contact-channel--static">
+                  <span className="contact-channel__icon" aria-hidden="true">
+                    <MapPin className="h-4 w-4" />
                   </span>
-                </a>
-              </li>
-              {getLinkedinUrl() ? (
-                <li>
-                  <a
-                    href={getLinkedinUrl()}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex items-start gap-3 rounded-xl border border-border/80 bg-white/[0.02] p-3 transition-colors hover:border-accent-2/35"
-                  >
-                    <Link2 className="mt-0.5 h-4 w-4 shrink-0 text-accent-2" aria-hidden="true" />
-                    <span className="min-w-0">
-                      <span className="block font-mono text-[0.6rem] tracking-wider text-muted-foreground uppercase">
-                        LinkedIn
-                      </span>
-                      <span className="mt-0.5 block text-foreground group-hover:text-accent-2">
-                        Professional profile
-                      </span>
-                    </span>
-                  </a>
-                </li>
-              ) : null}
-              <li className="flex items-start gap-3 rounded-xl border border-border/60 p-3 text-muted-foreground">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent-2" aria-hidden="true" />
-                <span className="min-w-0">
-                  <span className="block font-mono text-[0.6rem] tracking-wider uppercase">
-                    Based in
+                  <span>
+                    <span className="contact-channel__label">Location</span>
+                    <span className="contact-channel__value">{siteConfig.location}</span>
                   </span>
-                  <span className="mt-0.5 block text-foreground">{siteConfig.location}</span>
-                </span>
+                </div>
               </li>
             </ul>
           </aside>
 
-          <div className="glass p-5 sm:p-7 md:p-8">
+          <div className="contact-panel">
             {status === "success" ? (
-              <div className="flex min-h-[240px] flex-col items-center justify-center text-center">
-                <p className="text-lg font-semibold text-foreground">Message received.</p>
-                <p className="mt-2 max-w-sm text-sm text-muted-foreground">
-                  Thanks for reaching out — I&apos;ll get back to you soon.
-                </p>
+              <div className="contact-success">
+                <p className="font-medium text-foreground">Message sent. Thank you.</p>
                 <button
                   type="button"
                   onClick={() => setStatus("idle")}
-                  className="mt-5 text-sm font-medium text-accent-2 transition-colors hover:text-accent-1"
+                  className="link-arrow mt-4 text-sm"
                 >
-                  Send another message
+                  Send another
                 </button>
               </div>
             ) : (
-              <form className="space-y-5" onSubmit={handleSubmit}>
+              <form className="contact-form" onSubmit={handleSubmit}>
                 <input
                   type="text"
                   name="_gotcha"
@@ -196,14 +132,9 @@ export function Contact() {
                   aria-hidden="true"
                 />
 
-                <div className="grid gap-4 sm:grid-cols-2 sm:gap-5">
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="mb-1.5 block text-sm font-medium text-muted-foreground"
-                    >
-                      Full Name
-                    </label>
+                <div className="contact-form__row">
+                  <div className="contact-field">
+                    <label htmlFor="name" className="contact-label">Name</label>
                     <input
                       id="name"
                       name="name"
@@ -212,53 +143,31 @@ export function Contact() {
                       className="contact-input"
                       required
                       disabled={status === "loading"}
+                      autoComplete="name"
                     />
                   </div>
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="mb-1.5 block text-sm font-medium text-muted-foreground"
-                    >
-                      Email Address
-                    </label>
+
+                  <div className="contact-field">
+                    <label htmlFor="email" className="contact-label">Email</label>
                     <input
                       id="email"
                       name="email"
                       type="email"
-                      placeholder="your.email@example.com"
+                      placeholder="you@email.com"
                       className="contact-input"
                       required
                       disabled={status === "loading"}
+                      autoComplete="email"
                     />
                   </div>
                 </div>
-                <div>
-                  <label
-                    htmlFor="subject"
-                    className="mb-1.5 block text-sm font-medium text-muted-foreground"
-                  >
-                    Subject
-                  </label>
-                  <input
-                    id="subject"
-                    name="subject"
-                    type="text"
-                    placeholder="Internship inquiry"
-                    className="contact-input"
-                    disabled={status === "loading"}
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="mb-1.5 block text-sm font-medium text-muted-foreground"
-                  >
-                    Message
-                  </label>
+
+                <div className="contact-field">
+                  <label htmlFor="message" className="contact-label">Message</label>
                   <textarea
                     id="message"
                     name="message"
-                    placeholder="Tell me about the role, project, or problem..."
+                    placeholder="Tell me about the opportunity or project..."
                     className="contact-input"
                     required
                     disabled={status === "loading"}
@@ -266,15 +175,13 @@ export function Contact() {
                 </div>
 
                 {status === "error" && errorMessage ? (
-                  <p className="text-sm text-red-400" role="alert">
-                    {errorMessage}
-                  </p>
+                  <p className="text-sm text-red-400" role="alert">{errorMessage}</p>
                 ) : null}
 
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="btn-glow btn-primary flex w-full items-center justify-center gap-2 rounded-full px-10 py-3.5 font-semibold text-white disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+                  className="btn btn-primary contact-submit"
                 >
                   {status === "loading" ? (
                     <>
@@ -283,8 +190,8 @@ export function Contact() {
                     </>
                   ) : (
                     <>
-                      <Send className="h-4 w-4" aria-hidden="true" />
                       Send message
+                      <Send className="h-4 w-4" aria-hidden="true" />
                     </>
                   )}
                 </button>

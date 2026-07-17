@@ -182,7 +182,7 @@ export const learningPosts: LearningPost[] = [
     content: {
       intro:
         "I wanted a portfolio that felt finished — clear sections, mobile-safe layout, and a real contact path — not just a template with my name swapped in.",
-      stack: ["Next.js", "TypeScript", "Tailwind CSS", "Three.js"],
+      stack: ["Next.js", "TypeScript", "Tailwind CSS"],
       sections: [
         {
           heading: "Stack choices",
@@ -193,7 +193,7 @@ export const learningPosts: LearningPost[] = [
             "App Router for pages, metadata, and API routes",
             "TypeScript for safer refactors",
             "Tailwind tokens for the dark theme",
-            "Three.js only as atmosphere — not the main message",
+            "Canvas particle background for subtle atmosphere",
           ],
         },
         {
