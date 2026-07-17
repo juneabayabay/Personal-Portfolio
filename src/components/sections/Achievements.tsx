@@ -1,48 +1,89 @@
-import { ExternalLink } from "lucide-react";
-import { SectionHeading } from "@/components/common/SectionHeading";
-import { achievementsContent } from "@/constants/achievements";
-import { getLinkedinUrl } from "@/lib/profile-urls";
-
-function getLinkedinCertificationsUrl(): string {
-  const profile = getLinkedinUrl().replace(/\/$/, "");
-  return profile ? `${profile}/details/certifications/` : "";
-}
+import { ExternalLink, Trophy } from "lucide-react";
+import { achievements } from "@/constants/achievements";
 
 export function Achievements() {
-  const linkedinCertsUrl = getLinkedinCertificationsUrl();
+  const featured = achievements.filter((item) => item.tier === "featured");
+  const standard = achievements.filter((item) => item.tier === "standard");
 
   return (
-    <section
-      id="achievements"
-      className="section-shell section-panel relative z-10 scroll-mt-20 sm:scroll-mt-24"
-    >
-      <div className="mx-auto max-w-6xl">
-        <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between sm:gap-10">
-          <SectionHeading
-            eyebrow={achievementsContent.eyebrow}
-            title="Certifications"
-            description={achievementsContent.summary}
-            centered={false}
-            className="mb-0 max-w-2xl sm:mb-0"
-          />
+    <section id="achievements" className="section scroll-mt-20">
+      <div className="section-inner">
+        <h2 className="section-heading">Achievements</h2>
+        <p className="section-sub">
+          Milestones that reflect my learning drive—verified courses, shipped projects, and continuous growth.
+        </p>
 
-          <div className="flex shrink-0 flex-col items-start gap-3 sm:items-end">
-            <span className="accent-badge inline-flex rounded-full px-3 py-1 text-xs font-semibold tracking-wide uppercase">
-              {achievementsContent.status}
-            </span>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2">
+          {featured.map((item) => {
+            const inner = (
+              <>
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                  <Trophy className="h-5 w-5" aria-hidden="true" />
+                </div>
+                <div>
+                  <h3 className="text-base font-bold text-foreground">{item.title}</h3>
+                  <p className="mt-1 text-sm font-medium text-primary">{item.subtitle}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.description}</p>
+                  {item.url ? (
+                    <span className="link-arrow mt-3 inline-flex text-sm">
+                      View credential
+                      <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+                    </span>
+                  ) : null}
+                </div>
+              </>
+            );
 
-            {linkedinCertsUrl ? (
+            return item.url ? (
               <a
-                href={linkedinCertsUrl}
+                key={item.id}
+                href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="achievement-btn achievement-btn-linkedin inline-flex items-center justify-center gap-2"
+                className="achievement-card achievement-card--featured flex flex-col gap-4 sm:flex-row sm:items-start"
               >
-                <ExternalLink className="h-4 w-4 shrink-0" aria-hidden="true" />
-                {achievementsContent.linkedinLabel}
+                {inner}
               </a>
-            ) : null}
-          </div>
+            ) : (
+              <article
+                key={item.id}
+                className="achievement-card achievement-card--featured flex flex-col gap-4 sm:flex-row sm:items-start"
+              >
+                {inner}
+              </article>
+            );
+          })}
+        </div>
+
+        <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {standard.map((item) => {
+            const inner = (
+              <>
+                <Trophy className="h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
+                <div>
+                  <h3 className="text-sm font-semibold text-foreground">{item.title}</h3>
+                  <p className="mt-0.5 text-xs font-medium text-primary">{item.subtitle}</p>
+                  <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{item.description}</p>
+                </div>
+              </>
+            );
+
+            return item.url ? (
+              <a
+                key={item.id}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="achievement-card flex items-start gap-3"
+              >
+                {inner}
+              </a>
+            ) : (
+              <article key={item.id} className="achievement-card flex items-start gap-3">
+                {inner}
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

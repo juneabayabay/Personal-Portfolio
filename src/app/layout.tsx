@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { LightningPortraitFlash } from "@/components/common/LightningPortraitFlash";
-import { ThreeBackground } from "@/components/common/ThreeBackground";
+import { NetworkBackground } from "@/components/common/NetworkBackground";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { siteConfig } from "@/config/site";
@@ -33,10 +32,10 @@ export const metadata: Metadata = {
   keywords: [
     "IT student",
     "portfolio",
-    "web developer",
+    "aspiring software engineer",
     "React",
     "Next.js",
-    "TypeScript",
+    "internship",
   ],
   authors: [{ name: siteConfig.name }],
   openGraph: {
@@ -74,8 +73,8 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="content-layer flex min-h-full min-h-dvh flex-col overflow-x-hidden bg-background px-[env(safe-area-inset-left)] pe-[env(safe-area-inset-right)] text-foreground">
-        <ThreeBackground />
-        <LightningPortraitFlash />
+        <NetworkBackground />
+        <div className="ambient-glow" aria-hidden="true" />
         <Navbar />
         <main className="relative z-10 flex-1">{children}</main>
         <Footer />

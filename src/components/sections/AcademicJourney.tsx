@@ -1,58 +1,74 @@
-import { GraduationCap } from "lucide-react";
-import { SectionHeading } from "@/components/common/SectionHeading";
+import { ExternalLink, GraduationCap } from "lucide-react";
+import { certifications } from "@/constants/certifications";
 import { academicJourney } from "@/constants/education";
 
 export function AcademicJourney() {
   return (
-    <section
-      id="education"
-      className="section-shell section-panel relative z-10 scroll-mt-20 sm:scroll-mt-24"
-    >
-      <div className="mx-auto max-w-6xl">
-        <SectionHeading
-          index="03"
-          eyebrow="Path"
-          title={academicJourney.title}
-          description={academicJourney.subtitle}
-          centered={false}
-        />
+    <section id="education" className="section-block scroll-mt-nav">
+      <div className="section-inner">
+        <div className="section-header section-header--simple">
+          <div>
+            <h2 className="section-heading">Education</h2>
+            <p className="section-sub">{academicJourney.subtitle}</p>
+          </div>
+        </div>
 
-        <article className="glass p-5 sm:p-6 md:p-8">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between sm:gap-8">
-            <div className="flex min-w-0 items-start gap-3 sm:gap-4">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent-2/10 sm:h-11 sm:w-11">
-                <GraduationCap
-                  className="h-5 w-5 text-accent-2 sm:h-6 sm:w-6"
-                  aria-hidden="true"
-                />
+        <article className="panel-solid p-5 sm:p-6">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+            <div className="flex gap-3">
+              <div className="icon-box">
+                <GraduationCap className="h-5 w-5" aria-hidden="true" />
               </div>
               <div className="min-w-0">
-                <h3 className="text-base font-semibold text-foreground sm:text-lg">
-                  {academicJourney.school}
-                </h3>
-                <p className="mt-1 text-sm text-muted-foreground sm:text-base">
-                  {academicJourney.degree}
-                </p>
-                <p className="mt-2 text-sm font-medium text-accent-2 sm:hidden">
-                  Expected {academicJourney.expectedGraduation}
+                <h3 className="font-semibold text-foreground">{academicJourney.school}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">{academicJourney.degree}</p>
+                <p className="mt-1 text-xs text-muted-foreground">
+                  Class of {academicJourney.expectedGraduation}
                 </p>
               </div>
             </div>
-
-            <div className="shrink-0 border-t border-border pt-4 text-left sm:border-0 sm:pt-0 sm:text-right">
-              <p className="text-xs font-medium tracking-widest text-muted-foreground uppercase sm:text-sm">
-                {academicJourney.period}
-              </p>
-              <p className="mt-1 hidden text-sm font-medium text-accent-2 sm:block">
-                Expected {academicJourney.expectedGraduation}
-              </p>
-            </div>
+            <span className="tag tag-gold w-fit shrink-0">{academicJourney.period}</span>
           </div>
 
-          <p className="mt-5 border-t border-border pt-5 text-sm leading-relaxed text-muted-foreground sm:mt-6 sm:text-base">
+          <p className="mt-4 border-t border-border pt-4 text-sm leading-relaxed text-muted-foreground">
             {academicJourney.description}
           </p>
         </article>
+
+        {certifications.length > 0 ? (
+          <div className="mt-6">
+            <h3 className="text-sm font-semibold text-foreground">Certifications</h3>
+            <ul className="mt-3 grid w-full min-w-0 grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
+              {certifications.map((cert) => (
+                <li key={cert.credentialId ?? cert.title}>
+                  {cert.url ? (
+                    <a
+                      href={cert.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="panel-solid block h-full p-4 transition-colors hover:border-primary/30"
+                    >
+                      <p className="text-sm font-medium text-foreground">{cert.title}</p>
+                      <p className="mt-1 text-xs text-primary">
+                        {cert.issuer}
+                        {cert.completedAt ? ` · ${cert.completedAt}` : ` · ${cert.year}`}
+                      </p>
+                      <span className="link-arrow mt-3 inline-flex text-xs">
+                        Verify
+                        <ExternalLink className="h-3 w-3" aria-hidden="true" />
+                      </span>
+                    </a>
+                  ) : (
+                    <div className="panel-solid h-full p-4">
+                      <p className="text-sm font-medium text-foreground">{cert.title}</p>
+                      <p className="mt-1 text-xs text-muted-foreground">{cert.issuer}</p>
+                    </div>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
       </div>
     </section>
   );

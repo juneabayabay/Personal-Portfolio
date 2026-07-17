@@ -1,5 +1,6 @@
 import { AcademicJourney } from "@/components/sections/AcademicJourney";
 import { Contact } from "@/components/sections/Contact";
+import { Experience } from "@/components/sections/Experience";
 import { Hero } from "@/components/sections/Hero";
 import { Learning } from "@/components/sections/Learning";
 import { Projects } from "@/components/sections/Projects";
@@ -9,8 +10,9 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Projects />
       <TechStack />
+      <Projects />
+      <Experience />
       <AcademicJourney />
       <Learning />
       <Contact />
