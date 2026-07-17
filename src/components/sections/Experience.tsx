@@ -9,7 +9,7 @@ export function Experience() {
           <div>
             <h2 className="section-heading">Experience</h2>
             <p className="section-sub">
-              What I owned on each project — outcomes, not just titles.
+              What I built and what I was responsible for.
             </p>
           </div>
         </div>

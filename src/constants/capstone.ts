@@ -15,7 +15,7 @@ export const capstoneProject = {
   badge: "Capstone",
   tagline: "Clinic web system",
   overview:
-    "A web system for scheduling, patient records, billing, and clinic admin at Barnabas Dental Clinic — built to replace paper records and Messenger-based booking.",
+    "A clinic web app for scheduling, patient records, billing, and staff dashboards. Built to replace paper records and Messenger booking.",
   problem:
     "The clinic used paper records and Facebook Messenger for appointments, patient info, and billing. That made scheduling harder and records slower to find.",
   solution: [

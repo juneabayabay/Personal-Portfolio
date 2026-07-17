@@ -10,11 +10,11 @@ export const experienceEntries: ExperienceEntry[] = [
     duration: "Capstone",
     location: "Cainta, Rizal, Philippines",
     description:
-      "Full-stack clinic system that replaced paper records and Messenger-based booking.",
+      "Built a clinic web system to replace paper records and Messenger booking.",
     highlights: [
-      "Owned scheduling, patient records, billing, and role-based dashboards (patient, receptionist, dentist, admin).",
-      "Modeled appointment rules for procedure length, conflict prevention, and pencil booking until payment is verified.",
-      "Shipped a live deployment on React, Django, PostgreSQL (Aiven), Render, and Vercel.",
+      "Built scheduling, patient records, billing, and dashboards for patients and staff.",
+      "Added booking rules so appointments do not overlap and payment can be confirmed later.",
+      "Deployed with React, Django, PostgreSQL (Aiven), Render, and Vercel.",
     ],
     technologies: ["React", "Django", "PostgreSQL", "Aiven", "Render", "Vercel"],
     liveUrl: "https://barnabas-dental.vercel.app/",
@@ -29,15 +29,14 @@ export const experienceEntries: ExperienceEntry[] = [
     duration: "Project",
     location: "Cainta, Rizal, Philippines",
     description:
-      "Staff portal for church records with JWT auth and role-based permissions.",
+      "Built a staff portal for church records with login and roles.",
     highlights: [
-      "Built members, families, events, attendance, and notices with Admin / Pastor / Staff / Volunteer roles.",
-      "Secured staff access with JWT login and role checks in both the UI and API.",
-      "Deployed the full stack with Neon (PostgreSQL), Render (API), and Vercel (frontend).",
+      "Built modules for members, families, events, attendance, and notices.",
+      "Added roles so Admin, Pastor, Staff, and Volunteer see only what they need.",
+      "Deployed with Neon, Render, and Vercel.",
     ],
     technologies: ["React", "Django REST", "PostgreSQL", "Neon", "Render", "Vercel"],
-    liveUrl:
-      "https://church-management-system-git-main-juneabayabays-projects.vercel.app/",
+    liveUrl: "https://church-management-system.vercel.app/",
     githubUrl: "https://github.com/juneabayabay/ChurchManagementSystem",
     current: false,
   },
@@ -50,11 +49,11 @@ export const experienceEntries: ExperienceEntry[] = [
     duration: "Project",
     location: "Cainta, Rizal, Philippines",
     description:
-      "Public church website for first-time visitors and Sunday information.",
+      "Built the public church website for visitors and Sunday info.",
     highlights: [
-      "Designed a clear visitor journey: welcome, service times, directions, giving, and contact.",
-      "Built a responsive marketing site so content stays readable on phone, tablet, and desktop.",
-      "Published a live production site for real church visitors.",
+      "Added clear pages for welcome, service times, directions, giving, and contact.",
+      "Made the site easy to read on phone, tablet, and desktop.",
+      "Published a live site for real church visitors.",
     ],
     technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
     liveUrl: "https://cainta-baptist-church.vercel.app/",

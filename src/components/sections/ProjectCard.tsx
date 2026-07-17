@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowUpRight, Code2 } from "lucide-react";
 import type { Project } from "@/types";
 import { cn } from "@/lib/utils";
@@ -64,27 +63,15 @@ export function ProjectCard({ project, layout = "vertical" }: ProjectCardProps) 
         </ul>
 
         <div className="mt-auto flex flex-wrap items-center gap-x-4 gap-y-2 pt-1">
-          {project.caseStudyUrl ? (
-            <Link href={project.caseStudyUrl} className="link-arrow">
-              Case study
-              <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden="true" />
-            </Link>
-          ) : null}
           {project.liveUrl ? (
             <a
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={
-                project.caseStudyUrl
-                  ? "inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
-                  : "link-arrow"
-              }
+              className="link-arrow"
             >
               Live demo
-              {!project.caseStudyUrl ? (
-                <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden="true" />
-              ) : null}
+              <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden="true" />
             </a>
           ) : null}
           {project.githubUrl ? (

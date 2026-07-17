@@ -1,6 +1,6 @@
 "use client";
 
-import { FileText, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { BrandMark } from "@/components/common/Logo";
 import { navLinks } from "@/constants/nav";
@@ -52,10 +52,6 @@ export function Navbar() {
               {link.label}
             </a>
           ))}
-          <a href={siteConfig.resumePath} download className="btn btn-primary shrink-0 px-3 py-2 text-sm xl:px-4">
-            <FileText className="h-4 w-4" aria-hidden="true" />
-            Resume
-          </a>
         </div>
 
         <button
@@ -87,10 +83,6 @@ export function Navbar() {
               {link.label}
             </a>
           ))}
-          <a href={siteConfig.resumePath} download className="btn btn-primary mt-2 w-full">
-            <FileText className="h-4 w-4" aria-hidden="true" />
-            Resume
-          </a>
         </div>
       </div>
     </nav>
