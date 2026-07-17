@@ -43,8 +43,7 @@ export function Navbar() {
           className="brand-mark-link inline-flex min-w-0 shrink items-center"
           aria-label={`${siteConfig.name} home`}
         >
-          <BrandMark variant="nav" compact className="sm:hidden" />
-          <BrandMark variant="nav" className="hidden sm:inline-flex" />
+          <BrandMark variant="nav" />
         </a>
 
         <div className="hidden items-center gap-3 xl:gap-4 xl:flex">

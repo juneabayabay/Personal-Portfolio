@@ -290,15 +290,6 @@ body {
   text-decoration: none;
 }
 
-.brand-mark-compact {
-  font-size: 1.0625rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--foreground);
-  white-space: nowrap;
-  line-height: 1.2;
-}
-
 .brand-mark {
   display: inline-flex;
   flex-direction: column;

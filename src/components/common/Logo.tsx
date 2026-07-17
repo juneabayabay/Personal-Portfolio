@@ -1,21 +1,11 @@
 import { cn } from "@/lib/utils";
-import { siteConfig } from "@/config/site";
 
 interface BrandMarkProps {
   className?: string;
   variant?: "nav" | "footer";
-  compact?: boolean;
 }
 
-export function BrandMark({ className, variant = "nav", compact = false }: BrandMarkProps) {
-  if (compact) {
-    return (
-      <span className={cn("brand-mark-compact", className)}>
-        {siteConfig.firstName}
-      </span>
-    );
-  }
-
+export function BrandMark({ className, variant = "nav" }: BrandMarkProps) {
   return (
     <span
       className={cn(
