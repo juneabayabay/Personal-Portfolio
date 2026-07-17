@@ -84,9 +84,9 @@ export const learningPosts: LearningPost[] = [
     content: {
       intro:
         "Barnabas Dental Clinic Management System is my capstone: a full-stack web app that replaced paper records and Facebook Messenger booking with online scheduling, digital patient records, billing, and role-based dashboards for patients, receptionists, dentists, and administrators.",
-      stack: ["React", "Node.js", "Express", "MySQL"],
+      stack: ["React", "Django", "PostgreSQL", "Aiven", "Render", "Vercel"],
       interviewPitch:
-        "For my capstone I built a clinic management system for Barnabas Dental Clinic. Before, they used paper and Facebook Messenger for appointments and billing, so schedules conflicted and records were hard to find. I built a full-stack web app with React, Node, Express, and MySQL — online booking, patient records, billing, and four dashboards: patient, receptionist, dentist, and admin. The hardest part was scheduling: appointments need procedure length, can’t overlap, and we used pencil bookings until GCash is verified by the receptionist. Now staff and patients can manage bookings and billing in one system instead of chat. What I’d improve next is tighter payment automation and clearer audit logs — but the domain rules around time and payment were the real learning.",
+        "For my capstone I built a clinic management system for Barnabas Dental Clinic. Before, they used paper and Facebook Messenger for appointments and billing, so schedules conflicted and records were hard to find. I built a full-stack web app with React, Django, and PostgreSQL — online booking, patient records, billing, and four dashboards: patient, receptionist, dentist, and admin. The hardest part was scheduling: appointments need procedure length, can’t overlap, and we used pencil bookings until GCash is verified by the receptionist. Now staff and patients can manage bookings and billing in one system instead of chat. Deployed on Vercel, Render, and Aiven. What I’d improve next is tighter payment automation and clearer audit logs — but the domain rules around time and payment were the real learning.",
       sections: [
         {
           heading: "The problem",

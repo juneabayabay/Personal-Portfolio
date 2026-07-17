@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { siteConfig } from "@/config/site";
 
 interface BrandMarkProps {
   className?: string;
@@ -14,8 +15,8 @@ export function BrandMark({ className, variant = "nav" }: BrandMarkProps) {
         className,
       )}
     >
-      <span className="brand-mark__top">Discipline in</span>
-      <span className="brand-mark__main">Silence</span>
+      <span className="brand-mark__main">{siteConfig.firstName}</span>
+      <span className="brand-mark__top">Discipline in Silence</span>
     </span>
   );
 }

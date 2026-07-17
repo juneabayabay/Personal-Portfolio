@@ -40,7 +40,15 @@ export const capstoneProject = {
   results:
     "Staff and patients can manage appointments, records, and billing in one place instead of paper and Messenger.",
   githubUrl: "",
-  liveUrl: "",
+  liveUrl: "https://barnabas-dental.vercel.app/",
+  technologies: [
+    "React",
+    "Django",
+    "PostgreSQL",
+    "Aiven",
+    "Render",
+    "Vercel",
+  ] as const,
   featuredImage: {
     src: "/projects/barnabas-dental-clinic/admin-dashboard.png",
     alt: "Barnabas Dental Clinic admin dashboard — appointments, billing, and clinic metrics",

@@ -12,7 +12,9 @@ export function Projects() {
         <div className="section-header section-header--simple">
           <div>
             <h2 className="section-heading">Projects</h2>
-            <p className="section-sub">Selected work from school and personal builds.</p>
+            <p className="section-sub">
+              Capstone and selected builds — school, client, and full-stack work.
+            </p>
           </div>
         </div>
 
