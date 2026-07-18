@@ -17,7 +17,7 @@ export const projects: Project[] = [
       "Vercel",
     ],
     githubUrl: "https://github.com/juneabayabay/ChurchManagementSystem",
-    liveUrl: "https://church-management-system.vercel.app/",
+    liveUrl: "https://church-management-system-sigma-sable.vercel.app/",
     learned: [
       "JWT login and role-based access",
       "CRUD for church records",
