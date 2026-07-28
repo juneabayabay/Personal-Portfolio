@@ -14,18 +14,36 @@ function BlogCard({ post }: { post: (typeof learningPosts)[number] }) {
 
   const inner = (
     <>
-      <div className="relative aspect-[16/10] shrink-0 overflow-hidden border-b border-border bg-surface">
-        <Image
-          src={post.image}
-          alt=""
-          fill
-          className={cn(
-            "transition-transform duration-300 group-hover:scale-[1.02]",
-            isUiScreenshot ? "object-cover object-top" : "object-cover object-center",
-          )}
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 480px"
-          loading="lazy"
-        />
+      <div
+        className={cn(
+          "media-image-frame relative aspect-[16/10] shrink-0 overflow-hidden border-b border-border",
+          isUiScreenshot && "media-image-frame--screenshot",
+          !isUiScreenshot && "bg-surface",
+        )}
+      >
+        {isUiScreenshot ? (
+          <div className="absolute inset-2 sm:inset-3">
+            <Image
+              src={post.image}
+              alt=""
+              fill
+              quality={92}
+              className="image-screenshot"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 560px"
+              loading="lazy"
+            />
+          </div>
+        ) : (
+          <Image
+            src={post.image}
+            alt=""
+            fill
+            quality={92}
+            className="image-ui object-center transition-transform duration-300 group-hover:scale-[1.01]"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 560px"
+            loading="lazy"
+          />
+        )}
       </div>
       <div className="flex flex-1 flex-col p-4 sm:p-5">
         <div className="flex items-center justify-between gap-3 text-xs text-muted-foreground">
@@ -67,7 +85,7 @@ export function Learning() {
         <div className="section-header section-header--simple">
           <div>
             <h2 className="section-heading">Blog</h2>
-            <p className="section-sub">Notes on what I built and learned.</p>
+            <p className="section-sub">Case studies and build notes from recent work.</p>
           </div>
         </div>
 

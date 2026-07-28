@@ -10,11 +10,11 @@
   --primary: #e8a849;
   --primary-foreground: #0a0c10;
   --primary-hover: #f0bc5c;
-  --accent: #a78bfa;
-  --accent-muted: rgba(167, 139, 250, 0.12);
+  --accent: #c4a574;
+  --accent-muted: rgba(196, 165, 116, 0.12);
   --border: rgba(255, 255, 255, 0.08);
   --border-strong: rgba(255, 255, 255, 0.14);
-  --glow: rgba(232, 168, 73, 0.15);
+  --glow: rgba(232, 168, 73, 0.12);
   --radius: 16px;
   --radius-sm: 10px;
   --radius-lg: 20px;
@@ -49,8 +49,8 @@
   --color-accent: var(--accent);
   --color-border: var(--border);
   --color-border-strong: var(--border-strong);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-dm-sans);
+  --font-display: var(--font-instrument);
 }
 
 html {
@@ -61,7 +61,7 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-family: var(--font-dm-sans), "Segoe UI", sans-serif;
   line-height: 1.65;
   overflow-x: hidden;
   -webkit-text-size-adjust: 100%;
@@ -86,8 +86,8 @@ body {
   inset: 0;
   z-index: 0;
   background:
-    radial-gradient(ellipse 80% 50% at 20% -10%, rgba(167, 139, 250, 0.08), transparent 50%),
-    radial-gradient(ellipse 60% 40% at 85% 110%, rgba(232, 168, 73, 0.06), transparent 50%);
+    radial-gradient(ellipse 70% 45% at 15% -5%, rgba(232, 168, 73, 0.07), transparent 55%),
+    radial-gradient(ellipse 50% 35% at 90% 100%, rgba(232, 168, 73, 0.04), transparent 50%);
 }
 
 /* Layout */
@@ -141,8 +141,9 @@ body {
 }
 
 .section-heading {
-  font-size: clamp(1.375rem, 3vw, 1.875rem);
-  font-weight: 700;
+  font-family: var(--font-instrument), Georgia, serif;
+  font-size: clamp(1.5rem, 3.2vw, 2rem);
+  font-weight: 400;
   letter-spacing: -0.02em;
   line-height: 1.2;
   color: var(--foreground);
@@ -312,9 +313,10 @@ body {
 }
 
 .brand-mark__main {
-  font-size: 1.0625rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-family: var(--font-instrument), Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
   color: var(--foreground);
   line-height: 1.15;
   white-space: nowrap;
@@ -370,7 +372,7 @@ body {
 .btn-primary {
   background: var(--primary);
   color: var(--primary-foreground);
-  box-shadow: 0 0 20px var(--glow);
+  box-shadow: 0 0 0 1px rgba(232, 168, 73, 0.15);
 }
 
 .btn-primary:hover {
@@ -402,9 +404,9 @@ body {
   padding: 0.3rem 0.7rem;
   font-size: 0.75rem;
   font-weight: 500;
-  color: var(--accent);
-  background: var(--accent-muted);
-  border: 1px solid rgba(167, 139, 250, 0.2);
+  color: rgba(241, 245, 249, 0.88);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 9999px;
 }
 
@@ -461,10 +463,11 @@ body {
 }
 
 .hero-name {
-  font-size: clamp(1.85rem, 8vw, 3.25rem);
-  font-weight: 700;
+  font-family: var(--font-instrument), Georgia, serif;
+  font-size: clamp(2.25rem, 8vw, 3.5rem);
+  font-weight: 400;
   letter-spacing: -0.03em;
-  line-height: 1.15;
+  line-height: 1.12;
   word-break: normal;
   overflow-wrap: anywhere;
   hyphens: none;
@@ -604,7 +607,7 @@ body {
 }
 
 .skill-chip:hover {
-  border-color: rgba(167, 139, 250, 0.35);
+  border-color: rgba(232, 168, 73, 0.35);
 }
 
 .level-dot {
@@ -636,6 +639,26 @@ body {
   padding: 1.5rem;
   background: linear-gradient(135deg, rgba(22, 28, 42, 0.95), rgba(16, 20, 30, 0.95));
   border-color: rgba(232, 168, 73, 0.2);
+}
+
+.media-card--project .media-image-frame {
+  position: relative;
+  overflow: hidden;
+  background: var(--surface-solid);
+}
+
+.media-image-frame--screenshot {
+  background: linear-gradient(180deg, #e8ecef 0%, #dfe4e8 100%);
+}
+
+.image-screenshot {
+  object-fit: contain !important;
+  object-position: center;
+}
+
+.image-ui {
+  object-fit: cover;
+  object-position: top center;
 }
 
 /* Project / blog cards */

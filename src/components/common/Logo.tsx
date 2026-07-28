@@ -16,7 +16,7 @@ export function BrandMark({ className, variant = "nav" }: BrandMarkProps) {
       )}
     >
       <span className="brand-mark__main">{siteConfig.firstName}</span>
-      <span className="brand-mark__top">Discipline in Silence</span>
+      <span className="brand-mark__top">{siteConfig.lastName}</span>
     </span>
   );
 }

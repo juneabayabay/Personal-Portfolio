@@ -45,15 +45,13 @@ export const skillCategories: SkillCategory[] = [
 
 /** Shown when "Current Focus" is selected */
 export const currentFocusStack = [
-  "Python",
-  "Django",
   "React",
-  "HTML",
-  "CSS",
-  "JavaScript",
-  "Aiven",
-  "Render",
+  "Next.js",
+  "TypeScript",
+  "Django",
   "PostgreSQL",
+  "Python",
+  "Git",
 ] as const;
 
 /** Flat list of every skill */
