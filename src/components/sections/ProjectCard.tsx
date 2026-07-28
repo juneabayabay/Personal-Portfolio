@@ -3,16 +3,24 @@ import { ArrowUpRight, Code2 } from "lucide-react";
 import type { Project } from "@/types";
 import { cn } from "@/lib/utils";
 
+const UI_IMAGE_QUALITY = 92;
+
 type ProjectCardProps = {
   project: Project;
   layout?: "vertical" | "horizontal";
 };
 
+function isUiScreenshot(image: string) {
+  return (
+    image.includes("/login.") ||
+    image.includes("cbc-church-management") ||
+    image.includes("barnabas-dental-clinic")
+  );
+}
+
 export function ProjectCard({ project, layout = "vertical" }: ProjectCardProps) {
   const isHorizontal = layout === "horizontal";
-  const isLoginShot = project.image.includes("/login.");
-  const isDashboardShot =
-    project.image.includes("cbc-church-management") && !isLoginShot;
+  const isScreenshot = isUiScreenshot(project.image);
 
   return (
     <article
@@ -23,25 +31,42 @@ export function ProjectCard({ project, layout = "vertical" }: ProjectCardProps) 
     >
       <div
         className={cn(
-          "relative aspect-[16/10] w-full shrink-0 overflow-hidden bg-surface",
-          isHorizontal && "lg:aspect-auto lg:w-[min(42%,320px)] lg:min-h-[220px]",
+          "media-image-frame relative aspect-[16/10] w-full shrink-0 overflow-hidden",
+          isScreenshot && "media-image-frame--screenshot",
+          isHorizontal && "lg:aspect-auto lg:w-[min(46%,380px)] lg:min-h-[240px]",
         )}
       >
-        <Image
-          src={project.image}
-          alt={project.title}
-          fill
-          className={cn(
-            "object-cover",
-            isLoginShot ? "object-center" : isDashboardShot ? "object-left-top" : "object-center",
-          )}
-          sizes={
-            isHorizontal
-              ? "(max-width: 1024px) 100vw, 320px"
-              : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 480px"
-          }
-          loading="lazy"
-        />
+        {isScreenshot ? (
+          <div className="absolute inset-2 sm:inset-3">
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              quality={UI_IMAGE_QUALITY}
+              className="image-screenshot"
+              sizes={
+                isHorizontal
+                  ? "(max-width: 1024px) 100vw, 380px"
+                  : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 560px"
+              }
+              loading="lazy"
+            />
+          </div>
+        ) : (
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            quality={UI_IMAGE_QUALITY}
+            className="image-ui object-center"
+            sizes={
+              isHorizontal
+                ? "(max-width: 1024px) 100vw, 380px"
+                : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 560px"
+            }
+            loading="lazy"
+          />
+        )}
       </div>
 
       <div className="flex min-w-0 flex-1 flex-col gap-3 p-4 sm:gap-3.5 sm:p-5 lg:p-6">

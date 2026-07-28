@@ -69,7 +69,7 @@ export function NetworkBackground() {
 
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(167, 139, 250, 0.45)";
+        ctx.fillStyle = "rgba(232, 168, 73, 0.35)";
         ctx.fill();
       }
 
@@ -86,7 +86,7 @@ export function NetworkBackground() {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(232, 168, 73, ${opacity})`;
+            ctx.strokeStyle = `rgba(232, 168, 73, ${opacity * 0.7})`;
             ctx.lineWidth = 0.6;
             ctx.stroke();
           }

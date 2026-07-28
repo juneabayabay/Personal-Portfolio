@@ -70,7 +70,7 @@ export function Contact() {
           <div>
             <h2 className="section-heading">Contact</h2>
             <p className="section-sub">
-              Looking for an internship or want to talk about a project? Send a message.
+              Open to internships and collaboration. Reach out anytime.
             </p>
           </div>
         </div>
@@ -80,7 +80,7 @@ export function Contact() {
             <span className="status-badge">{siteConfig.availability}</span>
 
             <p className="contact-aside__text">
-              You can use the form or email me directly.
+              Prefer email? Use the form or contact me directly.
             </p>
 
             <ul className="contact-channels">

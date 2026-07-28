@@ -31,7 +31,7 @@ export function TechStack() {
           <div>
             <h2 className="section-heading">Tech Stack</h2>
             <p className="section-sub">
-              Tools I use in projects. Some I know well; others I am still learning.
+              Tools I use in production work—honest about what I’m still learning.
             </p>
           </div>
 

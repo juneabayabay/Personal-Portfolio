@@ -4,6 +4,7 @@ import { ArrowUpRight, BookOpen } from "lucide-react";
 import { capstoneProject } from "@/constants/capstone";
 
 const CASE_STUDY_HREF = "/blog/barnabas-system-study";
+const UI_IMAGE_QUALITY = 92;
 
 export function CapstoneProject() {
   const { title, badge, tagline, overview, featuredImage, liveUrl, technologies } =
@@ -11,17 +12,18 @@ export function CapstoneProject() {
 
   return (
     <article className="media-card media-card--project grid w-full min-w-0 grid-cols-1 overflow-hidden lg:grid-cols-2">
-      <div className="relative aspect-[16/10] w-full overflow-hidden bg-surface lg:aspect-auto lg:min-h-[280px]">
-        <Image
-          src={featuredImage.src}
-          alt={featuredImage.alt}
-          fill
-          className="object-cover object-top"
-          sizes="(max-width: 1024px) 100vw, 50vw"
-          quality={75}
-          priority
-        />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--surface-solid)]/50 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-[var(--surface-solid)]/40" />
+      <div className="media-image-frame media-image-frame--screenshot relative aspect-[16/10] w-full overflow-hidden lg:aspect-auto lg:min-h-[300px]">
+        <div className="absolute inset-2 sm:inset-3">
+          <Image
+            src={featuredImage.src}
+            alt={featuredImage.alt}
+            fill
+            className="image-screenshot"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            quality={UI_IMAGE_QUALITY}
+            priority
+          />
+        </div>
         <span className="absolute top-3 left-3 tag tag-gold sm:top-4 sm:left-4">
           {badge}
         </span>

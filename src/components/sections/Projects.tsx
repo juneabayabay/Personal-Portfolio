@@ -13,7 +13,7 @@ export function Projects() {
           <div>
             <h2 className="section-heading">Projects</h2>
             <p className="section-sub">
-              Selected school and client work you can open and try.
+              Selected full-stack work—school capstone and client builds.
             </p>
           </div>
         </div>

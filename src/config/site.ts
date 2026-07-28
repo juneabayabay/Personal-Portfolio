@@ -5,14 +5,14 @@ export const siteConfig = {
   logo: "logo",
   title: "Arjune Abay Abay | IT Student & Aspiring Software Engineer",
   description:
-    "IT student building web apps. Open to internships.",
+    "IT student building full-stack web apps for real users. Open to software engineering internships.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://your-portfolio.vercel.app",
   role: "IT Student",
-  headline: "Aspiring Software Engineer",
+  headline: "IT Student · Aspiring Software Engineer",
   tagline: "BS Information Technology · STI College · Class of 2027",
   availability: "Open to internships",
   heroIntro:
-    "I build web apps through school projects, client work, and online courses. I focus on clear structure and finishing what I start.",
+    "I build full-stack web apps for real users—clinic and church systems—with clear structure, role-based access, and reliable deploys.",
   email: "hkillua222@gmail.com",
   location: "Cainta, Rizal, Philippines",
   school: "STI College Ortigas-Cainta",
