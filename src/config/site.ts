@@ -1,3 +1,16 @@
+function resolveSiteUrl() {
+  if (process.env.NEXT_PUBLIC_SITE_URL) {
+    return process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, "");
+  }
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
+    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL.replace(/\/$/, "")}`;
+  }
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL.replace(/\/$/, "")}`;
+  }
+  return "https://your-portfolio.vercel.app";
+}
+
 export const siteConfig = {
   name: "Arjune Abay Abay",
   firstName: "Arjune",
@@ -6,7 +19,7 @@ export const siteConfig = {
   title: "Arjune Abay Abay | IT Student & Aspiring Software Engineer",
   description:
     "IT student building full-stack web apps for real users. Open to software engineering internships.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://your-portfolio.vercel.app",
+  url: resolveSiteUrl(),
   role: "IT Student",
   headline: "IT Student · Aspiring Software Engineer",
   tagline: "BS Information Technology · STI College · Class of 2027",
