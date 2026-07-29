@@ -1,5 +1,4 @@
 import { cn } from "@/lib/utils";
-import { siteConfig } from "@/config/site";
 
 interface BrandMarkProps {
   className?: string;
@@ -14,14 +13,9 @@ export function BrandMark({ className, variant = "nav" }: BrandMarkProps) {
         variant === "nav" ? "brand-mark--nav" : "brand-mark--footer",
         className,
       )}
+      aria-hidden="true"
     >
-      <span className="brand-mark__main">{siteConfig.firstName}</span>
-      <span className="brand-mark__top">{siteConfig.lastName}</span>
+      <span className="brand-mark__code">{"?>"}</span>
     </span>
   );
-}
-
-/** @deprecated Use BrandMark */
-export function Logo(props: { className?: string; size?: number }) {
-  return <BrandMark className={props.className} variant="nav" />;
 }

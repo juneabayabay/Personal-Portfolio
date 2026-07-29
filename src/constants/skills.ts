@@ -53,7 +53,6 @@ export const currentFocusStack = [
   "Python",
   "Git",
 ] as const;
-
 /** Flat list of every skill */
 export const fullArchiveStack = [
   ...new Set([
@@ -61,3 +60,4 @@ export const fullArchiveStack = [
     ...currentFocusStack,
   ]),
 ].sort((a, b) => a.localeCompare(b));
+

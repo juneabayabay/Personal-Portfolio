@@ -17,8 +17,8 @@ export function getMonkeytypeUrl(): string {
   const username = normalizeMonkeytypeUsername(siteConfig.profiles.monkeytypeUsername);
   return username ? `https://monkeytype.com/profile/${username}` : "";
 }
-
 export function getCodewarsUrl(): string {
   const username = siteConfig.profiles.codewarsUsername.trim();
   return username ? `https://www.codewars.com/users/${username}` : "";
 }
+

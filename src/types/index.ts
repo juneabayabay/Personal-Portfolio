@@ -63,7 +63,6 @@ export interface ExperienceEntry {
   liveUrl?: string;
   githubUrl?: string;
 }
-
 export interface Achievement {
   id: string;
   title: string;
@@ -72,3 +71,4 @@ export interface Achievement {
   tier: "featured" | "standard";
   url?: string;
 }
+

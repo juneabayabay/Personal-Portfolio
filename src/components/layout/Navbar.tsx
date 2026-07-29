@@ -18,6 +18,7 @@ export function Navbar() {
   }, [isOpen]);
 
   useEffect(() => {
+    if (!isOpen) return;
     const links = document.querySelectorAll("#mobileMenu a");
     const closeMenu = () => setIsOpen(false);
     links.forEach((link) => link.addEventListener("click", closeMenu));
@@ -37,18 +38,19 @@ export function Navbar() {
         scrolled ? "nav-bar--scrolled" : ""
       }`}
     >
-      <div className="section-inner flex h-[var(--nav-height)] items-center justify-between gap-3 sm:gap-4">
+      <div className="section-inner flex h-[var(--nav-height)] items-center justify-between gap-3">
         <a
           href="#home"
           className="brand-mark-link inline-flex min-w-0 shrink items-center"
           aria-label={`${siteConfig.name} home`}
+          onClick={() => setIsOpen(false)}
         >
           <BrandMark variant="nav" />
         </a>
 
-        <div className="hidden items-center gap-3 xl:gap-4 xl:flex">
+        <div className="hidden items-center gap-2.5 lg:flex xl:gap-4">
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href} className="nav-link">
+            <a key={link.href} href={link.href} className="nav-link px-1">
               {link.label}
             </a>
           ))}
@@ -56,7 +58,7 @@ export function Navbar() {
 
         <button
           type="button"
-          className="shrink-0 rounded-lg p-2 text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-primary xl:hidden"
+          className="shrink-0 rounded-lg p-2.5 text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-primary lg:hidden"
           aria-label={isOpen ? "Close menu" : "Open menu"}
           aria-expanded={isOpen}
           onClick={() => setIsOpen((open) => !open)}
@@ -67,7 +69,7 @@ export function Navbar() {
 
       {isOpen ? (
         <div
-          className="fixed inset-0 top-[calc(var(--nav-height)+env(safe-area-inset-top,0px))] z-40 bg-background/80 backdrop-blur-sm xl:hidden"
+          className="fixed inset-0 top-[calc(var(--nav-height)+env(safe-area-inset-top,0px))] z-40 bg-background/80 backdrop-blur-sm lg:hidden"
           aria-hidden="true"
           onClick={() => setIsOpen(false)}
         />
@@ -75,11 +77,15 @@ export function Navbar() {
 
       <div
         id="mobileMenu"
-        className={`relative z-50 xl:hidden ${isOpen ? "" : "hidden"}`}
+        className={`relative z-50 lg:hidden ${isOpen ? "" : "hidden"}`}
       >
-        <div className="section-inner grid max-h-[calc(100dvh-var(--nav-height)-env(safe-area-inset-top,0px))] gap-1 overflow-y-auto border-t border-border py-3">
+        <div className="section-inner grid max-h-[calc(100dvh-var(--nav-height)-env(safe-area-inset-top,0px)-1rem)] gap-0.5 overflow-y-auto border-t border-border py-3 pb-[max(1rem,env(safe-area-inset-bottom))]">
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href} className="nav-link rounded-lg py-3 text-base">
+            <a
+              key={link.href}
+              href={link.href}
+              className="nav-link rounded-lg px-2 py-3.5 text-base"
+            >
               {link.label}
             </a>
           ))}
