@@ -105,19 +105,33 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
           </aside>
         ) : null}
 
-        <div className="relative mt-8 aspect-[16/10] overflow-hidden rounded-[var(--radius-lg)] border border-border sm:aspect-[16/9]">
-          <Image
-            src={post.image}
-            alt=""
-            fill
-            className={
-              post.image.startsWith("/projects/")
-                ? "object-cover object-top"
-                : "object-cover object-center"
-            }
-            sizes="(max-width: 896px) 100vw, 896px"
-            priority
-          />
+        <div
+          className={`relative mt-8 aspect-[16/10] overflow-hidden rounded-[var(--radius-lg)] border border-border sm:aspect-[16/9] ${
+            post.image.startsWith("/projects/") ? "media-image-frame--screenshot" : ""
+          }`}
+        >
+          {post.image.startsWith("/projects/") ? (
+            <div className="absolute inset-2 sm:inset-3">
+              <Image
+                src={post.image}
+                alt={post.title}
+                fill
+                className="image-screenshot"
+                sizes="(max-width: 896px) 100vw, 896px"
+                quality={92}
+                priority
+              />
+            </div>
+          ) : (
+            <Image
+              src={post.image}
+              alt={post.title}
+              fill
+              className="object-cover object-center"
+              sizes="(max-width: 896px) 100vw, 896px"
+              priority
+            />
+          )}
         </div>
 
         <div className="mt-10 space-y-12">
@@ -139,17 +153,20 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
                 </ul>
               ) : null}
               {section.figures?.length ? (
-                <div className={`mt-6 grid gap-5 ${section.figures.length > 1 ? "sm:grid-cols-2" : ""}`}>
+                <div className={`mt-6 grid gap-5 ${section.figures.length > 1 ? "sm:grid-cols-1 md:grid-cols-2" : ""}`}>
                   {section.figures.map((figure) => (
                     <figure key={figure.src} className="media-card overflow-hidden">
-                      <div className="relative aspect-[16/10]">
-                        <Image
-                          src={figure.src}
-                          alt={figure.alt}
-                          fill
-                          className="object-cover object-top"
-                          sizes="(max-width: 640px) 100vw, 420px"
-                        />
+                      <div className="media-image-frame--screenshot relative aspect-[16/10] sm:aspect-[16/9]">
+                        <div className="absolute inset-2 sm:inset-3">
+                          <Image
+                            src={figure.src}
+                            alt={figure.alt}
+                            fill
+                            className="image-screenshot"
+                            sizes="(max-width: 640px) 100vw, 420px"
+                            quality={92}
+                          />
+                        </div>
                       </div>
                       <figcaption className="border-t border-border px-3 py-2.5 text-xs leading-relaxed text-muted-foreground sm:text-sm">
                         {figure.caption}

@@ -48,7 +48,17 @@ export function Contact() {
       );
 
       if (!anySuccess) {
-        throw new Error("Failed to send message.");
+        const failed = results.find(
+          (result) => result.status === "fulfilled" && !result.value.ok,
+        );
+        if (failed && failed.status === "fulfilled" && failed.value.status === 503) {
+          throw new Error(
+            `Contact form isn’t configured yet. Email me at ${siteConfig.email}.`,
+          );
+        }
+        throw new Error(
+          `Couldn’t send right now. Email me at ${siteConfig.email}.`,
+        );
       }
 
       setStatus("success");

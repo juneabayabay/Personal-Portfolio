@@ -84,10 +84,15 @@ export default function RootLayout({
       className={`${dmSans.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
       <body className="content-layer flex min-h-full min-h-dvh flex-col overflow-x-hidden bg-background px-[env(safe-area-inset-left)] pe-[env(safe-area-inset-right)] text-foreground">
+        <a href="#main-content" className="skip-link">
+          Skip to content
+        </a>
         <NetworkBackground />
         <div className="ambient-glow" aria-hidden="true" />
         <Navbar />
-        <main className="relative z-10 flex-1">{children}</main>
+        <main id="main-content" className="relative z-10 flex-1" tabIndex={-1}>
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

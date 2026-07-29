@@ -1,37 +1,45 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, BookOpen } from "lucide-react";
+import { ArrowUpRight, BookOpen, Code2 } from "lucide-react";
 import { capstoneProject } from "@/constants/capstone";
 
-const CASE_STUDY_HREF = "/blog/barnabas-system-study";
-const UI_IMAGE_QUALITY = 92;
+const COVER_QUALITY = 90;
 
 export function CapstoneProject() {
-  const { title, badge, tagline, overview, featuredImage, liveUrl, technologies } =
-    capstoneProject;
+  const {
+    title,
+    badge,
+    tagline,
+    overview,
+    featuredImage,
+    liveUrl,
+    githubUrl,
+    technologies,
+    caseStudyUrl,
+  } = capstoneProject;
 
   return (
     <article className="media-card media-card--project grid w-full min-w-0 grid-cols-1 overflow-hidden lg:grid-cols-2">
-      <div className="media-image-frame media-image-frame--screenshot relative aspect-[16/10] w-full overflow-hidden lg:aspect-auto lg:min-h-[300px]">
-        <div className="absolute inset-2 sm:inset-3">
-          <Image
-            src={featuredImage.src}
-            alt={featuredImage.alt}
-            fill
-            className="image-screenshot"
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            quality={UI_IMAGE_QUALITY}
-            priority
-          />
-        </div>
-        <span className="absolute top-3 left-3 tag tag-gold sm:top-4 sm:left-4">
-          {badge}
-        </span>
+      <div className="media-image-frame relative aspect-[16/10] w-full overflow-hidden lg:aspect-auto lg:min-h-[280px] xl:min-h-[320px]">
+        <Image
+          src={featuredImage.src}
+          alt={featuredImage.alt}
+          fill
+          className="image-cover"
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          quality={COVER_QUALITY}
+          priority
+        />
+        <div
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/25"
+          aria-hidden="true"
+        />
       </div>
 
       <div className="flex min-w-0 flex-col justify-center gap-3 p-4 sm:gap-4 sm:p-5 lg:p-6 xl:p-8">
         <div className="min-w-0">
-          <h3 className="text-base font-bold leading-snug break-words text-foreground sm:text-lg lg:text-xl">
+          <span className="tag tag-gold">{badge}</span>
+          <h3 className="mt-2.5 text-base font-bold leading-snug break-words text-foreground sm:text-lg lg:text-xl">
             {title}
           </h3>
           <p className="mt-1.5 text-sm font-medium text-primary">{tagline}</p>
@@ -49,25 +57,38 @@ export function CapstoneProject() {
           ))}
         </ul>
 
-        <div className="mt-1 flex flex-wrap items-center gap-x-4 gap-y-2">
+        <div className="mt-1 flex flex-wrap items-center gap-x-1 gap-y-1">
           {liveUrl ? (
             <a
               href={liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="link-arrow"
+              className="link-arrow min-h-11 items-center px-1 py-2"
             >
               Live demo
               <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden="true" />
             </a>
           ) : null}
-          <Link
-            href={CASE_STUDY_HREF}
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-          >
-            <BookOpen className="h-4 w-4 shrink-0" aria-hidden="true" />
-            Case study
-          </Link>
+          {caseStudyUrl ? (
+            <Link
+              href={caseStudyUrl}
+              className="inline-flex min-h-11 items-center gap-1.5 px-1 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            >
+              <BookOpen className="h-4 w-4 shrink-0" aria-hidden="true" />
+              Case study
+            </Link>
+          ) : null}
+          {githubUrl ? (
+            <a
+              href={githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-11 items-center gap-1.5 px-1 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+            >
+              <Code2 className="h-4 w-4 shrink-0" aria-hidden="true" />
+              GitHub
+            </a>
+          ) : null}
         </div>
       </div>
     </article>

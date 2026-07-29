@@ -18,6 +18,8 @@ export interface Project {
   technologies: string[];
   githubUrl?: string;
   liveUrl?: string;
+  /** Internal case study with system screenshots */
+  caseStudyUrl?: string;
   learned: string[];
 }
 

@@ -39,7 +39,7 @@ export const capstoneProject = {
     "Scheduling had to account for procedure length, avoid overlapping bookings, and support pencil booking until payment is confirmed.",
   results:
     "Staff and patients can manage appointments, records, and billing in one place instead of paper and Messenger.",
-  githubUrl: "",
+  githubUrl: "https://github.com/juneabayabay/Barnabas-Rebuild",
   liveUrl: "https://barnabas-dental.vercel.app/",
   technologies: [
     "React",
@@ -50,9 +50,10 @@ export const capstoneProject = {
     "Vercel",
   ] as const,
   featuredImage: {
-    src: "/projects/barnabas-dental-clinic/admin-dashboard.png",
-    alt: "Barnabas Dental Clinic admin dashboard — appointments, billing, and clinic metrics",
+    src: "/projects/barnabas-dental-clinic/cover.png",
+    alt: "Barnabas Dental Clinic — stylized project cover",
   },
+  caseStudyUrl: "/blog/barnabas-system-study",
   screenshots: [
     {
       src: "/projects/barnabas-dental-clinic/landing.png",

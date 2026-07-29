@@ -24,14 +24,14 @@ export function Hero() {
 
           <div className="mt-8 flex w-full max-w-md flex-col gap-2.5 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
             <a
-              href="#work"
+              href="/#work"
               className="btn btn-primary inline-flex min-h-11 w-full items-center justify-center gap-2 px-6 py-3 text-sm sm:w-auto"
             >
               View projects
               <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden="true" />
             </a>
             <a
-              href="#contact"
+              href="/#contact"
               className="btn btn-outline inline-flex min-h-11 w-full items-center justify-center gap-2 px-6 py-3 text-sm sm:w-auto"
             >
               <Send className="h-4 w-4 shrink-0" aria-hidden="true" />
