@@ -110,7 +110,7 @@ export const learningPosts: LearningPost[] = [
     title: "Barnabas Dental Clinic — Full System Study",
     excerpt:
       "One case study for the whole clinic system: problem, roles, scheduling, GCash pencil bookings, and the four dashboards.",
-    image: barnabasFigures.landing.src,
+    image: "/blog/barnabas-cover.png",
     publishedAt: "2026-06-20",
     readTimeMinutes: 10,
     kind: "case-study",
@@ -207,7 +207,7 @@ export const learningPosts: LearningPost[] = [
     title: "CBC Church Management — System Study",
     excerpt:
       "Staff portal for Cainta Baptist Church: login, role-based dashboards, members and families, events, attendance, and notices.",
-    image: cbcFigures.login.src,
+    image: "/blog/cbc-cover.png",
     publishedAt: "2026-06-28",
     readTimeMinutes: 7,
     kind: "case-study",
@@ -265,7 +265,7 @@ export const learningPosts: LearningPost[] = [
     title: "Cainta Baptist Church Website — Case Study",
     excerpt:
       "Visitor-first church site: service times, directions, giving, and contact—built so first-time guests know what to do next.",
-    image: churchFigures.preview.src,
+    image: "/blog/church-cover.png",
     publishedAt: "2026-07-05",
     readTimeMinutes: 4,
     kind: "case-study",
@@ -305,54 +305,6 @@ export const learningPosts: LearningPost[] = [
       takeaways: [
         "Public church sites succeed when the next action is obvious.",
         "Keep visitor pages separate from staff tools (like the CBC portal).",
-      ],
-    },
-  },
-  {
-    slug: "portfolio-with-nextjs",
-    title: "Building This Portfolio with Next.js",
-    excerpt:
-      "How I set up this site with Next.js, TypeScript, and Tailwind — and what I’d change next time.",
-    image:
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=360&fit=crop&crop=center&auto=format",
-    publishedAt: "2026-07-01",
-    readTimeMinutes: 5,
-    kind: "note",
-    url: "/blog/portfolio-with-nextjs",
-    content: {
-      intro:
-        "I wanted a portfolio that felt finished — clear sections, mobile-safe layout, and a real contact path — not just a template with my name swapped in.",
-      stack: ["Next.js", "TypeScript", "Tailwind CSS"],
-      sections: [
-        {
-          heading: "Stack choices",
-          paragraphs: [
-            "Next.js (App Router), TypeScript, and Tailwind keep the site easy to ship and update. Copy and links live in config/constants so I can change content without hunting through JSX.",
-          ],
-          bullets: [
-            "App Router for pages, metadata, and API routes",
-            "TypeScript for safer refactors",
-            "Tailwind tokens for the dark theme",
-            "Canvas particle background for subtle atmosphere",
-          ],
-        },
-        {
-          heading: "What I focused on",
-          paragraphs: [
-            "Hero first: who I am and clear CTAs. Selected work teases the projects. Full case studies live in Blog so Projects stays clean.",
-          ],
-        },
-        {
-          heading: "What I’d do differently",
-          paragraphs: [
-            "Link the live demo earlier. One strong case study page per system is enough — no overlapping write-ups.",
-          ],
-        },
-      ],
-      takeaways: [
-        "Separate content from UI components.",
-        "Ship contact + one deep project story.",
-        "Teaser on Projects, full study in Blog — not both as long pages.",
       ],
     },
   },

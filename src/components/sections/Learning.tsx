@@ -5,45 +5,38 @@ import { learningPosts } from "@/constants/learning";
 import { formatBlogDate } from "@/lib/format-blog-date";
 import { cn } from "@/lib/utils";
 
+function isCoverArt(image: string) {
+  return image.includes("/cover.") || image.includes("-cover.");
+}
+
 function BlogCard({ post }: { post: (typeof learningPosts)[number] }) {
   const isPublished = Boolean(post.url);
   const isInternal = Boolean(post.url?.startsWith("/"));
-  const isUiScreenshot = post.image.startsWith("/projects/");
+  const useCover = isCoverArt(post.image);
 
   const cardClassName = cn("media-card group flex h-full flex-col overflow-hidden");
 
   const inner = (
     <>
-      <div
-        className={cn(
-          "media-image-frame relative aspect-[16/10] shrink-0 overflow-hidden border-b border-border",
-          isUiScreenshot && "media-image-frame--screenshot",
-          !isUiScreenshot && "bg-surface",
-        )}
-      >
-        {isUiScreenshot ? (
-          <div className="absolute inset-2 sm:inset-3">
-            <Image
-              src={post.image}
-              alt=""
-              fill
-              quality={92}
-              className="image-screenshot"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 560px"
-              loading="lazy"
-            />
-          </div>
-        ) : (
-          <Image
-            src={post.image}
-            alt=""
-            fill
-            quality={92}
-            className="image-ui object-center transition-transform duration-300 group-hover:scale-[1.01]"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 560px"
-            loading="lazy"
+      <div className="media-image-frame relative aspect-[16/10] shrink-0 overflow-hidden border-b border-border bg-surface">
+        <Image
+          src={post.image}
+          alt=""
+          fill
+          quality={90}
+          className={cn(
+            useCover ? "image-cover" : "image-ui object-center",
+            "transition-transform duration-300 group-hover:scale-[1.02]",
+          )}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 560px"
+          loading="lazy"
+        />
+        {useCover ? (
+          <div
+            className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/20"
+            aria-hidden="true"
           />
-        )}
+        ) : null}
       </div>
       <div className="flex flex-1 flex-col p-4 sm:p-5">
         <div className="flex items-center justify-between gap-3 text-xs text-muted-foreground">
@@ -66,7 +59,11 @@ function BlogCard({ post }: { post: (typeof learningPosts)[number] }) {
   );
 
   if (isPublished && isInternal && post.url) {
-    return <Link href={post.url} className={cardClassName}>{inner}</Link>;
+    return (
+      <Link href={post.url} className={cardClassName}>
+        {inner}
+      </Link>
+    );
   }
   if (isPublished && post.url) {
     return (
@@ -85,13 +82,11 @@ export function Learning() {
         <div className="section-header section-header--simple">
           <div>
             <h2 className="section-heading">Blog</h2>
-            <p className="section-sub">
-              Case studies and short notes from projects I’m learning through.
-            </p>
+            <p className="section-sub">Case studies for the systems behind my projects.</p>
           </div>
         </div>
 
-        <div className="grid w-full min-w-0 grid-cols-1 gap-5 sm:grid-cols-2">
+        <div className="grid w-full min-w-0 grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {learningPosts.map((post) => (
             <BlogCard key={post.slug} post={post} />
           ))}
