@@ -9,7 +9,7 @@ export function Experience() {
           <div>
             <h2 className="section-heading">Experience</h2>
             <p className="section-sub">
-              Roles and ownership. Project details live under Projects.
+              School and client roles. See Projects for demos and details.
             </p>
           </div>
         </div>

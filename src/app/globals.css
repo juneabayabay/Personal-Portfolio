@@ -738,6 +738,11 @@ body {
   color: var(--muted-foreground);
 }
 
+.contact-aside__text--muted {
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
 .contact-channels {
   display: flex;
   flex-direction: column;

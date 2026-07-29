@@ -10,11 +10,11 @@ export const experienceEntries: ExperienceEntry[] = [
     duration: "Capstone",
     location: "Cainta, Rizal, Philippines",
     description:
-      "Lead full-stack development for a clinic management system used for scheduling, records, and billing.",
+      "Building a clinic management system as my capstone—learning full-stack work through a real clinic workflow.",
     highlights: [
-      "Owned end-to-end features across database, API, and staff/patient dashboards.",
-      "Defined booking rules so appointments respect procedure length and payment status.",
-      "Deployed the full stack with React, Django, PostgreSQL, Render, and Vercel.",
+      "Worked across database, API, and dashboards for patients and staff.",
+      "Practiced booking rules so appointments respect procedure length and payment status.",
+      "Deployed the stack with React, Django, PostgreSQL, Render, and Vercel.",
     ],
     technologies: ["React", "Django", "PostgreSQL", "Aiven", "Render", "Vercel"],
     liveUrl: "https://barnabas-dental.vercel.app/",
@@ -29,10 +29,10 @@ export const experienceEntries: ExperienceEntry[] = [
     duration: "Project",
     location: "Cainta, Rizal, Philippines",
     description:
-      "Delivered a staff portal so church teams can manage records with clear role-based access.",
+      "Built a staff portal for church records while learning auth, roles, and CRUD in a real client project.",
     highlights: [
       "Shipped modules for members, families, events, attendance, and notices.",
-      "Implemented Admin, Pastor, Staff, and Volunteer permissions in UI and API.",
+      "Learned role-based access for Admin, Pastor, Staff, and Volunteer.",
       "Deployed with Neon, Render, and Vercel.",
     ],
     technologies: ["React", "Django REST", "PostgreSQL", "Neon", "Render", "Vercel"],
@@ -49,10 +49,10 @@ export const experienceEntries: ExperienceEntry[] = [
     duration: "Project",
     location: "Cainta, Rizal, Philippines",
     description:
-      "Built the public church website for first-time visitors and Sunday information.",
+      "Built the public church website so visitors can find Sunday info and contact details easily.",
     highlights: [
       "Organized welcome, service times, directions, giving, and contact into clear pages.",
-      "Shipped a responsive Next.js site for real church visitors.",
+      "Practiced responsive layout on Next.js for phone and desktop visitors.",
     ],
     technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
     liveUrl: "https://cainta-baptist-church.vercel.app/",

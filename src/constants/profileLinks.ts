@@ -2,6 +2,7 @@ import { siteConfig } from "@/config/site";
 import { getCodewarsUrl, getLinkedinUrl, getMonkeytypeUrl } from "@/lib/profile-urls";
 import type { ProfileLink } from "@/types";
 
+/** Optional profile links (not shown in hero). Resume omitted until a PDF is ready. */
 export function getProfileLinks(): ProfileLink[] {
   const featured: ProfileLink[] = [
     {
@@ -12,30 +13,22 @@ export function getProfileLinks(): ProfileLink[] {
       icon: "github",
     },
     {
-      id: "monkeytype",
-      name: "MonkeyType",
-      subtitle: siteConfig.profiles.monkeytypeSubtitle,
-      url: getMonkeytypeUrl(),
-      icon: "keyboard",
-    },
-    {
       id: "linkedin",
       name: "LinkedIn",
       subtitle: "Professional profile",
       url: getLinkedinUrl(),
       icon: "linkedin",
     },
-    {
-      id: "resume",
-      name: "Resume",
-      subtitle: "",
-      url: "",
-      icon: "file",
-      empty: true,
-    },
   ];
 
   const optional: ProfileLink[] = [
+    {
+      id: "monkeytype",
+      name: "MonkeyType",
+      subtitle: siteConfig.profiles.monkeytypeSubtitle,
+      url: getMonkeytypeUrl(),
+      icon: "keyboard",
+    },
     {
       id: "codewars",
       name: "CodeWars",
@@ -45,5 +38,8 @@ export function getProfileLinks(): ProfileLink[] {
     },
   ];
 
-  return [...featured, ...optional.filter((link) => link.url.trim() !== "")];
+  return [
+    ...featured,
+    ...optional.filter((link) => link.url.trim() !== ""),
+  ];
 }
