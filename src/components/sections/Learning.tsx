@@ -85,7 +85,9 @@ export function Learning() {
         <div className="section-header section-header--simple">
           <div>
             <h2 className="section-heading">Blog</h2>
-            <p className="section-sub">Short write-ups from projects I’m learning through.</p>
+            <p className="section-sub">
+              Case studies and short notes from projects I’m learning through.
+            </p>
           </div>
         </div>
 

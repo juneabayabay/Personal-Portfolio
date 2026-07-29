@@ -37,7 +37,6 @@ export const experienceEntries: ExperienceEntry[] = [
     ],
     technologies: ["React", "Django REST", "PostgreSQL", "Neon", "Render", "Vercel"],
     liveUrl: "https://church-management-system-sigma-sable.vercel.app/",
-    githubUrl: "https://github.com/juneabayabay/ChurchManagementSystem",
     current: false,
   },
   {

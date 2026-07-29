@@ -3,7 +3,7 @@
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { BrandMark } from "@/components/common/Logo";
-import { navLinks } from "@/constants/nav";
+import { homeHref, navLinks } from "@/constants/nav";
 import { siteConfig } from "@/config/site";
 
 export function Navbar() {
@@ -21,8 +21,15 @@ export function Navbar() {
     if (!isOpen) return;
     const links = document.querySelectorAll("#mobileMenu a");
     const closeMenu = () => setIsOpen(false);
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsOpen(false);
+    };
     links.forEach((link) => link.addEventListener("click", closeMenu));
-    return () => links.forEach((link) => link.removeEventListener("click", closeMenu));
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      links.forEach((link) => link.removeEventListener("click", closeMenu));
+      window.removeEventListener("keydown", onKeyDown);
+    };
   }, [isOpen]);
 
   useEffect(() => {
@@ -40,17 +47,17 @@ export function Navbar() {
     >
       <div className="section-inner flex h-[var(--nav-height)] items-center justify-between gap-3">
         <a
-          href="#home"
-          className="brand-mark-link inline-flex min-w-0 shrink items-center"
+          href={homeHref}
+          className="brand-mark-link inline-flex min-h-11 min-w-0 shrink items-center"
           aria-label={`${siteConfig.name} home`}
           onClick={() => setIsOpen(false)}
         >
           <BrandMark variant="nav" />
         </a>
 
-        <div className="hidden items-center gap-2.5 lg:flex xl:gap-4">
+        <div className="hidden items-center gap-1 lg:flex xl:gap-2">
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href} className="nav-link px-1">
+            <a key={link.href} href={link.href} className="nav-link px-2 py-2">
               {link.label}
             </a>
           ))}
@@ -58,9 +65,10 @@ export function Navbar() {
 
         <button
           type="button"
-          className="shrink-0 rounded-lg p-2.5 text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-primary lg:hidden"
+          className="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-lg text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-primary lg:hidden"
           aria-label={isOpen ? "Close menu" : "Open menu"}
           aria-expanded={isOpen}
+          aria-controls="mobileMenu"
           onClick={() => setIsOpen((open) => !open)}
         >
           {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -84,7 +92,7 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="nav-link rounded-lg px-2 py-3.5 text-base"
+              className="nav-link rounded-lg px-3 py-3.5 text-base"
             >
               {link.label}
             </a>

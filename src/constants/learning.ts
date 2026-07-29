@@ -64,11 +64,45 @@ const barnabasFigures = {
   },
 } as const;
 
+const cbcFigures = {
+  login: {
+    src: "/projects/cbc-church-management/login.png",
+    alt: "CBC staff portal sign-in screen",
+    caption: "Staff sign-in — secure login for authorized CBC accounts.",
+  },
+  admin: {
+    src: "/projects/cbc-church-management/dashboard-admin.png",
+    alt: "CBC admin dashboard overview",
+    caption: "Admin dashboard — church ops overview and quick actions.",
+  },
+  volunteer: {
+    src: "/projects/cbc-church-management/dashboard-volunteer.png",
+    alt: "CBC volunteer dashboard",
+    caption: "Volunteer view — role-scoped tools for day-to-day work.",
+  },
+  accounts: {
+    src: "/projects/cbc-church-management/accounts.png",
+    alt: "CBC account and staff management screen",
+    caption: "Accounts — manage staff users and access.",
+  },
+  preview: {
+    src: "/projects/cbc-church-management/preview.png",
+    alt: "CBC church management system preview",
+    caption: "System preview — members, families, events, and notices.",
+  },
+} as const;
+
+const churchFigures = {
+  preview: {
+    src: "/projects/cainta-baptist-church/preview.jpg",
+    alt: "Cainta Baptist Church public website homepage",
+    caption: "Public homepage — visitors see services, location, and contact first.",
+  },
+} as const;
+
 /**
- * Two posts only:
- * 1) Full Barnabas system study (all clinic detail lives here)
- * 2) Portfolio build note (this site)
- * Avoid a third Barnabas note — that was redundant.
+ * Case studies hold real UI screenshots.
+ * Project cards on Work use stylized covers as the frontpage tease.
  */
 export const learningPosts: LearningPost[] = [
   {
@@ -169,6 +203,112 @@ export const learningPosts: LearningPost[] = [
     },
   },
   {
+    slug: "cbc-system-study",
+    title: "CBC Church Management — System Study",
+    excerpt:
+      "Staff portal for Cainta Baptist Church: login, role-based dashboards, members and families, events, attendance, and notices.",
+    image: cbcFigures.login.src,
+    publishedAt: "2026-06-28",
+    readTimeMinutes: 7,
+    kind: "case-study",
+    url: "/blog/cbc-system-study",
+    content: {
+      intro:
+        "CBC Church Management System is a staff portal I built as a client learning project. It helps church staff manage members, families, events, attendance, and notices with login and role-based access—deployed with Neon, Render, and Vercel.",
+      stack: ["React", "Django REST", "PostgreSQL", "Neon", "Render", "Vercel"],
+      interviewPitch:
+        "I built a church staff portal for Cainta Baptist Church. Staff sign in, work from role-aware dashboards, and manage members, families, events, attendance, and notices instead of scattering that work across chat and spreadsheets. Stack is React, Django REST, and PostgreSQL on Neon, with the API on Render and the frontend on Vercel.",
+      sections: [
+        {
+          heading: "The problem",
+          paragraphs: [
+            "Church records lived across informal channels. Staff needed a single place to sign in, see the right screens for their role, and update members, families, events, and notices without losing track of attendance.",
+          ],
+        },
+        {
+          heading: "Sign-in & access",
+          paragraphs: [
+            "Authorized staff enter credentials on a dedicated portal. JWT login and role-aware screens keep volunteers and admins on the tools they need.",
+          ],
+          figures: [cbcFigures.login],
+        },
+        {
+          heading: "Dashboards by role",
+          paragraphs: [
+            "Admins get an operations overview and account tools. Volunteers see a scoped dashboard for day-to-day church workflow.",
+          ],
+          figures: [cbcFigures.admin, cbcFigures.volunteer],
+        },
+        {
+          heading: "Accounts & records",
+          paragraphs: [
+            "Staff accounts and church data sit behind the same portal—CRUD workflows for members, families, events, attendance, and notices.",
+          ],
+          figures: [cbcFigures.accounts, cbcFigures.preview],
+        },
+        {
+          heading: "Results",
+          paragraphs: [
+            "Staff can sign in, work from the right dashboard, and keep church records in one system instead of chat threads and ad-hoc files.",
+          ],
+        },
+      ],
+      takeaways: [
+        "Role-based screens matter as much as CRUD forms.",
+        "A clear login experience sets trust for staff tools.",
+        "Neon + Render + Vercel is a practical path for student client work.",
+      ],
+    },
+  },
+  {
+    slug: "cainta-church-website-study",
+    title: "Cainta Baptist Church Website — Case Study",
+    excerpt:
+      "Visitor-first church site: service times, directions, giving, and contact—built so first-time guests know what to do next.",
+    image: churchFigures.preview.src,
+    publishedAt: "2026-07-05",
+    readTimeMinutes: 4,
+    kind: "case-study",
+    url: "/blog/cainta-church-website-study",
+    content: {
+      intro:
+        "The Cainta Baptist Church website is a public, visitor-focused site. Guests should find Sunday times, how to get there, giving options, and a clear contact path without digging through menus.",
+      stack: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+      interviewPitch:
+        "I built the public website for Cainta Baptist Church so first-time visitors can quickly see service times, location, giving, and contact. It’s a clean Next.js site focused on clarity for guests—not an admin tool.",
+      sections: [
+        {
+          heading: "Goal",
+          paragraphs: [
+            "Make the first visit to the site feel welcoming and practical: where to go on Sunday, how to reach the church, and how to give—without clutter.",
+          ],
+        },
+        {
+          heading: "What visitors see",
+          paragraphs: [
+            "The homepage leads with atmosphere and clear next steps—services, directions, and contact—so guests aren’t lost in secondary content.",
+          ],
+          figures: [churchFigures.preview],
+        },
+        {
+          heading: "What I focused on",
+          paragraphs: [
+            "Responsive layout, simple CTAs, and copy written for people who may be visiting for the first time.",
+          ],
+          bullets: [
+            "Clear Sunday and location CTAs",
+            "Mobile-friendly pages",
+            "Straightforward giving and contact paths",
+          ],
+        },
+      ],
+      takeaways: [
+        "Public church sites succeed when the next action is obvious.",
+        "Keep visitor pages separate from staff tools (like the CBC portal).",
+      ],
+    },
+  },
+  {
     slug: "portfolio-with-nextjs",
     title: "Building This Portfolio with Next.js",
     excerpt:
@@ -199,20 +339,20 @@ export const learningPosts: LearningPost[] = [
         {
           heading: "What I focused on",
           paragraphs: [
-            "Hero first: who I am and clear CTAs. Selected work teases Barnabas. The full system study lives in Build journal so Work stays clean and Notes hold the deep write-up.",
+            "Hero first: who I am and clear CTAs. Selected work teases the projects. Full case studies live in Blog so Projects stays clean.",
           ],
         },
         {
           heading: "What I’d do differently",
           paragraphs: [
-            "Link the live demo or repo earlier. One strong case study page is enough — no need for multiple overlapping Barnabas posts.",
+            "Link the live demo earlier. One strong case study page per system is enough — no overlapping write-ups.",
           ],
         },
       ],
       takeaways: [
         "Separate content from UI components.",
         "Ship contact + one deep project story.",
-        "Teaser on Work, full study in the journal — not both as long pages.",
+        "Teaser on Projects, full study in Blog — not both as long pages.",
       ],
     },
   },
