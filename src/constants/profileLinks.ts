@@ -1,10 +1,25 @@
 import { siteConfig } from "@/config/site";
-import { getCodewarsUrl, getLinkedinUrl, getMonkeytypeUrl } from "@/lib/profile-urls";
+import { getLinkedinUrl, getMonkeytypeUrl } from "@/lib/profile-urls";
 import type { ProfileLink } from "@/types";
 
-/** Optional profile links (not shown in hero). Resume omitted until a PDF is ready. */
+/** Hero profile cards — LinkedIn, Resume, GitHub, MonkeyType */
 export function getProfileLinks(): ProfileLink[] {
-  const featured: ProfileLink[] = [
+  const links: ProfileLink[] = [
+    {
+      id: "linkedin",
+      name: "LinkedIn",
+      subtitle: "Professional profile",
+      url: getLinkedinUrl(),
+      icon: "linkedin",
+    },
+    {
+      id: "resume",
+      name: "Resume",
+      subtitle: "Coming soon",
+      url: "",
+      icon: "file",
+      empty: true,
+    },
     {
       id: "github",
       name: "GitHub",
@@ -13,33 +28,13 @@ export function getProfileLinks(): ProfileLink[] {
       icon: "github",
     },
     {
-      id: "linkedin",
-      name: "LinkedIn",
-      subtitle: "Professional profile",
-      url: getLinkedinUrl(),
-      icon: "linkedin",
-    },
-  ];
-
-  const optional: ProfileLink[] = [
-    {
       id: "monkeytype",
       name: "MonkeyType",
       subtitle: siteConfig.profiles.monkeytypeSubtitle,
       url: getMonkeytypeUrl(),
       icon: "keyboard",
     },
-    {
-      id: "codewars",
-      name: "CodeWars",
-      subtitle: siteConfig.profiles.codewarsSubtitle,
-      url: getCodewarsUrl(),
-      icon: "code",
-    },
   ];
 
-  return [
-    ...featured,
-    ...optional.filter((link) => link.url.trim() !== ""),
-  ];
+  return links.filter((link) => link.empty || link.url.trim() !== "");
 }
