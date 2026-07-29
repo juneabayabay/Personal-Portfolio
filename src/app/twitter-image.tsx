@@ -97,7 +97,7 @@ export default function TwitterImage() {
               lineHeight: 1.4,
             }}
           >
-            Full-stack web apps for real users · Open to software engineering internships
+            Learning by building · Open to software engineering internships
           </div>
         </div>
 

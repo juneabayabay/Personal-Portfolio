@@ -13,9 +13,9 @@ export const capstoneProject = {
   slug: "barnabas-dental-clinic",
   title: "Barnabas Dental Clinic Management System",
   badge: "Capstone",
-  tagline: "Full-stack clinic operations",
+  tagline: "Capstone clinic system",
   overview:
-    "Scheduling, patient records, billing, and role-based dashboards—built to replace paper charts and Messenger booking.",
+    "Scheduling, patient records, billing, and role-based dashboards—my capstone built to replace paper charts and Messenger booking.",
   problem:
     "The clinic used paper records and Facebook Messenger for appointments, patient info, and billing. That made scheduling harder and records slower to find.",
   solution: [

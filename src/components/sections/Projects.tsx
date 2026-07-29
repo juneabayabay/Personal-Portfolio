@@ -13,7 +13,7 @@ export function Projects() {
           <div>
             <h2 className="section-heading">Projects</h2>
             <p className="section-sub">
-              Selected full-stack work—school capstone and client builds.
+              School capstone and client builds I’m learning from.
             </p>
           </div>
         </div>

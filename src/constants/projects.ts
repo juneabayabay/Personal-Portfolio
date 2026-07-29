@@ -6,7 +6,7 @@ export const projects: Project[] = [
     slug: "cbc-church-management",
     title: "CBC Church Management System",
     description:
-      "Staff portal for church operations—members, families, events, attendance, and notices—with JWT auth and role-based access.",
+      "Staff portal for church records—members, families, events, attendance, and notices—with login and role-based access. Built as a client learning project.",
     image: "/projects/cbc-church-management/login.png",
     technologies: [
       "React",
@@ -19,9 +19,9 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/juneabayabay/ChurchManagementSystem",
     liveUrl: "https://church-management-system-sigma-sable.vercel.app/",
     learned: [
-      "JWT authentication with role-aware UI and API",
+      "JWT login and role-aware screens",
       "CRUD workflows for church records",
-      "Full-stack deploy on Neon, Render, and Vercel",
+      "Deploying with Neon, Render, and Vercel",
     ],
   },
   {
@@ -34,9 +34,9 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/juneabayabay/Cainta-Baptist-Church",
     liveUrl: "https://cainta-baptist-church.vercel.app/",
     learned: [
-      "Scannable layout for first-time visitors",
-      "Clear Sunday and location CTAs",
-      "Responsive marketing site on Next.js",
+      "Clear layout for first-time visitors",
+      "Simple Sunday and location CTAs",
+      "Responsive pages on Next.js",
     ],
   },
 ];

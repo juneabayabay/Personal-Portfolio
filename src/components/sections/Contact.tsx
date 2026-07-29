@@ -70,7 +70,7 @@ export function Contact() {
           <div>
             <h2 className="section-heading">Contact</h2>
             <p className="section-sub">
-              Open to internships and collaboration. Reach out anytime.
+              Open to internships. I’d love to hear from you.
             </p>
           </div>
         </div>
@@ -79,8 +79,10 @@ export function Contact() {
           <aside className="contact-aside">
             <span className="status-badge">{siteConfig.availability}</span>
 
-            <p className="contact-aside__text">
-              Prefer email? Use the form or contact me directly.
+            <p className="contact-aside__text">{siteConfig.lookingFor}</p>
+
+            <p className="contact-aside__text contact-aside__text--muted">
+              Prefer email? Use the form or message me directly.
             </p>
 
             <ul className="contact-channels">

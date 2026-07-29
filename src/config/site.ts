@@ -18,7 +18,7 @@ export const siteConfig = {
   logo: "logo",
   title: "Arjune Abay Abay | IT Student & Aspiring Software Engineer",
   description:
-    "IT student building full-stack web apps for real users. Open to software engineering internships.",
+    "IT student learning full-stack web development through school and client projects. Open to internships.",
   url: resolveSiteUrl(),
   role: "IT Student",
   headline: "IT Student · Aspiring Software Engineer",
@@ -26,6 +26,8 @@ export const siteConfig = {
   availability: "Open to internships",
   heroIntro:
     "Curious IT student building web apps for school and real clients. I enjoy exploring new ideas, learning from each project, and growing into software engineering.",
+  lookingFor:
+    "Looking for a software engineering or web development internship where I can learn from a team and contribute to real features.",
   email: "hkillua222@gmail.com",
   location: "Cainta, Rizal, Philippines",
   school: "STI College Ortigas-Cainta",
