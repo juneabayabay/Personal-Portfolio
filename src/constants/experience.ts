@@ -23,7 +23,7 @@ export const experienceEntries: ExperienceEntry[] = [
   {
     id: "cbc-church-management",
     company: "Cainta Baptist Church",
-    role: "Full-Stack Developer",
+    role: "Web Developer",
     type: "Client project",
     period: "2025 – 2026",
     duration: "Project",

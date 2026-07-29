@@ -13,7 +13,7 @@ export function Projects() {
           <div>
             <h2 className="section-heading">Projects</h2>
             <p className="section-sub">
-              School capstone and client builds I’m learning from.
+              Selected school and client work with live demos.
             </p>
           </div>
         </div>

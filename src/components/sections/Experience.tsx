@@ -1,4 +1,3 @@
-import { ArrowUpRight, Code2 } from "lucide-react";
 import { experienceEntries } from "@/constants/experience";
 
 export function Experience() {
@@ -9,7 +8,7 @@ export function Experience() {
           <div>
             <h2 className="section-heading">Experience</h2>
             <p className="section-sub">
-              School and client roles. See Projects for demos and details.
+              School and client roles. Demos and case studies are under Projects.
             </p>
           </div>
         </div>
@@ -63,33 +62,6 @@ export function Experience() {
                   </span>
                 ))}
               </div>
-
-              {entry.liveUrl || entry.githubUrl ? (
-                <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
-                  {entry.liveUrl ? (
-                    <a
-                      href={entry.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="link-arrow"
-                    >
-                      Live demo
-                      <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden="true" />
-                    </a>
-                  ) : null}
-                  {entry.githubUrl ? (
-                    <a
-                      href={entry.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
-                    >
-                      <Code2 className="h-4 w-4 shrink-0" aria-hidden="true" />
-                      GitHub
-                    </a>
-                  ) : null}
-                </div>
-              ) : null}
             </article>
           ))}
         </div>
