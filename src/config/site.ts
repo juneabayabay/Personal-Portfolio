@@ -25,7 +25,7 @@ export const siteConfig = {
   tagline: "BS Information Technology · STI College · Class of 2027",
   availability: "Open to internships",
   heroIntro:
-    "I build full-stack web apps for real users—clinic and church systems—with clear structure, role-based access, and reliable deploys.",
+    "Curious IT student building web apps for school and real clients. I enjoy exploring new ideas, learning from each project, and growing into software engineering.",
   email: "hkillua222@gmail.com",
   location: "Cainta, Rizal, Philippines",
   school: "STI College Ortigas-Cainta",
