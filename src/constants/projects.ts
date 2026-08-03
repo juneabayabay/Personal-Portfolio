@@ -7,7 +7,7 @@ export const projects: Project[] = [
     title: "Bible App",
     description:
       "Public Bible reader with verse search, chapter reading, plans, devotionals, and a prayer wall—built as a personal learning project.",
-    image: "/projects/bible-app/cover.png",
+    image: "/projects/bible-app/cover-v2.png",
     technologies: [
       "Astro",
       "TypeScript",
@@ -52,7 +52,7 @@ export const projects: Project[] = [
     title: "Cainta Baptist Church Website",
     description:
       "Visitor-focused church website with service times, directions, giving options, and contact—built for first-time guests.",
-    image: "/projects/cainta-baptist-church/cover.png",
+    image: "/projects/cainta-baptist-church/cover-v2.png",
     technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel"],
     githubUrl: "https://github.com/juneabayabay/Cainta-Baptist-Church",
     liveUrl: "https://cainta-baptist-church.vercel.app/",

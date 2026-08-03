@@ -148,7 +148,7 @@ export const learningPosts: LearningPost[] = [
     title: "Bible App — Reading Experience Study",
     excerpt:
       "A personal Bible web app: search, chapter reading, plans, devotionals, prayer wall, and simple progress—built to learn Astro and ship a public product.",
-    image: "/blog/bible-cover.png",
+    image: "/blog/bible-cover-v2.png",
     publishedAt: "2026-08-02",
     readTimeMinutes: 6,
     kind: "case-study",
@@ -386,7 +386,7 @@ export const learningPosts: LearningPost[] = [
     title: "Cainta Baptist Church Website — Case Study",
     excerpt:
       "Visitor-first church site: service times, directions, giving, and contact—built so first-time guests know what to do next.",
-    image: "/blog/church-cover.png",
+    image: "/blog/church-cover-v2.png",
     publishedAt: "2026-07-05",
     readTimeMinutes: 4,
     kind: "case-study",
