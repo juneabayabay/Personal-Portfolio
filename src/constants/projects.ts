@@ -3,6 +3,28 @@ import type { Project } from "@/types";
 /** Selected projects shown under the featured capstone */
 export const projects: Project[] = [
   {
+    slug: "bible-app",
+    title: "Bible App",
+    description:
+      "Web Bible reader with verse search, reading plans, devotionals, a prayer wall, and simple progress tracking - built as a personal learning project.",
+    image: "/projects/bible-app/cover.png",
+    technologies: [
+      "Astro",
+      "TypeScript",
+      "Alpine.js",
+      "Tailwind CSS",
+      "Supabase",
+      "Vercel",
+    ],
+    githubUrl: "https://github.com/juneabayabay/Bible-app",
+    liveUrl: "https://bible-app-ochre.vercel.app/web/",
+    learned: [
+      "Structuring a multi-section reading app (books, search, plans)",
+      "Client-side search and on-device highlights",
+      "Shipping a public web app with Astro and Vercel",
+    ],
+  },
+  {
     slug: "cbc-church-management",
     title: "CBC Church Management System",
     description:
