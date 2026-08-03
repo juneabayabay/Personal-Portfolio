@@ -56,7 +56,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
   return (
     <article className="section scroll-mt-nav page-top pb-16 sm:pb-24">
       <div className="section-inner mx-auto max-w-3xl sm:max-w-4xl">
-        <Link href="/#learn" className="link-arrow text-sm text-muted-foreground hover:text-primary">
+        <Link href="/blog" className="link-arrow text-sm text-muted-foreground hover:text-primary">
           <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
           Back to blog
         </Link>

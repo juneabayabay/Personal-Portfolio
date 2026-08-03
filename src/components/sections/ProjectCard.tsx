@@ -12,7 +12,7 @@ type ProjectCardProps = {
 };
 
 function isCoverArt(image: string) {
-  return image.includes("/cover.");
+  return image.includes("/cover") || image.includes("-cover");
 }
 
 export function ProjectCard({ project, layout = "vertical" }: ProjectCardProps) {
