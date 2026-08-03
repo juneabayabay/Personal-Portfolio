@@ -53,7 +53,7 @@ export const projects: Project[] = [
     description:
       "Visitor-focused church website with service times, directions, giving options, and contact—built for first-time guests.",
     image: "/projects/cainta-baptist-church/cover.png",
-    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel"],
     githubUrl: "https://github.com/juneabayabay/Cainta-Baptist-Church",
     liveUrl: "https://cainta-baptist-church.vercel.app/",
     caseStudyUrl: "/blog/cainta-church-website-study",

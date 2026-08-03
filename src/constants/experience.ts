@@ -21,6 +21,33 @@ export const experienceEntries: ExperienceEntry[] = [
     current: true,
   },
   {
+    id: "bible-app",
+    company: "Bible App",
+    role: "Full-Stack Developer",
+    type: "Personal project",
+    period: "2026",
+    duration: "Project",
+    location: "Cainta, Rizal, Philippines",
+    description:
+      "Building a public Bible reading web app—search, chapters, plans, devotionals, and prayer—while learning Astro and shipping a live product.",
+    highlights: [
+      "Shipped reading flows for books, chapters, search, and on-device highlights.",
+      "Added plans, devotionals, journey tracking, and a prayer wall.",
+      "Deployed with Astro, TypeScript, Alpine.js, Tailwind CSS, Supabase, and Vercel.",
+    ],
+    technologies: [
+      "Astro",
+      "TypeScript",
+      "Alpine.js",
+      "Tailwind CSS",
+      "Supabase",
+      "Vercel",
+    ],
+    liveUrl: "https://bible-app-ochre.vercel.app/web/",
+    githubUrl: "https://github.com/juneabayabay/Bible-app",
+    current: true,
+  },
+  {
     id: "cbc-church-management",
     company: "Cainta Baptist Church",
     role: "Web Developer",

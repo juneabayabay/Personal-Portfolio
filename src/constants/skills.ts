@@ -10,6 +10,8 @@ export const skillCategories: SkillCategory[] = [
       { name: "TypeScript", level: "Learning" },
       { name: "React", level: "Comfortable" },
       { name: "Next.js", level: "Learning" },
+      { name: "Astro", level: "Learning" },
+      { name: "Alpine.js", level: "Learning" },
       { name: "Tailwind CSS", level: "Comfortable" },
     ],
   },
@@ -31,6 +33,7 @@ export const skillCategories: SkillCategory[] = [
       { name: "Supabase", level: "Learning" },
       { name: "Aiven", level: "Learning" },
       { name: "Render", level: "Learning" },
+      { name: "Vercel", level: "Learning" },
     ],
   },
   {
@@ -48,6 +51,7 @@ export const currentFocusStack = [
   "React",
   "Next.js",
   "TypeScript",
+  "Astro",
   "Django",
   "PostgreSQL",
   "Python",
@@ -60,4 +64,3 @@ export const fullArchiveStack = [
     ...currentFocusStack,
   ]),
 ].sort((a, b) => a.localeCompare(b));
-
