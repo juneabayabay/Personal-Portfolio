@@ -6,7 +6,7 @@ export const projects: Project[] = [
     slug: "bible-app",
     title: "Bible App",
     description:
-      "Web Bible reader with verse search, reading plans, devotionals, a prayer wall, and simple progress tracking - built as a personal learning project.",
+      "Public Bible reader with verse search, chapter reading, plans, devotionals, and a prayer wall—built as a personal learning project.",
     image: "/projects/bible-app/cover.png",
     technologies: [
       "Astro",
@@ -18,10 +18,11 @@ export const projects: Project[] = [
     ],
     githubUrl: "https://github.com/juneabayabay/Bible-app",
     liveUrl: "https://bible-app-ochre.vercel.app/web/",
+    caseStudyUrl: "/blog/bible-app-study",
     learned: [
-      "Structuring a multi-section reading app (books, search, plans)",
-      "Client-side search and on-device highlights",
-      "Shipping a public web app with Astro and Vercel",
+      "Calm navigation across reading, plans, and prayer",
+      "Astro + Alpine for a content-heavy public app",
+      "Shipping and iterating on a live Vercel deploy",
     ],
   },
   {

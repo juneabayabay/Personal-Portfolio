@@ -100,11 +100,132 @@ const churchFigures = {
   },
 } as const;
 
+const bibleFigures = {
+  home: {
+    src: "/projects/bible-app/home.png",
+    alt: "Bible app home with today's verse and reading shortcuts",
+    caption: "Home — today's verse, continue reading, and open Bible.",
+  },
+  books: {
+    src: "/projects/bible-app/books.png",
+    alt: "Bible book picker with Old and New Testament categories",
+    caption: "Books — pick a book by testament and category.",
+  },
+  chapter: {
+    src: "/projects/bible-app/chapter.png",
+    alt: "Chapter reading view with verse text and reading controls",
+    caption: "Reading view — chapter text, font size, compare, and listen.",
+  },
+  plans: {
+    src: "/projects/bible-app/plans.png",
+    alt: "Guided Bible reading plans list",
+    caption: "Plans — day-by-day tracks saved on this device.",
+  },
+  devotionals: {
+    src: "/projects/bible-app/devotionals.png",
+    alt: "Devotionals themes for reflection",
+    caption: "Devotionals — quiet themes to reflect on.",
+  },
+  prayer: {
+    src: "/projects/bible-app/prayer.png",
+    alt: "Prayer wall for sharing and viewing requests",
+    caption: "Prayer wall — share requests and follow along.",
+  },
+  journey: {
+    src: "/projects/bible-app/journey.png",
+    alt: "Journey streak and reading progress screen",
+    caption: "Journey — streak and progress for steady reading.",
+  },
+} as const;
+
 /**
  * Case studies hold real UI screenshots.
  * Project cards on Work use stylized covers as the frontpage tease.
  */
 export const learningPosts: LearningPost[] = [
+  {
+    slug: "bible-app-study",
+    title: "Bible App — Reading Experience Study",
+    excerpt:
+      "A personal Bible web app: search, chapter reading, plans, devotionals, prayer wall, and simple progress—built to learn Astro and ship a public product.",
+    image: "/blog/bible-cover.png",
+    publishedAt: "2026-08-02",
+    readTimeMinutes: 6,
+    kind: "case-study",
+    url: "/blog/bible-app-study",
+    content: {
+      intro:
+        "Bible App is a personal learning project: a public web reader for Scripture with verse search, chapter reading, guided plans, devotionals, a prayer wall, and light progress tracking. I built it to practice shipping a multi-section product people can actually use—not just a demo page.",
+      stack: [
+        "Astro",
+        "TypeScript",
+        "Alpine.js",
+        "Tailwind CSS",
+        "Supabase",
+        "Vercel",
+      ],
+      interviewPitch:
+        "I built a Bible reading web app as a personal project. Visitors can search verses, open any book and chapter, follow day-by-day plans, read devotionals, use a prayer wall, and track a simple reading streak. Stack is Astro, TypeScript, Alpine.js, and Tailwind, with Supabase where shared data is needed, deployed on Vercel. The hard part was keeping navigation calm across many features while making reading itself stay distraction-free.",
+      sections: [
+        {
+          heading: "The goal",
+          paragraphs: [
+            "I wanted one calm place to read Scripture on the web: find a verse quickly, continue a chapter, and optionally go deeper with plans, devotionals, or prayer—without turning the home screen into a dashboard of everything at once.",
+          ],
+        },
+        {
+          heading: "Home & entry points",
+          paragraphs: [
+            "The home screen leads with today's verse and clear next steps—continue reading or open the Bible—so visitors are not forced to hunt through menus first.",
+          ],
+          figures: [bibleFigures.home],
+        },
+        {
+          heading: "Finding a book & reading",
+          paragraphs: [
+            "Books are grouped by testament and category. The chapter view focuses on readable text, with practical controls for font size, translation compare, and listen—kept secondary so the verse stays primary.",
+          ],
+          figures: [bibleFigures.books, bibleFigures.chapter],
+        },
+        {
+          heading: "Plans, devotionals & prayer",
+          paragraphs: [
+            "Beyond single chapters, the app offers guided reading plans, quiet devotionals, and a prayer wall for shared requests. Progress and highlights stay light—often on-device—so the product stays useful without requiring a heavy account flow up front.",
+          ],
+          figures: [
+            bibleFigures.plans,
+            bibleFigures.devotionals,
+            bibleFigures.prayer,
+            bibleFigures.journey,
+          ],
+        },
+        {
+          heading: "What I built",
+          paragraphs: [
+            "A multi-route Astro site with client interactivity where it helps (search, UI state), plus shared pieces like prayer backed by Supabase when the feature needs more than local storage.",
+          ],
+          bullets: [
+            "Verse search and book/chapter navigation",
+            "Distraction-light chapter reading view",
+            "Reading plans and devotionals",
+            "Prayer wall and simple journey/streak tracking",
+            "Deployed as a public site on Vercel",
+          ],
+        },
+        {
+          heading: "Results",
+          paragraphs: [
+            "The app is live and usable end-to-end: visitors can read, search, follow a plan, and explore prayer and devotionals in one place. What I would improve next is clearer empty states on the prayer wall and tighter onboarding for first-time readers—without adding clutter to the reading view.",
+          ],
+        },
+      ],
+      takeaways: [
+        "Many features still need one calm primary path: open Scripture and read.",
+        "Astro fit a content-heavy reader; Alpine covered light interactivity without a heavy SPA.",
+        "Ship a public URL early—real usage reveals what the UI still needs.",
+      ],
+    },
+  },
   {
     slug: "barnabas-system-study",
     title: "Barnabas Dental Clinic — Full System Study",
