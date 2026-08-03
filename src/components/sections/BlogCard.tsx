@@ -23,7 +23,7 @@ export function BlogCard({ post }: { post: LearningPost }) {
           src={post.image}
           alt=""
           fill
-          quality={90}
+          quality={75}
           className={cn(
             useCover ? "image-cover" : "image-ui object-center",
             "transition-transform duration-300 group-hover:scale-[1.02]",

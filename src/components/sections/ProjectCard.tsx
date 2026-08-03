@@ -4,7 +4,7 @@ import { ArrowUpRight, BookOpen, Code2 } from "lucide-react";
 import type { Project } from "@/types";
 import { cn } from "@/lib/utils";
 
-const IMAGE_QUALITY = 90;
+const IMAGE_QUALITY = 75;
 
 type ProjectCardProps = {
   project: Project;

@@ -50,13 +50,13 @@ export const capstoneProject = {
     "Vercel",
   ] as const,
   featuredImage: {
-    src: "/projects/barnabas-dental-clinic/cover.png",
+    src: "/projects/barnabas-dental-clinic/cover.webp",
     alt: "Barnabas Dental Clinic — stylized project cover",
   },
   caseStudyUrl: "/blog/barnabas-system-study",
   screenshots: [
     {
-      src: "/projects/barnabas-dental-clinic/landing.png",
+      src: "/projects/barnabas-dental-clinic/landing.webp",
       alt: "Barnabas Dental Clinic public landing page with online booking",
       label: "Public landing page",
       excerpt: "Online booking, registration, and clinic information.",
@@ -65,7 +65,7 @@ export const capstoneProject = {
       category: "patient",
     },
     {
-      src: "/projects/barnabas-dental-clinic/patient-dashboard.png",
+      src: "/projects/barnabas-dental-clinic/patient-dashboard.webp",
       alt: "Patient dashboard for appointments, billing, and clinic policies",
       label: "Patient portal",
       excerpt: "Appointments, billing, notifications, and clinic policies.",
@@ -74,7 +74,7 @@ export const capstoneProject = {
       category: "patient",
     },
     {
-      src: "/projects/barnabas-dental-clinic/receptionist-dashboard.png",
+      src: "/projects/barnabas-dental-clinic/receptionist-dashboard.webp",
       alt: "Receptionist dashboard with scheduling and payment verification",
       label: "Receptionist dashboard",
       excerpt: "Scheduling, billing, and payment verification.",
@@ -83,7 +83,7 @@ export const capstoneProject = {
       category: "staff",
     },
     {
-      src: "/projects/barnabas-dental-clinic/dentist-dashboard.png",
+      src: "/projects/barnabas-dental-clinic/dentist-dashboard.webp",
       alt: "Dentist dashboard with schedule and patient records",
       label: "Dentist dashboard",
       excerpt: "Daily schedule, records, and braces approvals.",
@@ -92,7 +92,7 @@ export const capstoneProject = {
       category: "staff",
     },
     {
-      src: "/projects/barnabas-dental-clinic/admin-dashboard.png",
+      src: "/projects/barnabas-dental-clinic/admin-dashboard.webp",
       alt: "Admin dashboard with clinic-wide metrics and management tools",
       label: "Admin dashboard",
       excerpt: "Clinic metrics, accounts, and revenue overview.",

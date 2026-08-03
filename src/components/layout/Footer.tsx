@@ -1,5 +1,6 @@
 import { ArrowUp, Code2, Link2, Mail } from "lucide-react";
 import { BrandMark } from "@/components/common/Logo";
+import { SmoothNavLink } from "@/components/common/SmoothNavLink";
 import { homeHref, navLinks } from "@/constants/nav";
 import { siteConfig } from "@/config/site";
 import { getLinkedinUrl } from "@/lib/profile-urls";
@@ -9,17 +10,17 @@ export function Footer() {
   const linkedinUrl = getLinkedinUrl();
 
   return (
-    <footer className="safe-bottom relative z-10 border-t border-border bg-background/80 py-8 backdrop-blur-md sm:py-10">
+    <footer className="safe-bottom relative z-10 border-t border-border bg-background/95 py-8 sm:py-10">
       <div className="section-inner flex flex-col gap-6">
         <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-col items-center gap-2 text-center sm:items-start sm:text-left">
-            <a
+            <SmoothNavLink
               href={homeHref}
               className="brand-mark-link inline-flex min-h-11 items-center"
               aria-label={`${siteConfig.name} home`}
             >
               <BrandMark variant="footer" />
-            </a>
+            </SmoothNavLink>
             <p className="text-sm text-muted-foreground">
               © {year} · {siteConfig.name}
             </p>
@@ -30,13 +31,13 @@ export function Footer() {
             className="hidden flex-wrap items-center justify-center gap-x-1 gap-y-1 md:flex"
           >
             {navLinks.map((link) => (
-              <a
+              <SmoothNavLink
                 key={link.href}
                 href={link.href}
                 className="footer-link inline-flex min-h-11 items-center px-2"
               >
                 {link.label}
-              </a>
+              </SmoothNavLink>
             ))}
           </nav>
 
@@ -68,13 +69,13 @@ export function Footer() {
                 <Link2 className="h-4 w-4" />
               </a>
             ) : null}
-            <a
+            <SmoothNavLink
               href={homeHref}
               className="footer-link inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg border border-primary/30 text-primary"
               aria-label="Back to top"
             >
               <ArrowUp className="h-4 w-4" />
-            </a>
+            </SmoothNavLink>
           </div>
         </div>
       </div>

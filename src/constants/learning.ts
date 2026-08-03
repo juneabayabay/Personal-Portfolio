@@ -38,27 +38,27 @@ export const learningContent = {
 
 const barnabasFigures = {
   landing: {
-    src: "/projects/barnabas-dental-clinic/landing.png",
+    src: "/projects/barnabas-dental-clinic/landing.webp",
     alt: "Barnabas Dental Clinic public landing page with online booking",
     caption: "Public landing — registration, booking, and clinic info.",
   },
   patient: {
-    src: "/projects/barnabas-dental-clinic/patient-dashboard.png",
+    src: "/projects/barnabas-dental-clinic/patient-dashboard.webp",
     alt: "Patient dashboard for appointments, billing, and clinic policies",
     caption: "Patient portal — appointments, balances, and payment policies.",
   },
   receptionist: {
-    src: "/projects/barnabas-dental-clinic/receptionist-dashboard.png",
+    src: "/projects/barnabas-dental-clinic/receptionist-dashboard.webp",
     alt: "Receptionist dashboard with scheduling and payment verification",
     caption: "Receptionist tools — schedule, waiting list, and payment checks.",
   },
   dentist: {
-    src: "/projects/barnabas-dental-clinic/dentist-dashboard.png",
+    src: "/projects/barnabas-dental-clinic/dentist-dashboard.webp",
     alt: "Dentist dashboard with schedule and patient records",
     caption: "Dentist view — daily schedule, records, and approvals.",
   },
   admin: {
-    src: "/projects/barnabas-dental-clinic/admin-dashboard.png",
+    src: "/projects/barnabas-dental-clinic/admin-dashboard.webp",
     alt: "Admin dashboard with clinic-wide metrics and management tools",
     caption: "Admin overview — metrics, accounts, and roles.",
   },
@@ -66,27 +66,27 @@ const barnabasFigures = {
 
 const cbcFigures = {
   login: {
-    src: "/projects/cbc-church-management/login.png",
+    src: "/projects/cbc-church-management/login.webp",
     alt: "CBC staff portal sign-in screen",
     caption: "Staff sign-in — secure login for authorized CBC accounts.",
   },
   admin: {
-    src: "/projects/cbc-church-management/dashboard-admin.png",
+    src: "/projects/cbc-church-management/dashboard-admin.webp",
     alt: "CBC admin dashboard overview",
     caption: "Admin dashboard — church ops overview and quick actions.",
   },
   volunteer: {
-    src: "/projects/cbc-church-management/dashboard-volunteer.png",
+    src: "/projects/cbc-church-management/dashboard-volunteer.webp",
     alt: "CBC volunteer dashboard",
     caption: "Volunteer view — role-scoped tools for day-to-day work.",
   },
   accounts: {
-    src: "/projects/cbc-church-management/accounts.png",
+    src: "/projects/cbc-church-management/accounts.webp",
     alt: "CBC account and staff management screen",
     caption: "Accounts — manage staff users and access.",
   },
   preview: {
-    src: "/projects/cbc-church-management/preview.png",
+    src: "/projects/cbc-church-management/preview.webp",
     alt: "CBC church management system preview",
     caption: "System preview — members, families, events, and notices.",
   },
@@ -94,7 +94,7 @@ const cbcFigures = {
 
 const churchFigures = {
   preview: {
-    src: "/projects/cainta-baptist-church/preview.jpg",
+    src: "/projects/cainta-baptist-church/preview.webp",
     alt: "Cainta Baptist Church public website homepage",
     caption: "Public homepage — visitors see services, location, and contact first.",
   },
@@ -102,37 +102,37 @@ const churchFigures = {
 
 const bibleFigures = {
   home: {
-    src: "/projects/bible-app/home.png",
+    src: "/projects/bible-app/home.webp",
     alt: "Bible app home with today's verse and reading shortcuts",
     caption: "Home — today's verse, continue reading, and open Bible.",
   },
   books: {
-    src: "/projects/bible-app/books.png",
+    src: "/projects/bible-app/books.webp",
     alt: "Bible book picker with Old and New Testament categories",
     caption: "Books — pick a book by testament and category.",
   },
   chapter: {
-    src: "/projects/bible-app/chapter.png",
+    src: "/projects/bible-app/chapter.webp",
     alt: "Chapter reading view with verse text and reading controls",
     caption: "Reading view — chapter text, font size, compare, and listen.",
   },
   plans: {
-    src: "/projects/bible-app/plans.png",
+    src: "/projects/bible-app/plans.webp",
     alt: "Guided Bible reading plans list",
     caption: "Plans — day-by-day tracks saved on this device.",
   },
   devotionals: {
-    src: "/projects/bible-app/devotionals.png",
+    src: "/projects/bible-app/devotionals.webp",
     alt: "Devotionals themes for reflection",
     caption: "Devotionals — quiet themes to reflect on.",
   },
   prayer: {
-    src: "/projects/bible-app/prayer.png",
+    src: "/projects/bible-app/prayer.webp",
     alt: "Prayer wall for sharing and viewing requests",
     caption: "Prayer wall — share requests and follow along.",
   },
   journey: {
-    src: "/projects/bible-app/journey.png",
+    src: "/projects/bible-app/journey.webp",
     alt: "Journey streak and reading progress screen",
     caption: "Journey — streak and progress for steady reading.",
   },
@@ -148,7 +148,7 @@ export const learningPosts: LearningPost[] = [
     title: "Bible App — Reading Experience Study",
     excerpt:
       "A personal Bible web app: search, chapter reading, plans, devotionals, prayer wall, and simple progress—built to learn Astro and ship a public product.",
-    image: "/blog/bible-cover-v3.png",
+    image: "/blog/bible-cover-v3.webp",
     publishedAt: "2026-08-02",
     readTimeMinutes: 6,
     kind: "case-study",
@@ -231,7 +231,7 @@ export const learningPosts: LearningPost[] = [
     title: "Barnabas Dental Clinic — Full System Study",
     excerpt:
       "One case study for the whole clinic system: problem, roles, scheduling, GCash pencil bookings, and the four dashboards.",
-    image: "/blog/barnabas-cover.png",
+    image: "/blog/barnabas-cover.webp",
     publishedAt: "2026-06-20",
     readTimeMinutes: 10,
     kind: "case-study",
@@ -328,7 +328,7 @@ export const learningPosts: LearningPost[] = [
     title: "CBC Church Management — System Study",
     excerpt:
       "Staff portal for Cainta Baptist Church: login, role-based dashboards, members and families, events, attendance, and notices.",
-    image: "/blog/cbc-cover.png",
+    image: "/blog/cbc-cover.webp",
     publishedAt: "2026-06-28",
     readTimeMinutes: 7,
     kind: "case-study",
@@ -386,7 +386,7 @@ export const learningPosts: LearningPost[] = [
     title: "Cainta Baptist Church Website — Case Study",
     excerpt:
       "Visitor-first church site: service times, directions, giving, and contact—built so first-time guests know what to do next.",
-    image: "/blog/church-cover-v3.png",
+    image: "/blog/church-cover-v3.webp",
     publishedAt: "2026-07-05",
     readTimeMinutes: 4,
     kind: "case-study",

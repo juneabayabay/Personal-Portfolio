@@ -120,7 +120,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
                 fill
                 className="image-screenshot"
                 sizes="(max-width: 896px) 100vw, 896px"
-                quality={92}
+                quality={75}
                 priority
               />
             </div>
@@ -135,7 +135,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
                   : "object-cover object-center"
               }
               sizes="(max-width: 896px) 100vw, 896px"
-              quality={90}
+              quality={75}
               priority
             />
           )}
@@ -171,7 +171,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
                             fill
                             className="image-screenshot"
                             sizes="(max-width: 640px) 100vw, 420px"
-                            quality={92}
+                            quality={75}
                           />
                         </div>
                       </div>

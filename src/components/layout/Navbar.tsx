@@ -3,6 +3,7 @@
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { BrandMark } from "@/components/common/Logo";
+import { SmoothNavLink } from "@/components/common/SmoothNavLink";
 import { homeHref, navLinks } from "@/constants/nav";
 import { siteConfig } from "@/config/site";
 
@@ -19,17 +20,11 @@ export function Navbar() {
 
   useEffect(() => {
     if (!isOpen) return;
-    const links = document.querySelectorAll("#mobileMenu a");
-    const closeMenu = () => setIsOpen(false);
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") setIsOpen(false);
     };
-    links.forEach((link) => link.addEventListener("click", closeMenu));
     window.addEventListener("keydown", onKeyDown);
-    return () => {
-      links.forEach((link) => link.removeEventListener("click", closeMenu));
-      window.removeEventListener("keydown", onKeyDown);
-    };
+    return () => window.removeEventListener("keydown", onKeyDown);
   }, [isOpen]);
 
   useEffect(() => {
@@ -39,6 +34,8 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const closeMenu = () => setIsOpen(false);
+
   return (
     <nav
       className={`nav-bar safe-top fixed top-0 left-0 z-50 w-full ${
@@ -46,20 +43,20 @@ export function Navbar() {
       }`}
     >
       <div className="section-inner flex h-[var(--nav-height)] items-center justify-between gap-3">
-        <a
+        <SmoothNavLink
           href={homeHref}
           className="brand-mark-link inline-flex min-h-11 min-w-0 shrink items-center"
           aria-label={`${siteConfig.name} home`}
-          onClick={() => setIsOpen(false)}
+          onNavigate={closeMenu}
         >
           <BrandMark variant="nav" />
-        </a>
+        </SmoothNavLink>
 
         <div className="hidden items-center gap-1 lg:flex xl:gap-2">
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href} className="nav-link px-2 py-2">
+            <SmoothNavLink key={link.href} href={link.href} className="nav-link px-2 py-2">
               {link.label}
-            </a>
+            </SmoothNavLink>
           ))}
         </div>
 
@@ -77,9 +74,9 @@ export function Navbar() {
 
       {isOpen ? (
         <div
-          className="fixed inset-0 top-[calc(var(--nav-height)+env(safe-area-inset-top,0px))] z-40 bg-background/80 backdrop-blur-sm lg:hidden"
+          className="fixed inset-0 top-[calc(var(--nav-height)+env(safe-area-inset-top,0px))] z-40 bg-background/90 lg:hidden"
           aria-hidden="true"
-          onClick={() => setIsOpen(false)}
+          onClick={closeMenu}
         />
       ) : null}
 
@@ -87,15 +84,16 @@ export function Navbar() {
         id="mobileMenu"
         className={`relative z-50 lg:hidden ${isOpen ? "" : "hidden"}`}
       >
-        <div className="section-inner grid max-h-[calc(100dvh-var(--nav-height)-env(safe-area-inset-top,0px)-1rem)] gap-0.5 overflow-y-auto border-t border-border py-3 pb-[max(1rem,env(safe-area-inset-bottom))]">
+        <div className="section-inner grid max-h-[calc(100dvh-var(--nav-height)-env(safe-area-inset-top,0px)-1rem)] gap-0.5 overflow-y-auto border-t border-border bg-background/95 py-3 pb-[max(1rem,env(safe-area-inset-bottom))]">
           {navLinks.map((link) => (
-            <a
+            <SmoothNavLink
               key={link.href}
               href={link.href}
               className="nav-link rounded-lg px-3 py-3.5 text-base"
+              onNavigate={closeMenu}
             >
               {link.label}
-            </a>
+            </SmoothNavLink>
           ))}
         </div>
       </div>

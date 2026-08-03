@@ -14,17 +14,17 @@ function createParticles(count: number, width: number, height: number): Particle
   return Array.from({ length: count }, () => ({
     x: Math.random() * width,
     y: Math.random() * height,
-    vx: (Math.random() - 0.5) * 0.35,
-    vy: (Math.random() - 0.5) * 0.35,
-    radius: Math.random() * 1.2 + 0.6,
+    vx: (Math.random() - 0.5) * 0.28,
+    vy: (Math.random() - 0.5) * 0.28,
+    radius: Math.random() * 1.1 + 0.5,
   }));
 }
 
 function getParticleCount(width: number): number {
-  if (width < 480) return 40;
-  if (width < 768) return 55;
-  if (width < 1024) return 70;
-  return 90;
+  if (width < 480) return 22;
+  if (width < 768) return 30;
+  if (width < 1024) return 38;
+  return 46;
 }
 
 export function NetworkBackground() {
@@ -34,30 +34,36 @@ export function NetworkBackground() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext("2d", { alpha: true });
     if (!ctx) return;
 
     let animationId = 0;
     let particles: Particle[] = [];
     let width = 0;
     let height = 0;
+    let frame = 0;
+    let running = true;
 
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
 
     const resize = () => {
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.25);
       width = window.innerWidth;
       height = window.innerHeight;
-      canvas.width = width;
-      canvas.height = height;
+      canvas.width = Math.floor(width * dpr);
+      canvas.height = Math.floor(height * dpr);
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       particles = createParticles(getParticleCount(width), width, height);
     };
 
     const draw = () => {
-      if (prefersReducedMotion) {
-        ctx.clearRect(0, 0, width, height);
-        return;
-      }
+      if (!running || prefersReducedMotion) return;
 
+      frame += 1;
       ctx.clearRect(0, 0, width, height);
 
       for (const particle of particles) {
@@ -69,26 +75,31 @@ export function NetworkBackground() {
 
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(232, 168, 73, 0.35)";
+        ctx.fillStyle = "rgba(232, 168, 73, 0.32)";
         ctx.fill();
       }
 
-      const maxDistance = width < 768 ? 110 : 140;
+      // Draw links every other frame to cut main-thread work ~50%
+      if (frame % 2 === 0) {
+        const maxDistance = width < 768 ? 95 : 120;
+        const maxDistanceSq = maxDistance * maxDistance;
 
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const distanceSq = dx * dx + dy * dy;
 
-          if (distance < maxDistance) {
-            const opacity = (1 - distance / maxDistance) * 0.18;
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(232, 168, 73, ${opacity * 0.7})`;
-            ctx.lineWidth = 0.6;
-            ctx.stroke();
+            if (distanceSq < maxDistanceSq) {
+              const distance = Math.sqrt(distanceSq);
+              const opacity = (1 - distance / maxDistance) * 0.14;
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = `rgba(232, 168, 73, ${opacity * 0.7})`;
+              ctx.lineWidth = 0.55;
+              ctx.stroke();
+            }
           }
         }
       }
@@ -96,16 +107,31 @@ export function NetworkBackground() {
       animationId = requestAnimationFrame(draw);
     };
 
+    const onVisibility = () => {
+      if (document.hidden) {
+        running = false;
+        cancelAnimationFrame(animationId);
+        return;
+      }
+      if (!prefersReducedMotion && !running) {
+        running = true;
+        animationId = requestAnimationFrame(draw);
+      }
+    };
+
+    resize();
     if (!prefersReducedMotion) {
-      resize();
-      draw();
-    } else {
-      resize();
+      running = true;
+      animationId = requestAnimationFrame(draw);
     }
 
-    window.addEventListener("resize", resize);
+    window.addEventListener("resize", resize, { passive: true });
+    document.addEventListener("visibilitychange", onVisibility);
+
     return () => {
+      running = false;
       window.removeEventListener("resize", resize);
+      document.removeEventListener("visibilitychange", onVisibility);
       cancelAnimationFrame(animationId);
     };
   }, []);

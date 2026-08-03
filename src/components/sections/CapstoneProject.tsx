@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowUpRight, BookOpen, Code2 } from "lucide-react";
 import { capstoneProject } from "@/constants/capstone";
 
-const COVER_QUALITY = 90;
+const COVER_QUALITY = 75;
 
 export function CapstoneProject() {
   const {
