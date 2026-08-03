@@ -28,6 +28,16 @@ export function Navbar() {
   }, [isOpen]);
 
   useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 1024px)");
+    const onChange = () => {
+      if (desktop.matches) setIsOpen(false);
+    };
+    onChange();
+    desktop.addEventListener("change", onChange);
+    return () => desktop.removeEventListener("change", onChange);
+  }, []);
+
+  useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -38,7 +48,7 @@ export function Navbar() {
 
   return (
     <nav
-      className={`nav-bar safe-top fixed top-0 left-0 z-50 w-full ${
+      className={`nav-bar safe-top fixed inset-x-0 top-0 z-50 w-full ps-[env(safe-area-inset-left)] pe-[env(safe-area-inset-right)] ${
         scrolled ? "nav-bar--scrolled" : ""
       }`}
     >
@@ -52,9 +62,13 @@ export function Navbar() {
           <BrandMark variant="nav" />
         </SmoothNavLink>
 
-        <div className="hidden items-center gap-1 lg:flex xl:gap-2">
+        <div className="hidden items-center gap-0.5 lg:flex xl:gap-1">
           {navLinks.map((link) => (
-            <SmoothNavLink key={link.href} href={link.href} className="nav-link px-2 py-2">
+            <SmoothNavLink
+              key={link.href}
+              href={link.href}
+              className="nav-link inline-flex min-h-11 items-center px-2.5 py-2 xl:px-3"
+            >
               {link.label}
             </SmoothNavLink>
           ))}
@@ -74,7 +88,7 @@ export function Navbar() {
 
       {isOpen ? (
         <div
-          className="fixed inset-0 top-[calc(var(--nav-height)+env(safe-area-inset-top,0px))] z-40 bg-background/90 lg:hidden"
+          className="fixed inset-x-0 bottom-0 top-[var(--nav-offset)] z-40 bg-background/90 lg:hidden"
           aria-hidden="true"
           onClick={closeMenu}
         />
@@ -84,7 +98,7 @@ export function Navbar() {
         id="mobileMenu"
         className={`relative z-50 lg:hidden ${isOpen ? "" : "hidden"}`}
       >
-        <div className="section-inner grid max-h-[calc(100dvh-var(--nav-height)-env(safe-area-inset-top,0px)-1rem)] gap-0.5 overflow-y-auto border-t border-border bg-background/95 py-3 pb-[max(1rem,env(safe-area-inset-bottom))]">
+        <div className="section-inner grid max-h-[calc(100dvh-var(--nav-offset)-1rem)] gap-0.5 overflow-y-auto overscroll-contain border-t border-border bg-background/95 py-3 pb-[max(1rem,env(safe-area-inset-bottom))]">
           {navLinks.map((link) => (
             <SmoothNavLink
               key={link.href}

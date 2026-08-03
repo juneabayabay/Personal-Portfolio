@@ -12,7 +12,7 @@ export function Footer() {
   return (
     <footer className="safe-bottom relative z-10 border-t border-border bg-background/95 py-8 sm:py-10">
       <div className="section-inner flex flex-col gap-6">
-        <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col items-center gap-5 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
           <div className="flex flex-col items-center gap-2 text-center sm:items-start sm:text-left">
             <SmoothNavLink
               href={homeHref}
@@ -25,21 +25,6 @@ export function Footer() {
               © {year} · {siteConfig.name}
             </p>
           </div>
-
-          <nav
-            aria-label="Footer"
-            className="hidden flex-wrap items-center justify-center gap-x-1 gap-y-1 md:flex"
-          >
-            {navLinks.map((link) => (
-              <SmoothNavLink
-                key={link.href}
-                href={link.href}
-                className="footer-link inline-flex min-h-11 items-center px-2"
-              >
-                {link.label}
-              </SmoothNavLink>
-            ))}
-          </nav>
 
           <div className="flex items-center gap-2">
             <a
@@ -78,6 +63,21 @@ export function Footer() {
             </SmoothNavLink>
           </div>
         </div>
+
+        <nav
+          aria-label="Footer"
+          className="hidden flex-wrap items-center justify-center gap-x-1 gap-y-1 border-t border-border pt-5 lg:flex lg:justify-start"
+        >
+          {navLinks.map((link) => (
+            <SmoothNavLink
+              key={link.href}
+              href={link.href}
+              className="footer-link inline-flex min-h-11 items-center px-2.5"
+            >
+              {link.label}
+            </SmoothNavLink>
+          ))}
+        </nav>
       </div>
     </footer>
   );

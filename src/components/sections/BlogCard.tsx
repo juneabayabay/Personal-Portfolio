@@ -28,7 +28,7 @@ export function BlogCard({ post }: { post: LearningPost }) {
             useCover ? "image-cover" : "image-ui object-center",
             "transition-transform duration-300 group-hover:scale-[1.02]",
           )}
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 560px"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           loading="lazy"
         />
         {useCover ? (
@@ -46,7 +46,9 @@ export function BlogCard({ post }: { post: LearningPost }) {
             {post.readTimeMinutes} min
           </span>
         </div>
-        <h3 className="mt-2 text-base font-semibold leading-snug text-foreground">{post.title}</h3>
+        <h3 className="mt-2 min-w-0 break-words text-base font-semibold leading-snug text-foreground">
+          {post.title}
+        </h3>
         <p className="mt-2 line-clamp-2 flex-1 text-sm text-muted-foreground">{post.excerpt}</p>
         {isPublished ? (
           <span className="link-arrow mt-4 text-sm">

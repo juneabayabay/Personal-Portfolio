@@ -23,6 +23,8 @@
   --section-py: clamp(3rem, 7vw, 5rem);
   --content-max: 68rem;
   --nav-height: 4.25rem;
+  --nav-top-pad: max(0.75rem, env(safe-area-inset-top, 0px));
+  --nav-offset: calc(var(--nav-height) + var(--nav-top-pad));
 }
 
 @media (min-width: 640px) {
@@ -102,7 +104,7 @@ body {
 }
 
 .scroll-mt-nav {
-  scroll-margin-top: calc(var(--nav-height) + 0.75rem);
+  scroll-margin-top: calc(var(--nav-offset) + 0.5rem);
 }
 
 .section-inner {
@@ -155,7 +157,7 @@ body {
   font-size: 0.9375rem;
   line-height: 1.6;
   color: var(--muted-foreground);
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 .status-badge {
@@ -402,17 +404,18 @@ body {
 }
 
 .toggle-btn {
-  padding: 0.5rem 0.75rem;
-  font-size: 0.75rem;
+  min-height: 2.75rem;
+  padding: 0.625rem 1rem;
+  font-size: 0.8125rem;
   font-weight: 500;
   color: var(--muted-foreground);
   border-radius: 9999px;
-  transition: all var(--transition);
+  transition: color var(--transition), background var(--transition), box-shadow var(--transition);
 }
 
 @media (min-width: 480px) {
   .toggle-btn {
-    padding: 0.5rem 1rem;
+    padding: 0.625rem 1.125rem;
     font-size: 0.8125rem;
   }
 }
@@ -425,12 +428,12 @@ body {
 
 /* Hero */
 .hero-section {
-  padding-top: calc(var(--nav-height) + env(safe-area-inset-top, 0px) + 1.25rem);
+  padding-top: calc(var(--nav-offset) + 1.25rem);
 }
 
 @media (min-width: 640px) {
   .hero-section {
-    padding-top: calc(var(--nav-height) + env(safe-area-inset-top, 0px) + 1.75rem);
+    padding-top: calc(var(--nav-offset) + 1.75rem);
   }
 }
 
@@ -440,12 +443,12 @@ body {
 
 .hero-name {
   font-family: var(--font-instrument), Georgia, serif;
-  font-size: clamp(2.25rem, 8vw, 3.5rem);
+  font-size: clamp(2rem, 7.5vw, 3.5rem);
   font-weight: 400;
   letter-spacing: -0.03em;
   line-height: 1.12;
   word-break: normal;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
   hyphens: none;
 }
 
@@ -708,9 +711,10 @@ a:focus:not(:focus-visible) {
   width: 100%;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .projects-grid:not(.projects-grid--single) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
   }
 }
 
@@ -718,6 +722,7 @@ a:focus:not(:focus-visible) {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
+  min-height: 2.75rem;
   font-size: 0.875rem;
   font-weight: 600;
   color: var(--primary);
@@ -873,8 +878,8 @@ a.contact-channel:hover .contact-channel__value {
 
 .contact-input {
   width: 100%;
-  padding: 0.7rem 0.875rem;
-  font-size: 0.9375rem;
+  padding: 0.75rem 0.875rem;
+  font-size: 1rem;
   color: var(--foreground);
   background: rgba(8, 10, 14, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -912,17 +917,17 @@ textarea.contact-input {
 
 /* Blog / inner pages */
 .page-top {
-  padding-top: calc(var(--nav-height) + env(safe-area-inset-top, 0px) + 1.5rem);
+  padding-top: calc(var(--nav-offset) + 1.5rem);
 }
 
 @media (min-width: 640px) {
   .page-top {
-    padding-top: calc(var(--nav-height) + env(safe-area-inset-top, 0px) + 2rem);
+    padding-top: calc(var(--nav-offset) + 2rem);
   }
 }
 
 .safe-top {
-  padding-top: max(0.75rem, env(safe-area-inset-top));
+  padding-top: var(--nav-top-pad);
 }
 
 .safe-bottom {

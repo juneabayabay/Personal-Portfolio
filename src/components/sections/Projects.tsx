@@ -15,15 +15,15 @@ export function Projects() {
   return (
     <section id="work" className="section-block scroll-mt-nav">
       <div className="section-inner">
-        <div className="section-header">
-          <div>
+        <div className="section-header gap-3 sm:items-center">
+          <div className="min-w-0">
             <h2 className="section-heading">Projects</h2>
             <p className="section-sub">
               Selected school and client work with live demos.
             </p>
           </div>
           {hasMore ? (
-            <Link href="/projects" className="link-arrow text-sm shrink-0">
+            <Link href="/projects" className="link-arrow shrink-0 self-start text-sm sm:self-auto">
               View all
               <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
             </Link>

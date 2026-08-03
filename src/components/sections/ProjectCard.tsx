@@ -41,7 +41,7 @@ export function ProjectCard({ project, layout = "vertical" }: ProjectCardProps) 
           sizes={
             isHorizontal
               ? "(max-width: 1024px) 100vw, 380px"
-              : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 560px"
+              : "(max-width: 767px) 100vw, (max-width: 1024px) 50vw, 560px"
           }
           loading="lazy"
         />
