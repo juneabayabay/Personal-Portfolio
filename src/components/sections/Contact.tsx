@@ -21,6 +21,8 @@ export function Contact() {
       name: String(formData.get("name") ?? ""),
       email: String(formData.get("email") ?? ""),
       message: String(formData.get("message") ?? ""),
+      // Honeypot — bots that fill hidden fields get a silent reject on the API
+      _gotcha: String(formData.get("_gotcha") ?? ""),
     };
 
     try {
@@ -51,10 +53,17 @@ export function Contact() {
         const failed = results.find(
           (result) => result.status === "fulfilled" && !result.value.ok,
         );
-        if (failed && failed.status === "fulfilled" && failed.value.status === 503) {
-          throw new Error(
-            `Contact form isn’t configured yet. Email me at ${siteConfig.email}.`,
-          );
+        if (failed && failed.status === "fulfilled") {
+          if (failed.value.status === 429) {
+            throw new Error(
+              "Too many messages from this connection. Please wait a bit and try again.",
+            );
+          }
+          if (failed.value.status === 503) {
+            throw new Error(
+              `Contact form isn’t configured yet. Email me at ${siteConfig.email}.`,
+            );
+          }
         }
         throw new Error(
           `Couldn’t send right now. Email me at ${siteConfig.email}.`,
@@ -154,6 +163,7 @@ export function Contact() {
                       placeholder="Your name"
                       className="contact-input"
                       required
+                      maxLength={100}
                       disabled={status === "loading"}
                       autoComplete="name"
                     />
@@ -168,6 +178,7 @@ export function Contact() {
                       placeholder="you@email.com"
                       className="contact-input"
                       required
+                      maxLength={254}
                       disabled={status === "loading"}
                       autoComplete="email"
                     />
@@ -182,6 +193,8 @@ export function Contact() {
                     placeholder="Tell me about the opportunity or project..."
                     className="contact-input"
                     required
+                    minLength={10}
+                    maxLength={5000}
                     disabled={status === "loading"}
                   />
                 </div>
