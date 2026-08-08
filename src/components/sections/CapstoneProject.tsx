@@ -3,8 +3,6 @@ import Link from "next/link";
 import { ArrowUpRight, BookOpen, Code2 } from "lucide-react";
 import { capstoneProject } from "@/constants/capstone";
 
-const COVER_QUALITY = 75;
-
 export function CapstoneProject() {
   const {
     title,
@@ -20,20 +18,18 @@ export function CapstoneProject() {
 
   return (
     <article className="media-card media-card--project grid w-full min-w-0 grid-cols-1 overflow-hidden lg:grid-cols-2">
-      <div className="media-image-frame relative aspect-[16/10] w-full overflow-hidden lg:aspect-auto lg:min-h-[280px] xl:min-h-[320px]">
-        <Image
-          src={featuredImage.src}
-          alt={featuredImage.alt}
-          fill
-          className="image-cover"
-          sizes="(max-width: 1024px) 100vw, 50vw"
-          quality={COVER_QUALITY}
-          priority
-        />
-        <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/25"
-          aria-hidden="true"
-        />
+      <div className="media-image-frame media-image-frame--screenshot relative aspect-[16/10] w-full overflow-hidden lg:aspect-auto lg:min-h-[280px] xl:min-h-[320px]">
+        <div className="absolute inset-2 sm:inset-3">
+          <Image
+            src={featuredImage.src}
+            alt={featuredImage.alt}
+            fill
+            className="image-screenshot"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            quality={90}
+            priority
+          />
+        </div>
       </div>
 
       <div className="flex min-w-0 flex-col justify-center gap-3 p-4 sm:gap-4 sm:p-5 lg:p-6 xl:p-8">

@@ -51,17 +51,35 @@ export const capstoneProject = {
   ] as const,
   featuredImage: {
     src: "/projects/barnabas-dental-clinic/cover.webp",
-    alt: "Barnabas Dental Clinic — stylized project cover",
+    alt: "Barnabas Dental live homepage — care for your smile, made simple",
   },
   caseStudyUrl: "/blog/barnabas-system-study",
   screenshots: [
     {
       src: "/projects/barnabas-dental-clinic/landing.webp",
-      alt: "Barnabas Dental Clinic public landing page with online booking",
+      alt: "Barnabas Dental live homepage with booking and patient login",
       label: "Public landing page",
-      excerpt: "Online booking, registration, and clinic information.",
+      excerpt: "Live clinic site with booking and login CTAs.",
       detail:
-        "Patients can register, sign in, book visits, and view clinic hours and contact details without staff assistance.",
+        "Visitors see clinic care messaging, book online, or sign in — without relying on Messenger for basic info.",
+      category: "patient",
+    },
+    {
+      src: "/projects/barnabas-dental-clinic/services.webp",
+      alt: "Barnabas Dental services section with preventive, restorative, and cosmetic care",
+      label: "Services",
+      excerpt: "Preventive, restorative, and cosmetic care listed clearly.",
+      detail:
+        "The public services section groups treatments so first-time visitors understand what the clinic offers.",
+      category: "patient",
+    },
+    {
+      src: "/projects/barnabas-dental-clinic/login.webp",
+      alt: "Barnabas Dental Clinic patient sign-in screen",
+      label: "Patient sign-in",
+      excerpt: "Secure login into the patient portal.",
+      detail:
+        "Patients sign in with email and password to reach booking, appointments, and billing.",
       category: "patient",
     },
     {

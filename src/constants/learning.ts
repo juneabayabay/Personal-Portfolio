@@ -39,8 +39,28 @@ export const learningContent = {
 const barnabasFigures = {
   landing: {
     src: "/projects/barnabas-dental-clinic/landing.webp",
-    alt: "Barnabas Dental Clinic public landing page with online booking",
-    caption: "Public landing — registration, booking, and clinic info.",
+    alt: "Barnabas Dental live homepage with booking and patient login",
+    caption: "Live public site — clear CTAs for booking and patient login.",
+  },
+  services: {
+    src: "/projects/barnabas-dental-clinic/services.webp",
+    alt: "Barnabas Dental services section with preventive, restorative, and cosmetic care",
+    caption: "Services — preventive, restorative, and cosmetic care on the public site.",
+  },
+  about: {
+    src: "/projects/barnabas-dental-clinic/about.webp",
+    alt: "Barnabas Dental about page with mission, vision, and story",
+    caption: "About — clinic story, mission, and vision for first-time visitors.",
+  },
+  login: {
+    src: "/projects/barnabas-dental-clinic/login.webp",
+    alt: "Barnabas Dental Clinic patient sign-in screen",
+    caption: "Patient sign-in — secure access to the clinic portal.",
+  },
+  register: {
+    src: "/projects/barnabas-dental-clinic/register.webp",
+    alt: "Barnabas Dental Clinic patient registration form",
+    caption: "Registration — new patients create an account before booking.",
   },
   patient: {
     src: "/projects/barnabas-dental-clinic/patient-dashboard.webp",
@@ -233,12 +253,13 @@ export const learningPosts: LearningPost[] = [
       "One case study for the whole clinic system: problem, roles, scheduling, GCash pencil bookings, and the four dashboards.",
     image: "/blog/barnabas-cover.webp",
     publishedAt: "2026-06-20",
+    updatedAt: "2026-08-08",
     readTimeMinutes: 10,
     kind: "case-study",
     url: "/blog/barnabas-system-study",
     content: {
       intro:
-        "Barnabas Dental Clinic Management System is my capstone: a full-stack web app that replaced paper records and Facebook Messenger booking with online scheduling, digital patient records, billing, and role-based dashboards for patients, receptionists, dentists, and administrators.",
+        "Barnabas Dental Clinic Management System is my capstone: a full-stack web app that replaced paper records and Facebook Messenger booking with online scheduling, digital patient records, billing, and role-based dashboards for patients, receptionists, dentists, and administrators. Screenshots below are from the live app at barnabas-dental.vercel.app.",
       stack: ["React", "Django", "PostgreSQL", "Aiven", "Render", "Vercel"],
       interviewPitch:
         "For my capstone I built a clinic management system for Barnabas Dental Clinic. Before, they used paper and Facebook Messenger for appointments and billing, so schedules conflicted and records were hard to find. I built a full-stack web app with React, Django, and PostgreSQL — online booking, patient records, billing, and four dashboards: patient, receptionist, dentist, and admin. The hardest part was scheduling: appointments need procedure length, can’t overlap, and we used pencil bookings until GCash is verified by the receptionist. Now staff and patients can manage bookings and billing in one system instead of chat. Deployed on Vercel, Render, and Aiven. What I’d improve next is tighter payment automation and clearer audit logs — but the domain rules around time and payment were the real learning.",
@@ -252,9 +273,10 @@ export const learningPosts: LearningPost[] = [
         {
           heading: "What the system does",
           paragraphs: [
-            "One web platform covers the clinic loop — from public booking to staff operations and admin oversight.",
+            "One web platform covers the clinic loop — from the public site and online booking to staff operations and admin oversight.",
           ],
           bullets: [
+            "Public clinic site with services, about, and clear booking/login paths",
             "Online appointment scheduling with procedure duration and overlap checks",
             "Digital patient records",
             "Billing and payment tracking (including GCash verification)",
@@ -292,11 +314,26 @@ export const learningPosts: LearningPost[] = [
           ],
         },
         {
+          heading: "Public clinic site",
+          paragraphs: [
+            "Visitors land on a clear public site: clinic story, services, and direct paths to book or sign in — without needing Messenger for basic info.",
+          ],
+          figures: [
+            barnabasFigures.landing,
+            barnabasFigures.services,
+            barnabasFigures.about,
+          ],
+        },
+        {
           heading: "Patient experience",
           paragraphs: [
-            "Patients register, book visits, and review clinic hours without needing staff in Messenger. The portal shows upcoming visits, balances, notifications, and policies for pencil bookings and GCash.",
+            "Patients register and sign in online, then manage visits from the portal — upcoming appointments, balances, notifications, and policies for pencil bookings and GCash.",
           ],
-          figures: [barnabasFigures.landing, barnabasFigures.patient],
+          figures: [
+            barnabasFigures.register,
+            barnabasFigures.login,
+            barnabasFigures.patient,
+          ],
         },
         {
           heading: "Staff dashboards",

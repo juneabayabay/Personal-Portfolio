@@ -6,6 +6,8 @@ import { formatBlogDate } from "@/lib/format-blog-date";
 import { cn } from "@/lib/utils";
 
 function isCoverArt(image: string) {
+  // Barnabas covers are live product screenshots — show contain, not stylized crop
+  if (image.includes("barnabas")) return false;
   return image.includes("/cover") || image.includes("-cover");
 }
 
@@ -18,19 +20,41 @@ export function BlogCard({ post }: { post: LearningPost }) {
 
   const inner = (
     <>
-      <div className="media-image-frame relative aspect-[16/10] shrink-0 overflow-hidden border-b border-border bg-surface">
-        <Image
-          src={post.image}
-          alt=""
-          fill
-          quality={75}
-          className={cn(
-            useCover ? "image-cover" : "image-ui object-center",
-            "transition-transform duration-300 group-hover:scale-[1.02]",
-          )}
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          loading="lazy"
-        />
+      <div
+        className={cn(
+          "media-image-frame relative aspect-[16/10] shrink-0 overflow-hidden border-b border-border bg-surface",
+          !useCover && "media-image-frame--screenshot",
+        )}
+      >
+        {useCover ? (
+          <Image
+            src={post.image}
+            alt=""
+            fill
+            quality={90}
+            className={cn(
+              "image-cover",
+              "transition-transform duration-300 group-hover:scale-[1.02]",
+            )}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            loading="lazy"
+          />
+        ) : (
+          <div className="absolute inset-2">
+            <Image
+              src={post.image}
+              alt=""
+              fill
+              quality={90}
+              className={cn(
+                "image-screenshot object-center",
+                "transition-transform duration-300 group-hover:scale-[1.02]",
+              )}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              loading="lazy"
+            />
+          </div>
+        )}
         {useCover ? (
           <div
             className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/20"

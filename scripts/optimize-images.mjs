@@ -8,6 +8,10 @@ const root = path.resolve("public");
 const sources = [
   "projects/barnabas-dental-clinic/cover.png",
   "projects/barnabas-dental-clinic/landing.png",
+  "projects/barnabas-dental-clinic/services.png",
+  "projects/barnabas-dental-clinic/about.png",
+  "projects/barnabas-dental-clinic/login.png",
+  "projects/barnabas-dental-clinic/register.png",
   "projects/barnabas-dental-clinic/patient-dashboard.png",
   "projects/barnabas-dental-clinic/receptionist-dashboard.png",
   "projects/barnabas-dental-clinic/dentist-dashboard.png",
@@ -40,10 +44,10 @@ for (const relative of sources) {
   const output = input.replace(/\.(png|jpe?g)$/i, ".webp");
   await mkdir(path.dirname(output), { recursive: true });
   const isCover = /cover|og\.png/i.test(relative);
-  const width = isCover ? 1200 : 1100;
+  const width = isCover ? 1400 : 1600;
   const info = await sharp(input)
     .resize({ width, withoutEnlargement: true })
-    .webp({ quality: isCover ? 78 : 72 })
+    .webp({ quality: isCover ? 86 : 88 })
     .toFile(output);
   const before = (await sharp(input).metadata()).size;
   console.log(
