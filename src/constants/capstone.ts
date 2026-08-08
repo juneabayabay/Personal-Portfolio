@@ -50,7 +50,7 @@ export const capstoneProject = {
     "Vercel",
   ] as const,
   featuredImage: {
-    src: "/projects/barnabas-dental-clinic/cover.webp",
+    src: "/projects/barnabas-dental-clinic/cover-ai.webp",
     alt: "Barnabas Dental Clinic — stylized project cover",
   },
   caseStudyUrl: "/blog/barnabas-system-study",

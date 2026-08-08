@@ -6,7 +6,11 @@ import { formatBlogDate } from "@/lib/format-blog-date";
 import { cn } from "@/lib/utils";
 
 function isCoverArt(image: string) {
-  return image.includes("/cover") || image.includes("-cover");
+  return (
+    image.includes("/cover") ||
+    image.includes("-cover") ||
+    image.includes("cover-ai")
+  );
 }
 
 export function BlogCard({ post }: { post: LearningPost }) {

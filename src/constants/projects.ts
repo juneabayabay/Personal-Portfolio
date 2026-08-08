@@ -30,7 +30,7 @@ export const projects: Project[] = [
     title: "CBC Church Management System",
     description:
       "Staff portal for church records—members, families, events, attendance, and notices—with login and role-based access. Built as a client learning project.",
-    image: "/projects/cbc-church-management/cover.webp",
+    image: "/projects/cbc-church-management/cover-ai.webp",
     technologies: [
       "React",
       "Django REST",
