@@ -6,8 +6,10 @@ import { formatBlogDate } from "@/lib/format-blog-date";
 import { cn } from "@/lib/utils";
 
 function isCoverArt(image: string) {
-  // Barnabas covers are live product screenshots — show contain, not stylized crop
-  if (image.includes("barnabas")) return false;
+  // Product screenshots (live UI) — show contain, not stylized crop
+  if (image.includes("barnabas") || image.includes("cbc-") || image.includes("cbc-church")) {
+    return false;
+  }
   return image.includes("/cover") || image.includes("-cover");
 }
 

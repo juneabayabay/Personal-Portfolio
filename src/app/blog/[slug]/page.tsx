@@ -108,12 +108,14 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
         <div
           className={`relative mt-8 aspect-[16/10] overflow-hidden rounded-[var(--radius-lg)] border border-border sm:aspect-[16/9] ${
             post.image.includes("barnabas") ||
+            post.image.includes("cbc-") ||
             (post.image.startsWith("/projects/") && !post.image.includes("cover"))
               ? "media-image-frame--screenshot"
               : ""
           }`}
         >
           {post.image.includes("barnabas") ||
+          post.image.includes("cbc-") ||
           (post.image.startsWith("/projects/") && !post.image.includes("cover")) ? (
             <div className="absolute inset-2 sm:inset-3">
               <Image

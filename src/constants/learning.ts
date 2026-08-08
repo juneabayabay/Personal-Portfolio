@@ -87,28 +87,23 @@ const barnabasFigures = {
 const cbcFigures = {
   login: {
     src: "/projects/cbc-church-management/login.webp",
-    alt: "CBC staff portal sign-in screen",
-    caption: "Staff sign-in — secure login for authorized CBC accounts.",
+    alt: "CBC staff portal live sign-in screen with church steeple background",
+    caption: "Live staff sign-in — portal entry for authorized CBC accounts.",
   },
   admin: {
     src: "/projects/cbc-church-management/dashboard-admin.webp",
-    alt: "CBC admin dashboard overview",
+    alt: "CBC admin dashboard overview with members, families, events, and notices",
     caption: "Admin dashboard — church ops overview and quick actions.",
   },
   volunteer: {
     src: "/projects/cbc-church-management/dashboard-volunteer.webp",
-    alt: "CBC volunteer dashboard",
+    alt: "CBC volunteer dashboard with scoped access to records and attendance",
     caption: "Volunteer view — role-scoped tools for day-to-day work.",
   },
   accounts: {
     src: "/projects/cbc-church-management/accounts.webp",
-    alt: "CBC account and staff management screen",
-    caption: "Accounts — manage staff users and access.",
-  },
-  preview: {
-    src: "/projects/cbc-church-management/preview.webp",
-    alt: "CBC church management system preview",
-    caption: "System preview — members, families, events, and notices.",
+    alt: "CBC accounts page with roles legend and staff login management",
+    caption: "Accounts — roles, staff logins, and access controls.",
   },
 } as const;
 
@@ -367,12 +362,13 @@ export const learningPosts: LearningPost[] = [
       "Staff portal for Cainta Baptist Church: login, role-based dashboards, members and families, events, attendance, and notices.",
     image: "/blog/cbc-cover.webp",
     publishedAt: "2026-06-28",
+    updatedAt: "2026-08-08",
     readTimeMinutes: 7,
     kind: "case-study",
     url: "/blog/cbc-system-study",
     content: {
       intro:
-        "CBC Church Management System is a staff portal I built as a client learning project. It helps church staff manage members, families, events, attendance, and notices with login and role-based access—deployed with Neon, Render, and Vercel.",
+        "CBC Church Management System is a staff portal I built as a client learning project. It helps church staff manage members, families, events, attendance, and notices with login and role-based access—deployed with Neon, Render, and Vercel. Screenshots below include the live sign-in from church-management-system-sigma-sable.vercel.app.",
       stack: ["React", "Django REST", "PostgreSQL", "Neon", "Render", "Vercel"],
       interviewPitch:
         "I built a church staff portal for Cainta Baptist Church. Staff sign in, work from role-aware dashboards, and manage members, families, events, attendance, and notices instead of scattering that work across chat and spreadsheets. Stack is React, Django REST, and PostgreSQL on Neon, with the API on Render and the frontend on Vercel.",
@@ -393,16 +389,16 @@ export const learningPosts: LearningPost[] = [
         {
           heading: "Dashboards by role",
           paragraphs: [
-            "Admins get an operations overview and account tools. Volunteers see a scoped dashboard for day-to-day church workflow.",
+            "Admins get an operations overview plus account tools. Volunteers see a scoped home for records and attendance — same system, different permissions.",
           ],
           figures: [cbcFigures.admin, cbcFigures.volunteer],
         },
         {
           heading: "Accounts & records",
           paragraphs: [
-            "Staff accounts and church data sit behind the same portal—CRUD workflows for members, families, events, attendance, and notices.",
+            "Staff accounts sit behind role labels (Admin, Pastor, Staff, Volunteer). From the same portal, teams run CRUD workflows for members, families, events, attendance, and notices.",
           ],
-          figures: [cbcFigures.accounts, cbcFigures.preview],
+          figures: [cbcFigures.accounts],
         },
         {
           heading: "Results",

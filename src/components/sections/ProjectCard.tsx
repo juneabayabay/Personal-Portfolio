@@ -4,7 +4,7 @@ import { ArrowUpRight, BookOpen, Code2 } from "lucide-react";
 import type { Project } from "@/types";
 import { cn } from "@/lib/utils";
 
-const IMAGE_QUALITY = 75;
+const IMAGE_QUALITY = 90;
 
 type ProjectCardProps = {
   project: Project;
@@ -12,6 +12,7 @@ type ProjectCardProps = {
 };
 
 function isCoverArt(image: string) {
+  if (image.includes("barnabas") || image.includes("cbc-church")) return false;
   return image.includes("/cover") || image.includes("-cover");
 }
 
@@ -29,22 +30,41 @@ export function ProjectCard({ project, layout = "vertical" }: ProjectCardProps) 
       <div
         className={cn(
           "media-image-frame relative aspect-[16/10] w-full shrink-0 overflow-hidden",
+          !useCover && "media-image-frame--screenshot",
           isHorizontal && "lg:aspect-auto lg:w-[min(46%,380px)] lg:min-h-[240px]",
         )}
       >
-        <Image
-          src={project.image}
-          alt={project.title}
-          fill
-          quality={IMAGE_QUALITY}
-          className={useCover ? "image-cover" : "image-ui object-center"}
-          sizes={
-            isHorizontal
-              ? "(max-width: 1024px) 100vw, 380px"
-              : "(max-width: 767px) 100vw, (max-width: 1024px) 50vw, 560px"
-          }
-          loading="lazy"
-        />
+        {useCover ? (
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            quality={IMAGE_QUALITY}
+            className="image-cover"
+            sizes={
+              isHorizontal
+                ? "(max-width: 1024px) 100vw, 380px"
+                : "(max-width: 767px) 100vw, (max-width: 1024px) 50vw, 560px"
+            }
+            loading="lazy"
+          />
+        ) : (
+          <div className="absolute inset-2 sm:inset-3">
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              quality={IMAGE_QUALITY}
+              className="image-screenshot object-center"
+              sizes={
+                isHorizontal
+                  ? "(max-width: 1024px) 100vw, 380px"
+                  : "(max-width: 767px) 100vw, (max-width: 1024px) 50vw, 560px"
+              }
+              loading="lazy"
+            />
+          </div>
+        )}
         {useCover ? (
           <div
             className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/20"
