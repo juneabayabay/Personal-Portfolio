@@ -12,7 +12,6 @@ type ProjectCardProps = {
 };
 
 function isCoverArt(image: string) {
-  if (image.includes("barnabas") || image.includes("cbc-church")) return false;
   return image.includes("/cover") || image.includes("-cover");
 }
 

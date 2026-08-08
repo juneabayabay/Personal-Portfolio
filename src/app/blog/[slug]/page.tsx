@@ -105,44 +105,20 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
           </aside>
         ) : null}
 
-        <div
-          className={`relative mt-8 aspect-[16/10] overflow-hidden rounded-[var(--radius-lg)] border border-border sm:aspect-[16/9] ${
-            post.image.includes("barnabas") ||
-            post.image.includes("cbc-") ||
-            (post.image.startsWith("/projects/") && !post.image.includes("cover"))
-              ? "media-image-frame--screenshot"
-              : ""
-          }`}
-        >
-          {post.image.includes("barnabas") ||
-          post.image.includes("cbc-") ||
-          (post.image.startsWith("/projects/") && !post.image.includes("cover")) ? (
-            <div className="absolute inset-2 sm:inset-3">
-              <Image
-                src={post.image}
-                alt={post.title}
-                fill
-                className="image-screenshot"
-                sizes="(max-width: 896px) 100vw, 896px"
-                quality={90}
-                priority
-              />
-            </div>
-          ) : (
-            <Image
-              src={post.image}
-              alt={post.title}
-              fill
-              className={
-                post.image.includes("cover")
-                  ? "image-cover"
-                  : "object-cover object-center"
-              }
-              sizes="(max-width: 896px) 100vw, 896px"
-              quality={90}
-              priority
-            />
-          )}
+        <div className="relative mt-8 aspect-[16/10] overflow-hidden rounded-[var(--radius-lg)] border border-border sm:aspect-[16/9]">
+          <Image
+            src={post.image}
+            alt={post.title}
+            fill
+            className={
+              post.image.includes("cover")
+                ? "image-cover"
+                : "object-cover object-center"
+            }
+            sizes="(max-width: 896px) 100vw, 896px"
+            quality={85}
+            priority
+          />
         </div>
 
         <div className="mt-10 space-y-12">
@@ -164,18 +140,36 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
                 </ul>
               ) : null}
               {section.figures?.length ? (
-                <div className={`mt-6 grid gap-5 ${section.figures.length > 1 ? "sm:grid-cols-1 md:grid-cols-2" : ""}`}>
+                <div
+                  className={`mt-6 grid gap-5 ${
+                    section.figures.length === 1
+                      ? "grid-cols-1"
+                      : section.figures.length === 2
+                        ? "md:grid-cols-2"
+                        : "sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+                  }`}
+                >
                   {section.figures.map((figure) => (
                     <figure key={figure.src} className="media-card overflow-hidden">
-                      <div className="media-image-frame--screenshot relative aspect-[16/10] sm:aspect-[16/9]">
-                        <div className="absolute inset-2 sm:inset-3">
+                      <div
+                        className={`media-image-frame--screenshot relative ${
+                          section.figures!.length === 1
+                            ? "aspect-[16/10] sm:aspect-[16/9]"
+                            : "aspect-[16/10]"
+                        }`}
+                      >
+                        <div className="absolute inset-2.5 sm:inset-3">
                           <Image
                             src={figure.src}
                             alt={figure.alt}
                             fill
                             className="image-screenshot"
-                            sizes="(max-width: 640px) 100vw, 420px"
-                            quality={90}
+                            sizes={
+                              section.figures!.length === 1
+                                ? "(max-width: 896px) 100vw, 896px"
+                                : "(max-width: 768px) 100vw, 420px"
+                            }
+                            quality={92}
                           />
                         </div>
                       </div>

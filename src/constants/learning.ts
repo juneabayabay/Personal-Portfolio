@@ -39,71 +39,51 @@ export const learningContent = {
 const barnabasFigures = {
   landing: {
     src: "/projects/barnabas-dental-clinic/landing.webp",
-    alt: "Barnabas Dental live homepage with booking and patient login",
-    caption: "Live public site — clear CTAs for booking and patient login.",
-  },
-  services: {
-    src: "/projects/barnabas-dental-clinic/services.webp",
-    alt: "Barnabas Dental services section with preventive, restorative, and cosmetic care",
-    caption: "Services — preventive, restorative, and cosmetic care on the public site.",
-  },
-  about: {
-    src: "/projects/barnabas-dental-clinic/about.webp",
-    alt: "Barnabas Dental about page with mission, vision, and story",
-    caption: "About — clinic story, mission, and vision for first-time visitors.",
-  },
-  login: {
-    src: "/projects/barnabas-dental-clinic/login.webp",
-    alt: "Barnabas Dental Clinic patient sign-in screen",
-    caption: "Patient sign-in — secure access to the clinic portal.",
-  },
-  register: {
-    src: "/projects/barnabas-dental-clinic/register.webp",
-    alt: "Barnabas Dental Clinic patient registration form",
-    caption: "Registration — new patients create an account before booking.",
+    alt: "Barnabas Dental public homepage with booking and patient login",
+    caption: "Public homepage — booking and login without Messenger.",
   },
   patient: {
     src: "/projects/barnabas-dental-clinic/patient-dashboard.webp",
-    alt: "Patient dashboard for appointments, billing, and clinic policies",
-    caption: "Patient portal — appointments, balances, and payment policies.",
+    alt: "Patient portal showing appointments, balance, and clinic policy",
+    caption: "Patient portal — visits, billing status, and payment policy.",
   },
   receptionist: {
     src: "/projects/barnabas-dental-clinic/receptionist-dashboard.webp",
-    alt: "Receptionist dashboard with scheduling and payment verification",
-    caption: "Receptionist tools — schedule, waiting list, and payment checks.",
+    alt: "Receptionist dashboard for scheduling and payment checks",
+    caption: "Reception — schedule, waiting list, and GCash verification.",
   },
   dentist: {
     src: "/projects/barnabas-dental-clinic/dentist-dashboard.webp",
-    alt: "Dentist dashboard with schedule and patient records",
-    caption: "Dentist view — daily schedule, records, and approvals.",
+    alt: "Dentist dashboard with daily schedule and patient records",
+    caption: "Dentist view — today’s schedule and clinical records.",
   },
   admin: {
     src: "/projects/barnabas-dental-clinic/admin-dashboard.webp",
-    alt: "Admin dashboard with clinic-wide metrics and management tools",
-    caption: "Admin overview — metrics, accounts, and roles.",
+    alt: "Admin dashboard with clinic metrics and staff management",
+    caption: "Admin — clinic metrics, revenue, and staff accounts.",
   },
 } as const;
 
 const cbcFigures = {
   login: {
     src: "/projects/cbc-church-management/login.webp",
-    alt: "CBC staff portal live sign-in screen with church steeple background",
-    caption: "Live staff sign-in — portal entry for authorized CBC accounts.",
+    alt: "CBC staff portal sign-in screen",
+    caption: "Staff sign-in — authorized access to the CBC portal.",
   },
   admin: {
     src: "/projects/cbc-church-management/dashboard-admin.webp",
-    alt: "CBC admin dashboard overview with members, families, events, and notices",
-    caption: "Admin dashboard — church ops overview and quick actions.",
+    alt: "CBC admin home with members, families, events, and notices summary",
+    caption: "Admin home — full access across church records.",
   },
   volunteer: {
     src: "/projects/cbc-church-management/dashboard-volunteer.webp",
-    alt: "CBC volunteer dashboard with scoped access to records and attendance",
-    caption: "Volunteer view — role-scoped tools for day-to-day work.",
+    alt: "CBC volunteer home with scoped record and attendance access",
+    caption: "Volunteer home — view records and mark attendance.",
   },
   accounts: {
     src: "/projects/cbc-church-management/accounts.webp",
-    alt: "CBC accounts page with roles legend and staff login management",
-    caption: "Accounts — roles, staff logins, and access controls.",
+    alt: "CBC accounts page with role legend and staff user table",
+    caption: "Accounts — roles (Admin, Pastor, Staff, Volunteer) and logins.",
   },
 } as const;
 
@@ -245,7 +225,7 @@ export const learningPosts: LearningPost[] = [
     slug: "barnabas-system-study",
     title: "Barnabas Dental Clinic — Full System Study",
     excerpt:
-      "One case study for the whole clinic system: problem, roles, scheduling, GCash pencil bookings, and the four dashboards.",
+      "Capstone clinic system: online booking, pencil GCash holds, and role-based dashboards that replaced paper and Messenger workflows.",
     image: "/blog/barnabas-cover.webp",
     publishedAt: "2026-06-20",
     updatedAt: "2026-08-08",
@@ -254,86 +234,48 @@ export const learningPosts: LearningPost[] = [
     url: "/blog/barnabas-system-study",
     content: {
       intro:
-        "Barnabas Dental Clinic Management System is my capstone: a full-stack web app that replaced paper records and Facebook Messenger booking with online scheduling, digital patient records, billing, and role-based dashboards for patients, receptionists, dentists, and administrators. Screenshots below are from the live app at barnabas-dental.vercel.app.",
+        "Barnabas Dental Clinic Management System is my capstone project: a full-stack web app for online scheduling, patient records, billing, and four role-based dashboards—built to replace paper charts and Facebook Messenger booking.",
       stack: ["React", "Django", "PostgreSQL", "Aiven", "Render", "Vercel"],
       interviewPitch:
-        "For my capstone I built a clinic management system for Barnabas Dental Clinic. Before, they used paper and Facebook Messenger for appointments and billing, so schedules conflicted and records were hard to find. I built a full-stack web app with React, Django, and PostgreSQL — online booking, patient records, billing, and four dashboards: patient, receptionist, dentist, and admin. The hardest part was scheduling: appointments need procedure length, can’t overlap, and we used pencil bookings until GCash is verified by the receptionist. Now staff and patients can manage bookings and billing in one system instead of chat. Deployed on Vercel, Render, and Aiven. What I’d improve next is tighter payment automation and clearer audit logs — but the domain rules around time and payment were the real learning.",
+        "For my capstone I built Barnabas Dental’s clinic system. Paper and Messenger made double-booking easy and records hard to find. I shipped React + Django + PostgreSQL with online booking, digital records, billing, and dashboards for patients, reception, dentists, and admin. The hard part was domain rules: procedure duration, no overlaps, and pencil bookings until reception verifies GCash. That taught me to encode clinic process in the backend—not only in the UI.",
       sections: [
         {
           heading: "The problem",
           paragraphs: [
-            "The clinic used paper records and Messenger for appointments, patient info, and billing. That made scheduling easy to conflict, records slow to find, and staff workflows dependent on chat threads instead of one shared system.",
+            "Appointments, patient details, and billing lived on paper and in chat. Schedules conflicted, follow-ups got lost, and staff could not share one reliable source of truth.",
           ],
         },
         {
-          heading: "What the system does",
+          heading: "What I built",
           paragraphs: [
-            "One web platform covers the clinic loop — from the public site and online booking to staff operations and admin oversight.",
+            "One platform covers the clinic loop—from public booking to staff operations—while each role only sees the tools it needs.",
           ],
           bullets: [
-            "Public clinic site with services, about, and clear booking/login paths",
-            "Online appointment scheduling with procedure duration and overlap checks",
-            "Digital patient records",
-            "Billing and payment tracking (including GCash verification)",
-            "Pencil / provisional bookings until payment is confirmed",
+            "Public site with clear booking and login paths",
+            "Duration-aware scheduling with overlap checks",
+            "Pencil bookings held until GCash is verified",
             "Waiting list when preferred slots are full",
-            "Email notifications",
-            "Role-based dashboards: patient, receptionist, dentist, admin",
+            "Billing, notifications, and digital patient records",
+            "Dashboards for patient, receptionist, dentist, and admin",
           ],
         },
         {
-          heading: "My role",
+          heading: "Scheduling & payment holds",
           paragraphs: [
-            "I worked across the stack — from schema and APIs to the dashboards staff and patients actually use.",
-          ],
-          bullets: [
-            "Database design",
-            "Backend API development",
-            "Frontend development",
-            "Authentication and authorization",
-            "Appointment scheduling logic",
-            "Billing module",
-            "Testing and deployment",
+            "Procedures have different lengths, so the backend blocks overlapping slots. Patients often pay later via GCash: a pencil booking reserves time until reception confirms payment, then the visit becomes confirmed. Waiting lists capture demand when the calendar is full.",
           ],
         },
         {
-          heading: "Scheduling & pencil bookings (GCash)",
+          heading: "Patient path",
           paragraphs: [
-            "Scheduling accounts for procedure length and blocks overlapping bookings. Patients often pay later via GCash, so a pencil booking holds the slot until reception verifies payment — then the booking becomes confirmed. Waiting lists keep demand when the preferred time is full.",
+            "Visitors learn about the clinic and book online. After sign-in, the patient portal shows upcoming visits, balances, and the pencil-booking / GCash policy—without needing staff in Messenger.",
           ],
-          bullets: [
-            "Duration-aware appointment windows + overlap validation on the backend",
-            "Pencil booking = provisional hold until payment is checked",
-            "Receptionist queue for GCash proofs, outstanding bills, and follow-ups",
-            "Waiting list when the calendar is full",
-          ],
+          figures: [barnabasFigures.landing, barnabasFigures.patient],
         },
         {
-          heading: "Public clinic site",
+          heading: "Staff operations",
           paragraphs: [
-            "Visitors land on a clear public site: clinic story, services, and direct paths to book or sign in — without needing Messenger for basic info.",
-          ],
-          figures: [
-            barnabasFigures.landing,
-            barnabasFigures.services,
-            barnabasFigures.about,
-          ],
-        },
-        {
-          heading: "Patient experience",
-          paragraphs: [
-            "Patients register and sign in online, then manage visits from the portal — upcoming appointments, balances, notifications, and policies for pencil bookings and GCash.",
-          ],
-          figures: [
-            barnabasFigures.register,
-            barnabasFigures.login,
-            barnabasFigures.patient,
-          ],
-        },
-        {
-          heading: "Staff dashboards",
-          paragraphs: [
-            "Receptionists run the live schedule, waiting list, and payment checks. Dentists see today's schedule and records. Admins monitor clinic metrics, revenue, and staff accounts.",
+            "Reception runs the live schedule, waiting list, and payment checks. Dentists work from the daily schedule and records. Admins monitor clinic metrics and staff accounts.",
           ],
           figures: [
             barnabasFigures.receptionist,
@@ -342,16 +284,16 @@ export const learningPosts: LearningPost[] = [
           ],
         },
         {
-          heading: "Results",
+          heading: "Outcome",
           paragraphs: [
-            "Staff and patients manage appointments, records, and billing in one place instead of paper and Messenger. The software mirrors the clinic’s real process — then makes it searchable, role-aware, and harder to double-book.",
+            "Bookings, records, and billing now live in one system. The main learning was modeling real clinic rules in software so the UI stays trustworthy under pressure.",
           ],
         },
       ],
       takeaways: [
-        "Real clinic rules (time ranges, provisional payment, roles) drove the design.",
-        "Four dashboards beat one bloated admin screen.",
-        "Backend validation is what makes the booking UI trustworthy.",
+        "Encode clinic rules (time, payment, roles) in the backend first.",
+        "Separate dashboards beat one overloaded admin screen.",
+        "Provisional payment holds match how the clinic already works.",
       ],
     },
   },
@@ -359,7 +301,7 @@ export const learningPosts: LearningPost[] = [
     slug: "cbc-system-study",
     title: "CBC Church Management — System Study",
     excerpt:
-      "Staff portal for Cainta Baptist Church: login, role-based dashboards, members and families, events, attendance, and notices.",
+      "Staff portal for Cainta Baptist Church: secure login, role-based dashboards, and CRUD for members, families, events, attendance, and notices.",
     image: "/blog/cbc-cover.webp",
     publishedAt: "2026-06-28",
     updatedAt: "2026-08-08",
@@ -368,49 +310,49 @@ export const learningPosts: LearningPost[] = [
     url: "/blog/cbc-system-study",
     content: {
       intro:
-        "CBC Church Management System is a staff portal I built as a client learning project. It helps church staff manage members, families, events, attendance, and notices with login and role-based access—deployed with Neon, Render, and Vercel. Screenshots below include the live sign-in from church-management-system-sigma-sable.vercel.app.",
+        "CBC Church Management System is a staff portal I built as a client learning project. It gives authorized church workers one place to manage members, families, events, attendance, and notices—with login and role-based access.",
       stack: ["React", "Django REST", "PostgreSQL", "Neon", "Render", "Vercel"],
       interviewPitch:
-        "I built a church staff portal for Cainta Baptist Church. Staff sign in, work from role-aware dashboards, and manage members, families, events, attendance, and notices instead of scattering that work across chat and spreadsheets. Stack is React, Django REST, and PostgreSQL on Neon, with the API on Render and the frontend on Vercel.",
+        "I built a staff portal for Cainta Baptist Church so records weren’t scattered across chat and spreadsheets. Staff sign in with JWT auth, land on a dashboard matched to their role, and manage members, families, events, attendance, and notices. Stack: React, Django REST, PostgreSQL on Neon, API on Render, frontend on Vercel.",
       sections: [
         {
           heading: "The problem",
           paragraphs: [
-            "Church records lived across informal channels. Staff needed a single place to sign in, see the right screens for their role, and update members, families, events, and notices without losing track of attendance.",
+            "Church data lived in informal channels. Staff needed a shared system with clear permissions—volunteers should not get the same access as admins.",
           ],
         },
         {
-          heading: "Sign-in & access",
+          heading: "Access & roles",
           paragraphs: [
-            "Authorized staff enter credentials on a dedicated portal. JWT login and role-aware screens keep volunteers and admins on the tools they need.",
+            "Staff authenticate on a dedicated sign-in screen. Roles (Admin, Pastor, Staff, Volunteer) control what each person can view or change after login.",
           ],
           figures: [cbcFigures.login],
         },
         {
-          heading: "Dashboards by role",
+          heading: "Dashboards by responsibility",
           paragraphs: [
-            "Admins get an operations overview plus account tools. Volunteers see a scoped home for records and attendance — same system, different permissions.",
+            "Admins see a full operations overview and account tools. Volunteers get a scoped home focused on records and attendance—same product, different permission surface.",
           ],
           figures: [cbcFigures.admin, cbcFigures.volunteer],
         },
         {
-          heading: "Accounts & records",
+          heading: "Accounts & church records",
           paragraphs: [
-            "Staff accounts sit behind role labels (Admin, Pastor, Staff, Volunteer). From the same portal, teams run CRUD workflows for members, families, events, attendance, and notices.",
+            "Admins create and manage staff logins from Accounts. Day-to-day work covers members, families, events, attendance, and notices through role-aware CRUD screens.",
           ],
           figures: [cbcFigures.accounts],
         },
         {
-          heading: "Results",
+          heading: "Outcome",
           paragraphs: [
-            "Staff can sign in, work from the right dashboard, and keep church records in one system instead of chat threads and ad-hoc files.",
+            "Staff can sign in, work from the right dashboard, and keep church records in one place. The project reinforced that permissions design is as important as the forms themselves.",
           ],
         },
       ],
       takeaways: [
-        "Role-based screens matter as much as CRUD forms.",
-        "A clear login experience sets trust for staff tools.",
-        "Neon + Render + Vercel is a practical path for student client work.",
+        "Role-based screens matter as much as CRUD.",
+        "A clear staff login builds trust for internal tools.",
+        "Neon + Render + Vercel works well for student client deploys.",
       ],
     },
   },

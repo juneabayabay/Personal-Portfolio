@@ -51,71 +51,53 @@ export const capstoneProject = {
   ] as const,
   featuredImage: {
     src: "/projects/barnabas-dental-clinic/cover.webp",
-    alt: "Barnabas Dental live homepage — care for your smile, made simple",
+    alt: "Barnabas Dental Clinic — stylized project cover",
   },
   caseStudyUrl: "/blog/barnabas-system-study",
   screenshots: [
     {
       src: "/projects/barnabas-dental-clinic/landing.webp",
-      alt: "Barnabas Dental live homepage with booking and patient login",
+      alt: "Barnabas Dental public homepage with booking and patient login",
       label: "Public landing page",
-      excerpt: "Live clinic site with booking and login CTAs.",
+      excerpt: "Booking and login without Messenger.",
       detail:
-        "Visitors see clinic care messaging, book online, or sign in — without relying on Messenger for basic info.",
-      category: "patient",
-    },
-    {
-      src: "/projects/barnabas-dental-clinic/services.webp",
-      alt: "Barnabas Dental services section with preventive, restorative, and cosmetic care",
-      label: "Services",
-      excerpt: "Preventive, restorative, and cosmetic care listed clearly.",
-      detail:
-        "The public services section groups treatments so first-time visitors understand what the clinic offers.",
-      category: "patient",
-    },
-    {
-      src: "/projects/barnabas-dental-clinic/login.webp",
-      alt: "Barnabas Dental Clinic patient sign-in screen",
-      label: "Patient sign-in",
-      excerpt: "Secure login into the patient portal.",
-      detail:
-        "Patients sign in with email and password to reach booking, appointments, and billing.",
+        "Visitors see clinic messaging and can book or sign in from the public site.",
       category: "patient",
     },
     {
       src: "/projects/barnabas-dental-clinic/patient-dashboard.webp",
-      alt: "Patient dashboard for appointments, billing, and clinic policies",
+      alt: "Patient portal showing appointments, balance, and clinic policy",
       label: "Patient portal",
-      excerpt: "Appointments, billing, notifications, and clinic policies.",
+      excerpt: "Appointments, billing, and payment policy.",
       detail:
-        "Patients track upcoming visits, balances, and notifications, and review policies for pencil bookings and GCash payments.",
+        "Patients track visits and balances, and review pencil-booking / GCash rules.",
       category: "patient",
     },
     {
       src: "/projects/barnabas-dental-clinic/receptionist-dashboard.webp",
-      alt: "Receptionist dashboard with scheduling and payment verification",
+      alt: "Receptionist dashboard for scheduling and payment checks",
       label: "Receptionist dashboard",
-      excerpt: "Scheduling, billing, and payment verification.",
+      excerpt: "Schedule, waiting list, and GCash checks.",
       detail:
-        "Receptionists manage appointments, waiting lists, GCash verification, outstanding bills, and pencil booking follow-ups.",
+        "Reception manages appointments, waiting lists, and payment verification.",
       category: "staff",
     },
     {
       src: "/projects/barnabas-dental-clinic/dentist-dashboard.webp",
-      alt: "Dentist dashboard with schedule and patient records",
+      alt: "Dentist dashboard with daily schedule and patient records",
       label: "Dentist dashboard",
-      excerpt: "Daily schedule, records, and braces approvals.",
+      excerpt: "Daily schedule and clinical records.",
       detail:
-        "Dentists access today's schedule, patient records, pending appointments, and braces approval workflows.",
+        "Dentists open today’s schedule, records, and approval workflows.",
       category: "staff",
     },
     {
       src: "/projects/barnabas-dental-clinic/admin-dashboard.webp",
-      alt: "Admin dashboard with clinic-wide metrics and management tools",
+      alt: "Admin dashboard with clinic metrics and staff management",
       label: "Admin dashboard",
-      excerpt: "Clinic metrics, accounts, and revenue overview.",
+      excerpt: "Metrics, accounts, and revenue overview.",
       detail:
-        "Administrators monitor live stats, revenue, patient growth, and manage staff accounts, roles, and permissions.",
+        "Admins monitor clinic stats and manage staff accounts and roles.",
       category: "staff",
     },
   ] satisfies CapstoneScreenshot[],
