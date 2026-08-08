@@ -52,11 +52,6 @@ const barnabasFigures = {
     alt: "Receptionist dashboard for scheduling and payment checks",
     caption: "Reception — schedule, waiting list, and GCash verification.",
   },
-  dentist: {
-    src: "/projects/barnabas-dental-clinic/dentist-dashboard.webp",
-    alt: "Dentist dashboard with daily schedule and patient records",
-    caption: "Dentist view — today’s schedule and clinical records.",
-  },
   admin: {
     src: "/projects/barnabas-dental-clinic/admin-dashboard.webp",
     alt: "Admin dashboard with clinic metrics and staff management",
@@ -101,56 +96,42 @@ const bibleFigures = {
     alt: "Bible app home with today's verse and reading shortcuts",
     caption: "Home — today's verse, continue reading, and open Bible.",
   },
-  books: {
-    src: "/projects/bible-app/books.webp",
-    alt: "Bible book picker with Old and New Testament categories",
-    caption: "Books — pick a book by testament and category.",
-  },
   chapter: {
     src: "/projects/bible-app/chapter.webp",
     alt: "Chapter reading view with verse text and reading controls",
-    caption: "Reading view — chapter text, font size, compare, and listen.",
+    caption: "Reading view — chapter text with calm controls.",
   },
   plans: {
     src: "/projects/bible-app/plans.webp",
     alt: "Guided Bible reading plans list",
-    caption: "Plans — day-by-day tracks saved on this device.",
-  },
-  devotionals: {
-    src: "/projects/bible-app/devotionals.webp",
-    alt: "Devotionals themes for reflection",
-    caption: "Devotionals — quiet themes to reflect on.",
+    caption: "Plans — day-by-day tracks for steady reading.",
   },
   prayer: {
     src: "/projects/bible-app/prayer.webp",
     alt: "Prayer wall for sharing and viewing requests",
     caption: "Prayer wall — share requests and follow along.",
   },
-  journey: {
-    src: "/projects/bible-app/journey.webp",
-    alt: "Journey streak and reading progress screen",
-    caption: "Journey — streak and progress for steady reading.",
-  },
 } as const;
 
 /**
- * Case studies hold real UI screenshots.
- * Project cards on Work use stylized covers as the frontpage tease.
+ * Case studies hold real UI screenshots inside the article.
+ * Project + blog cards use stylized AI covers as the frontpage tease.
  */
 export const learningPosts: LearningPost[] = [
   {
     slug: "bible-app-study",
     title: "Bible App — Reading Experience Study",
     excerpt:
-      "A personal Bible web app: search, chapter reading, plans, devotionals, prayer wall, and simple progress—built to learn Astro and ship a public product.",
+      "A calm public Bible reader: search, chapters, plans, devotionals, and prayer—shipped to learn Astro and real product flow.",
     image: "/blog/bible-cover-v3.webp",
     publishedAt: "2026-08-02",
+    updatedAt: "2026-08-08",
     readTimeMinutes: 6,
     kind: "case-study",
     url: "/blog/bible-app-study",
     content: {
       intro:
-        "Bible App is a personal learning project: a public web reader for Scripture with verse search, chapter reading, guided plans, devotionals, a prayer wall, and light progress tracking. I built it to practice shipping a multi-section product people can actually use—not just a demo page.",
+        "Bible App is a personal learning project: a public web reader for Scripture with search, chapter reading, plans, devotionals, a prayer wall, and light progress tracking.",
       stack: [
         "Astro",
         "TypeScript",
@@ -160,64 +141,49 @@ export const learningPosts: LearningPost[] = [
         "Vercel",
       ],
       interviewPitch:
-        "I built a Bible reading web app as a personal project. Visitors can search verses, open any book and chapter, follow day-by-day plans, read devotionals, use a prayer wall, and track a simple reading streak. Stack is Astro, TypeScript, Alpine.js, and Tailwind, with Supabase where shared data is needed, deployed on Vercel. The hard part was keeping navigation calm across many features while making reading itself stay distraction-free.",
+        "I built a Bible reading web app so people can search verses, open any chapter, follow a plan, read devotionals, and use a prayer wall—without a noisy dashboard. Astro + TypeScript + Alpine + Tailwind, Supabase where shared data is needed, deployed on Vercel. The hard part was keeping navigation calm while reading stayed distraction-free.",
       sections: [
         {
-          heading: "The goal",
+          heading: "Problem",
           paragraphs: [
-            "I wanted one calm place to read Scripture on the web: find a verse quickly, continue a chapter, and optionally go deeper with plans, devotionals, or prayer—without turning the home screen into a dashboard of everything at once.",
+            "I wanted one calm place to read Scripture on the web—find a verse, continue a chapter, then optionally go deeper—without dumping every feature on the first screen.",
           ],
         },
         {
-          heading: "Home & entry points",
+          heading: "Approach",
           paragraphs: [
-            "The home screen leads with today's verse and clear next steps—continue reading or open the Bible—so visitors are not forced to hunt through menus first.",
-          ],
-          figures: [bibleFigures.home],
-        },
-        {
-          heading: "Finding a book & reading",
-          paragraphs: [
-            "Books are grouped by testament and category. The chapter view focuses on readable text, with practical controls for font size, translation compare, and listen—kept secondary so the verse stays primary.",
-          ],
-          figures: [bibleFigures.books, bibleFigures.chapter],
-        },
-        {
-          heading: "Plans, devotionals & prayer",
-          paragraphs: [
-            "Beyond single chapters, the app offers guided reading plans, quiet devotionals, and a prayer wall for shared requests. Progress and highlights stay light—often on-device—so the product stays useful without requiring a heavy account flow up front.",
-          ],
-          figures: [
-            bibleFigures.plans,
-            bibleFigures.devotionals,
-            bibleFigures.prayer,
-            bibleFigures.journey,
-          ],
-        },
-        {
-          heading: "What I built",
-          paragraphs: [
-            "A multi-route Astro site with client interactivity where it helps (search, UI state), plus shared pieces like prayer backed by Supabase when the feature needs more than local storage.",
+            "Lead with reading. Everything else (plans, devotionals, prayer, streak) stays available but secondary.",
           ],
           bullets: [
-            "Verse search and book/chapter navigation",
-            "Distraction-light chapter reading view",
-            "Reading plans and devotionals",
-            "Prayer wall and simple journey/streak tracking",
-            "Deployed as a public site on Vercel",
+            "Home → today’s verse and clear next steps",
+            "Book picker by testament, then a focused chapter view",
+            "Plans, devotionals, and prayer as optional paths",
+            "Astro for content routes; Alpine for light UI state",
           ],
         },
         {
-          heading: "Results",
+          heading: "Product walkthrough",
           paragraphs: [
-            "The app is live and usable end-to-end: visitors can read, search, follow a plan, and explore prayer and devotionals in one place. What I would improve next is clearer empty states on the prayer wall and tighter onboarding for first-time readers—without adding clutter to the reading view.",
+            "Home starts the visit. Chapter reading stays primary. Plans and prayer support deeper use without crowding the reader.",
+          ],
+          figures: [
+            bibleFigures.home,
+            bibleFigures.chapter,
+            bibleFigures.plans,
+            bibleFigures.prayer,
+          ],
+        },
+        {
+          heading: "Outcome",
+          paragraphs: [
+            "The app is live end-to-end. Next improvements: clearer prayer empty states and lighter first-time onboarding—without cluttering the reading view.",
           ],
         },
       ],
       takeaways: [
-        "Many features still need one calm primary path: open Scripture and read.",
-        "Astro fit a content-heavy reader; Alpine covered light interactivity without a heavy SPA.",
-        "Ship a public URL early—real usage reveals what the UI still needs.",
+        "Many features still need one primary path: open Scripture and read.",
+        "Astro fit a content-heavy reader; Alpine covered light interactivity.",
+        "Ship a public URL early—real use shows what the UI still needs.",
       ],
     },
   },
@@ -226,67 +192,60 @@ export const learningPosts: LearningPost[] = [
     title: "Barnabas Dental Clinic — Full System Study",
     excerpt:
       "Capstone clinic system: online booking, pencil GCash holds, and role-based dashboards that replaced paper and Messenger workflows.",
-    image: "/blog/barnabas-cover.webp",
+    image: "/blog/barnabas-cover-ai.webp",
     publishedAt: "2026-06-20",
     updatedAt: "2026-08-08",
-    readTimeMinutes: 10,
+    readTimeMinutes: 8,
     kind: "case-study",
     url: "/blog/barnabas-system-study",
     content: {
       intro:
-        "Barnabas Dental Clinic Management System is my capstone project: a full-stack web app for online scheduling, patient records, billing, and four role-based dashboards—built to replace paper charts and Facebook Messenger booking.",
+        "Barnabas Dental Clinic Management System is my capstone: a full-stack web app for scheduling, patient records, billing, and four role-based dashboards.",
       stack: ["React", "Django", "PostgreSQL", "Aiven", "Render", "Vercel"],
       interviewPitch:
-        "For my capstone I built Barnabas Dental’s clinic system. Paper and Messenger made double-booking easy and records hard to find. I shipped React + Django + PostgreSQL with online booking, digital records, billing, and dashboards for patients, reception, dentists, and admin. The hard part was domain rules: procedure duration, no overlaps, and pencil bookings until reception verifies GCash. That taught me to encode clinic process in the backend—not only in the UI.",
+        "For my capstone I built Barnabas Dental’s clinic system. Paper and Messenger caused double-booking and lost records. I shipped React + Django + PostgreSQL with online booking, digital records, billing, and dashboards for patient, reception, dentist, and admin. The hard part was domain rules—procedure duration, no overlaps, and pencil bookings until GCash is verified. That taught me to encode clinic process in the backend, not only the UI.",
       sections: [
         {
-          heading: "The problem",
+          heading: "Problem",
           paragraphs: [
-            "Appointments, patient details, and billing lived on paper and in chat. Schedules conflicted, follow-ups got lost, and staff could not share one reliable source of truth.",
+            "Appointments, patient details, and billing lived on paper and in chat. Schedules conflicted, follow-ups got lost, and staff lacked one shared source of truth.",
           ],
         },
         {
-          heading: "What I built",
+          heading: "Approach",
           paragraphs: [
-            "One platform covers the clinic loop—from public booking to staff operations—while each role only sees the tools it needs.",
+            "One platform for the full clinic loop. Each role only sees the tools it needs.",
           ],
           bullets: [
-            "Public site with clear booking and login paths",
+            "Public site with booking and login",
             "Duration-aware scheduling with overlap checks",
-            "Pencil bookings held until GCash is verified",
-            "Waiting list when preferred slots are full",
-            "Billing, notifications, and digital patient records",
-            "Dashboards for patient, receptionist, dentist, and admin",
+            "Pencil bookings until GCash is verified",
+            "Waiting list, billing, notifications, digital records",
+            "Dashboards: patient, receptionist, dentist, admin",
           ],
         },
         {
-          heading: "Scheduling & payment holds",
+          heading: "Key challenge — scheduling & payment holds",
           paragraphs: [
-            "Procedures have different lengths, so the backend blocks overlapping slots. Patients often pay later via GCash: a pencil booking reserves time until reception confirms payment, then the visit becomes confirmed. Waiting lists capture demand when the calendar is full.",
+            "Procedures vary in length, so the backend blocks overlapping slots. Patients often pay later via GCash: a pencil booking holds the time until reception confirms payment. Waiting lists capture demand when the calendar is full.",
           ],
         },
         {
-          heading: "Patient path",
+          heading: "Product walkthrough",
           paragraphs: [
-            "Visitors learn about the clinic and book online. After sign-in, the patient portal shows upcoming visits, balances, and the pencil-booking / GCash policy—without needing staff in Messenger.",
-          ],
-          figures: [barnabasFigures.landing, barnabasFigures.patient],
-        },
-        {
-          heading: "Staff operations",
-          paragraphs: [
-            "Reception runs the live schedule, waiting list, and payment checks. Dentists work from the daily schedule and records. Admins monitor clinic metrics and staff accounts.",
+            "Patients book from the public site and manage visits in the portal. Staff run schedule, records, and oversight from role-specific dashboards.",
           ],
           figures: [
+            barnabasFigures.landing,
+            barnabasFigures.patient,
             barnabasFigures.receptionist,
-            barnabasFigures.dentist,
             barnabasFigures.admin,
           ],
         },
         {
           heading: "Outcome",
           paragraphs: [
-            "Bookings, records, and billing now live in one system. The main learning was modeling real clinic rules in software so the UI stays trustworthy under pressure.",
+            "Bookings, records, and billing live in one system. The lasting lesson was modeling real clinic rules in software so the UI stays trustworthy.",
           ],
         },
       ],
@@ -302,50 +261,53 @@ export const learningPosts: LearningPost[] = [
     title: "CBC Church Management — System Study",
     excerpt:
       "Staff portal for Cainta Baptist Church: secure login, role-based dashboards, and CRUD for members, families, events, attendance, and notices.",
-    image: "/blog/cbc-cover.webp",
+    image: "/blog/cbc-cover-ai.webp",
     publishedAt: "2026-06-28",
     updatedAt: "2026-08-08",
-    readTimeMinutes: 7,
+    readTimeMinutes: 6,
     kind: "case-study",
     url: "/blog/cbc-system-study",
     content: {
       intro:
-        "CBC Church Management System is a staff portal I built as a client learning project. It gives authorized church workers one place to manage members, families, events, attendance, and notices—with login and role-based access.",
+        "CBC Church Management System is a staff portal I built as a client learning project—login, roles, and one place for church records.",
       stack: ["React", "Django REST", "PostgreSQL", "Neon", "Render", "Vercel"],
       interviewPitch:
-        "I built a staff portal for Cainta Baptist Church so records weren’t scattered across chat and spreadsheets. Staff sign in with JWT auth, land on a dashboard matched to their role, and manage members, families, events, attendance, and notices. Stack: React, Django REST, PostgreSQL on Neon, API on Render, frontend on Vercel.",
+        "I built a staff portal for Cainta Baptist Church so records weren’t scattered across chat and spreadsheets. Staff sign in with JWT auth, land on a dashboard matched to their role, and manage members, families, events, attendance, and notices. React, Django REST, PostgreSQL on Neon; API on Render; frontend on Vercel.",
       sections: [
         {
-          heading: "The problem",
+          heading: "Problem",
           paragraphs: [
-            "Church data lived in informal channels. Staff needed a shared system with clear permissions—volunteers should not get the same access as admins.",
+            "Church data lived in informal channels. Staff needed a shared system with clear permissions—volunteers should not get admin access.",
           ],
         },
         {
-          heading: "Access & roles",
+          heading: "Approach",
           paragraphs: [
-            "Staff authenticate on a dedicated sign-in screen. Roles (Admin, Pastor, Staff, Volunteer) control what each person can view or change after login.",
+            "Authenticate first, then show only the screens each role needs.",
           ],
-          figures: [cbcFigures.login],
+          bullets: [
+            "JWT staff sign-in",
+            "Roles: Admin, Pastor, Staff, Volunteer",
+            "CRUD for members, families, events, attendance, notices",
+            "Admin tools for staff accounts",
+          ],
         },
         {
-          heading: "Dashboards by responsibility",
+          heading: "Product walkthrough",
           paragraphs: [
-            "Admins see a full operations overview and account tools. Volunteers get a scoped home focused on records and attendance—same product, different permission surface.",
+            "Sign-in opens the portal. Admins see full operations and accounts; volunteers get a scoped home for records and attendance.",
           ],
-          figures: [cbcFigures.admin, cbcFigures.volunteer],
-        },
-        {
-          heading: "Accounts & church records",
-          paragraphs: [
-            "Admins create and manage staff logins from Accounts. Day-to-day work covers members, families, events, attendance, and notices through role-aware CRUD screens.",
+          figures: [
+            cbcFigures.login,
+            cbcFigures.admin,
+            cbcFigures.volunteer,
+            cbcFigures.accounts,
           ],
-          figures: [cbcFigures.accounts],
         },
         {
           heading: "Outcome",
           paragraphs: [
-            "Staff can sign in, work from the right dashboard, and keep church records in one place. The project reinforced that permissions design is as important as the forms themselves.",
+            "Staff can sign in, work from the right dashboard, and keep church records in one place. Permissions design mattered as much as the forms.",
           ],
         },
       ],
@@ -360,47 +322,54 @@ export const learningPosts: LearningPost[] = [
     slug: "cainta-church-website-study",
     title: "Cainta Baptist Church Website — Case Study",
     excerpt:
-      "Visitor-first church site: service times, directions, giving, and contact—built so first-time guests know what to do next.",
+      "Visitor-first church site: service times, directions, giving, and contact—so first-time guests know what to do next.",
     image: "/blog/church-cover-v3.webp",
     publishedAt: "2026-07-05",
+    updatedAt: "2026-08-08",
     readTimeMinutes: 4,
     kind: "case-study",
     url: "/blog/cainta-church-website-study",
     content: {
       intro:
-        "The Cainta Baptist Church website is a public, visitor-focused site. Guests should find Sunday times, how to get there, giving options, and a clear contact path without digging through menus.",
+        "The Cainta Baptist Church website is a public, visitor-focused site—Sunday times, location, giving, and contact without digging through menus.",
       stack: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
       interviewPitch:
-        "I built the public website for Cainta Baptist Church so first-time visitors can quickly see service times, location, giving, and contact. It’s a clean Next.js site focused on clarity for guests—not an admin tool.",
+        "I built the public website for Cainta Baptist Church so first-time visitors can quickly see service times, location, giving, and contact. Clean Next.js site focused on guest clarity—not an admin tool.",
       sections: [
         {
-          heading: "Goal",
+          heading: "Problem",
           paragraphs: [
-            "Make the first visit to the site feel welcoming and practical: where to go on Sunday, how to reach the church, and how to give—without clutter.",
+            "First-time guests needed obvious next steps: when to come, how to get there, how to give, and how to reach the church—without clutter.",
           ],
         },
         {
-          heading: "What visitors see",
+          heading: "Approach",
           paragraphs: [
-            "The homepage leads with atmosphere and clear next steps—services, directions, and contact—so guests aren’t lost in secondary content.",
+            "Lead with atmosphere and practical CTAs. Keep visitor pages separate from staff tools like the CBC portal.",
+          ],
+          bullets: [
+            "Clear Sunday and location actions",
+            "Mobile-friendly layout",
+            "Straightforward giving and contact paths",
+          ],
+        },
+        {
+          heading: "Product walkthrough",
+          paragraphs: [
+            "The homepage leads with welcome content and next steps so guests aren’t lost in secondary pages.",
           ],
           figures: [churchFigures.preview],
         },
         {
-          heading: "What I focused on",
+          heading: "Outcome",
           paragraphs: [
-            "Responsive layout, simple CTAs, and copy written for people who may be visiting for the first time.",
-          ],
-          bullets: [
-            "Clear Sunday and location CTAs",
-            "Mobile-friendly pages",
-            "Straightforward giving and contact paths",
+            "Visitors get a clear path for Sunday, directions, giving, and contact. The site stays simple on purpose.",
           ],
         },
       ],
       takeaways: [
         "Public church sites succeed when the next action is obvious.",
-        "Keep visitor pages separate from staff tools (like the CBC portal).",
+        "Keep visitor pages separate from staff tools.",
       ],
     },
   },
